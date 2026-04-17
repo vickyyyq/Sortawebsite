@@ -13,7 +13,7 @@ export const translations = {
     overline: { en: 'NEXT-GENERATION RECYCLING INFRASTRUCTURE', jp: '次世代のリサイクルインフラ' },
     headline: {
       en: 'Solving the recycling issue,\nright where it starts.',
-      jp: '資源循環は、\n捨てる場所から変えていく。',
+      jp: '資源循環は、\n捨てる瞬間から変えていく。',
     },
     subheadline: {
       en: 'Intelligent sorting and preprocessing at the point of intake. Smarter, cleaner, and more sustainable.',
@@ -212,7 +212,7 @@ export const translations = {
     },
     visionPlaceholder: {
       en: 'Today, most PET bottles that get "recycled" are melted down into lower-grade materials. We believe the infrastructure to close that loop already exists — it just needs to start at the bin.',
-      jp: '今、「リサイクルされた」とされるペットボトルの多くは、価値の低い素材へとダウンサイクルされています。資源を資源のまま循環させるインフラは、すでに揃っているはず。あとは、捨てる場所から始めるだけです。',
+      jp: '今、「リサイクルされた」とされるペットボトルの多くは、価値の低い素材へとダウンサイクルされています。資源を資源のまま循環させるインフラは、すでに揃っているはず。あとは、捨てる瞬間から始めるだけです。',
     },
   },
   team: {
