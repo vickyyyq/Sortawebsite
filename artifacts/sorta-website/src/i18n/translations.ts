@@ -38,7 +38,7 @@ export const translations = {
     stat1Value: { en: '<38%', jp: '<38%' },
     stat2Value: { en: '29%', jp: '29%' },
     stat3Value: { en: '91kt', jp: '91kt' },
-    point1Title: { en: 'Poor Sorting & Contamination', jp: '分別の不足と異物混入' },
+    point1Title: { en: 'Poor Sorting & Contamination', jp: '不分別と異物混入' },
     point1Body: {
       en: '29% contamination rate at public bins. 91,000 tonnes of contaminated PET waste generated yearly — degrading material quality before collection even begins.',
       jp: '公共の回収ボックスでは、異物混入率が29%。年間で9.1万トンもの汚染PET廃棄物が発生し、回収される前の段階ですでに資源としての価値が損なわれています。',
