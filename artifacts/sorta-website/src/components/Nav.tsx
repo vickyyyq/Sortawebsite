@@ -26,7 +26,7 @@ export default function Nav() {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled
-        ? 'bg-white/95 backdrop-blur-sm shadow-sm border-b border-[var(--color-mist)]'
+        ? 'bg-white/60 backdrop-blur-md border-b border-black/[0.06]'
         : 'bg-transparent'
     }`}>
       <div className="max-w-[1200px] mx-auto px-5 py-4 flex items-center justify-between gap-6">
@@ -61,7 +61,7 @@ export default function Nav() {
           </button>
           <button
             onClick={() => scrollTo('partner')}
-            className="bg-[var(--color-sky)] text-white font-semibold px-5 py-2 text-sm rounded-sm hover:bg-[var(--color-sky)]/90 transition-colors whitespace-nowrap"
+            className="bg-black/[0.06] hover:bg-black/[0.10] backdrop-blur-sm border border-black/[0.12] text-[var(--color-navy)] text-[10px] font-bold uppercase tracking-[0.15em] px-5 py-2.5 rounded-sm transition-all whitespace-nowrap"
             data-testid="button-nav-cta"
           >
             {tr('nav', 'cta')}
