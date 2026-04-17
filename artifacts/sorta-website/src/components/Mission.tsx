@@ -11,16 +11,16 @@ export default function Mission() {
           {tr('mission', 'overline')}
         </span>
 
-        <div className="w-full animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100 border-t border-[var(--color-mist)] pt-10">
-          {language === 'jp' && (
-            <p className="text-[var(--color-sky)] font-heading font-extrabold text-2xl md:text-3xl mb-6 leading-snug" style={{ letterSpacing: '-0.01em', whiteSpace: 'pre-line' }}>
-              {tr('mission', 'statementJP')}
-            </p>
-          )}
-
+        <div className="w-full border-t border-[var(--color-mist)] flex items-center py-14 md:py-20 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">
+          <p
+            className="text-[var(--color-sky)] font-heading font-extrabold text-2xl md:text-3xl leading-snug"
+            style={{ letterSpacing: '-0.01em', whiteSpace: 'pre-line' }}
+          >
+            {language === 'jp' ? tr('mission', 'statementJP') : tr('mission', 'statementEN')}
+          </p>
         </div>
 
-        <div className="mt-16 w-full border-t border-[var(--color-mist)] pt-8 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
+        <div className="w-full border-t border-[var(--color-mist)] pt-8 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
           <p className="text-[var(--color-text-muted)] italic text-base leading-relaxed max-w-2xl">
             {tr('mission', 'visionPlaceholder')}
           </p>
