@@ -13,7 +13,7 @@ export default function Problem() {
   ];
 
   return (
-    <section id="problem" className="bg-white section-padding section-divider">
+    <section id="problem" className="section-padding section-divider" style={{ background: 'var(--color-sky-wash)' }}>
       <div className="max-w-[1200px] mx-auto px-5">
         <div className="max-w-2xl mb-16 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both">
           <span className="text-[var(--color-sky)] text-label mb-3 block">
@@ -35,16 +35,15 @@ export default function Problem() {
               className="relative p-8 md:p-10 flex flex-col justify-between animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both overflow-hidden min-h-[180px]"
               style={{
                 animationDelay: `${150 + index * 100}ms`,
-                backgroundColor: '#0a0a0a',
                 backgroundImage: `url(${item.bg})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }}
             >
-              <div className="text-white font-heading font-extrabold text-5xl md:text-6xl mb-4" style={{ letterSpacing: '-0.02em' }}>
+              <div className="text-[var(--color-navy)] font-heading font-extrabold text-5xl md:text-6xl mb-4" style={{ letterSpacing: '-0.02em' }}>
                 {tr('problem', item.valueKey)}
               </div>
-              <p className="font-semibold text-sm text-white/60">{tr('problem', item.labelKey)}</p>
+              <p className="font-semibold text-sm text-[var(--color-text-muted)]">{tr('problem', item.labelKey)}</p>
             </div>
           ))}
         </div>
