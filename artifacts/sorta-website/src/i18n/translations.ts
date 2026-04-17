@@ -67,7 +67,7 @@ export const translations = {
     inputLabel: { en: 'Mixed waste stream', jp: '混合廃棄物' },
     outputLabel: { en: 'Clean, separated material streams', jp: 'クリーンな分別済み素材' },
     point1: { en: 'Sorting and separation at the disposal point', jp: '廃棄時点での分別と分離' },
-    point2: { en: 'Preprocessing designed for real-world environments', jp: '実環境向けに設計された前処理' },
+    point2: { en: 'Preprocessing designed for real-world environments', jp: '回収PETの品質を向上させる処理' },
     point3: { en: 'Compatible with existing downstream infrastructure', jp: '既存の下流インフラとの互換性' },
   },
   valueProp: {
