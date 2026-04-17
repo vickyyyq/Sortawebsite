@@ -16,7 +16,6 @@ export default function Team() {
   const teamMembers: Member[] = [
     {
       photo: '/amber_photo.jpg',
-      imgStyle: { transform: 'scale(1.7)', transformOrigin: '50% 18%' },
       nameNode:
         language === 'jp' ? (
           <><ruby>倉増<rt>クラマス</rt></ruby> アンバー</>
