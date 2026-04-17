@@ -13,7 +13,7 @@ export const translations = {
     overline: { en: 'NEXT-GENERATION RECYCLING INFRASTRUCTURE', jp: '次世代リサイクルインフラ' },
     headline: {
       en: 'Solving the recycling issue,\nright where it starts.',
-      jp: '問題が始まる場所で、\nリサイクル問題を解決する。',
+      jp: '捨てる場所から、\n資源循環のあり方を変えていく。',
     },
     subheadline: {
       en: 'Intelligent sorting and preprocessing at the point of intake. Smarter, cleaner, and more sustainable.',
@@ -26,11 +26,11 @@ export const translations = {
     overline: { en: 'The Problem', jp: '課題' },
     heading: {
       en: 'Less than 38% of PET bottles recycled in Japan make it back into bottles.',
-      jp: '日本でリサイクルされたPETボトルのうち、38%未満しか再びボトルに戻りません。',
+      jp: '日本で回収されたペットボトルのうち、ボトルtoボトルリサイクルとして再利用されているのは38%未満にとどまっています。',
     },
     body: {
       en: 'The rest is melted into lower-grade materials or exported overseas. This "downcycling" is driven by contamination and human error at the point of disposal — a problem no amount of downstream investment can fix.',
-      jp: '残りは低グレードの素材に溶解されるか、海外に輸出されています。この「ダウンサイクル」は、廃棄時点での汚染と人為的ミスが原因であり、下流への投資だけでは解決できない問題です。',
+      jp: '多くは、繊維やシートなど別の製品として再利用されるか、海外へ輸出されています。本来であれば水平リサイクルとして循環できるはずの資源が、十分に活かされていないのが現状です。',
     },
     stat1Label: { en: 'of PET bottles horizontally recycled in Japan', jp: '水平リサイクルされるPETボトルの割合' },
     stat2Label: { en: 'contamination rate at public recycling bins', jp: '公共リサイクルビンの汚染率' },
@@ -58,11 +58,11 @@ export const translations = {
     overline: { en: 'Our Approach', jp: '私たちのアプローチ' },
     heading: {
       en: 'Remove human error from the equation — at the bin itself.',
-      jp: '方程式から人為的ミスを排除する——ビンの時点で。',
+      jp: 'こうした課題に対しては、廃棄される段階での対応が重要です。',
     },
     body: {
       en: 'Sorta is a smart recycling bin that automatically sorts and processes waste to prevent point-of-disposal contamination. By moving critical recycling steps upstream, we deliver cleaner material streams and a more efficient chain — end to end.',
-      jp: 'Sortaは、廃棄時点での汚染を防ぐために廃棄物を自動的に分別・処理するスマートリサイクルビンです。重要なリサイクルステップを上流に移動させることで、よりクリーンな素材ストリームとより効率的なチェーンを実現します。',
+      jp: 'Sortaは、投入時に自動で分別と前処理を行うことで、資源循環の起点を支えるスマートリサイクルボックスです。人の判断や知識に依存することなく、安定した資源回収を可能にします。',
     },
     inputLabel: { en: 'Mixed waste stream', jp: '混合廃棄物' },
     outputLabel: { en: 'Clean, separated material streams', jp: 'クリーンな分別済み素材' },
@@ -72,7 +72,7 @@ export const translations = {
   },
   valueProp: {
     overline: { en: 'Why It Matters', jp: 'なぜ重要か' },
-    heading: { en: 'Better for the system. Better for the bottom line.', jp: 'システムにも、収益にも。' },
+    heading: { en: 'Better for the system. Better for the bottom line.', jp: '現場の負担を軽減しながら、リサイクル全体の質を高めます。' },
     pillar1Title: { en: 'Collect valuable data', jp: '価値あるデータを収集' },
     pillar1Body: {
       en: 'Every disposal event is logged — material type, condition, and timing — creating a live dataset that informs logistics, purchasing, and sustainability reporting.',
@@ -200,11 +200,11 @@ export const translations = {
     },
     statementEN: {
       en: 'Create a world where horizontal recycling is a reality, not a goal.',
-      jp: '水平リサイクルが目標ではなく、現実になる世界を創る。',
+      jp: '水平リサイクルが、当たり前に実現される社会へ。',
     },
     visionPlaceholder: {
       en: 'Today, most PET bottles that get "recycled" are melted down into lower-grade materials. We believe the infrastructure to close that loop already exists — it just needs to start at the bin.',
-      jp: '今日、「リサイクル」されるほとんどのPETボトルは低品質の素材に溶かされています。そのループを閉じるインフラはすでに存在していると私たちは信じています——それはビンから始まる必要があるだけです。',
+      jp: '現在のリサイクルの多くは、本来の循環には至っていません。資源を資源のまま循環させる――サーキュラーエコノミーの実現には、廃棄の起点から見直すことが不可欠です。',
     },
   },
   team: {
@@ -235,21 +235,21 @@ export const translations = {
   },
   whyNow: {
     overline: { en: 'Why Now', jp: 'なぜ今か' },
-    heading: { en: 'The infrastructure moment has arrived.', jp: 'インフラの転換点が来た。' },
-    col1Label: { en: 'Rising sustainability pressure', jp: '持続可能性圧力の高まり' },
+    heading: { en: 'The infrastructure moment has arrived.', jp: 'リサイクルを取り巻く環境は、いま大きく変化しています。' },
+    col1Label: { en: 'Rising sustainability pressure', jp: 'サステナビリティ要求の高まり' },
     col1Body: {
       en: 'Extended producer responsibility legislation is expanding in Japan and globally, increasing liability for material end-of-life outcomes. Brands are under pressure to demonstrate genuine circular impact.',
-      jp: '拡大生産者責任法が日本および世界的に拡大し、素材のエンドオブライフ結果に対する責任が増加しています。ブランドは真の循環型インパクトを示すよう求められています。',
+      jp: '企業には、資源循環やサーキュラーエコノミーへの対応が求められています。',
     },
-    col2Label: { en: 'Sharp influx in tourism', jp: '急増するインバウンド需要' },
+    col2Label: { en: 'Sharp influx in tourism', jp: 'GX（グリーントランスフォーメーション）の推進' },
     col2Body: {
       en: 'Japan\'s post-pandemic tourism boom has put unprecedented pressure on public waste infrastructure. More visitors, more confusion, more contamination — the current system was not designed for this scale.',
-      jp: '日本のコロナ後の観光ブームは公共廃棄物インフラに前例のない負荷をかけています。観光客の増加、混乱の増加、汚染の増加——現在のシステムはこの規模を想定していませんでした。',
+      jp: '脱炭素と資源効率の両立に向けて、廃棄・回収のあり方そのものが見直されています。',
     },
-    col3Label: { en: 'Labor shortages in waste processing', jp: '廃棄物処理における人手不足' },
+    col3Label: { en: 'Labor shortages in waste processing', jp: '人手不足' },
     col3Body: {
       en: '56% of Japanese waste processors report a labor shortage. Existing recycling infrastructure depends on manual sorting that is expensive, inconsistent, and unsustainable long-term.',
-      jp: '日本の廃棄物処理業者の56%が人手不足を報告しています。既存のリサイクルインフラは、高コストで一貫性がなく、長期的に持続不可能な手作業による分別に依存しています。',
+      jp: '従来の仕組みでは対応が難しくなっています。',
     },
     closing: {
       en: 'The shift to circular systems requires new infrastructure at the point of intake.',
@@ -258,7 +258,7 @@ export const translations = {
   },
   footerCta: {
     overline: { en: "Let's work together", jp: '一緒に取り組みましょう' },
-    heading: { en: 'Ready to rethink recycling infrastructure?', jp: 'リサイクルインフラを再考する準備ができていますか？' },
+    heading: { en: 'Ready to rethink recycling infrastructure?', jp: 'リサイクルのあり方を、現場から見直していく。' },
     body: { en: "Whether you're a potential partner or an investor, we want to hear from you.", jp: 'パートナー候補の方も、投資家の方も、ぜひご連絡ください。' },
     ctaPrimary: { en: 'Apply for Pilot', jp: 'パイロットを申請する' },
     ctaSecondary: { en: 'Get in Touch', jp: 'お問い合わせ' },
