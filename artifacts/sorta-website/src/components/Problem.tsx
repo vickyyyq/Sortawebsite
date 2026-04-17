@@ -7,9 +7,9 @@ export default function Problem() {
   const { tr } = useLanguage();
 
   const stats = [
-    { valueKey: 'stat1Value' as const, labelKey: 'stat1Label' as const, bg: '/bottle-left.png' },
-    { valueKey: 'stat2Value' as const, labelKey: 'stat2Label' as const, bg: '/bottle-middle.png' },
-    { valueKey: 'stat3Value' as const, labelKey: 'stat3Label' as const, bg: '/bottle-right.png' },
+    { valueKey: 'stat1Value' as const, labelKey: 'stat1Label' as const, bg: '/bottle-left.png',   nudge: 0   },
+    { valueKey: 'stat2Value' as const, labelKey: 'stat2Label' as const, bg: '/bottle-middle.png', nudge: -14 },
+    { valueKey: 'stat3Value' as const, labelKey: 'stat3Label' as const, bg: '/bottle-right.png',  nudge: 0   },
   ];
 
   return (
@@ -42,10 +42,15 @@ export default function Problem() {
                 className="absolute inset-0 w-full h-full object-cover rotate-90 md:rotate-0 pointer-events-none select-none"
                 style={{ mixBlendMode: 'screen' }}
               />
-              <div className="relative z-10 text-[var(--color-navy)] font-heading font-extrabold text-5xl md:text-6xl" style={{ letterSpacing: '-0.02em' }}>
-                {tr('problem', item.valueKey)}
+              <div
+                className="relative z-10 flex flex-col gap-2 text-center md:text-left"
+                style={{ transform: item.nudge ? `translateY(${item.nudge}%)` : undefined }}
+              >
+                <div className="text-[var(--color-navy)] font-heading font-extrabold text-5xl md:text-6xl" style={{ letterSpacing: '-0.02em' }}>
+                  {tr('problem', item.valueKey)}
+                </div>
+                <p className="font-semibold text-sm text-[var(--color-text-muted)]">{tr('problem', item.labelKey)}</p>
               </div>
-              <p className="relative z-10 font-semibold text-sm text-[var(--color-text-muted)]">{tr('problem', item.labelKey)}</p>
             </div>
           ))}
         </div>
