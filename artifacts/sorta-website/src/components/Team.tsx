@@ -7,6 +7,7 @@ export default function Team() {
 
   type Member = {
     photo: string | null;
+    imgStyle?: React.CSSProperties;
     nameNode: React.ReactNode;
     roleKey: 'member1Role' | 'member2Role' | 'member3Role';
     bioKey: 'member1Bio' | 'member2Bio' | 'member3Bio';
@@ -15,6 +16,7 @@ export default function Team() {
   const teamMembers: Member[] = [
     {
       photo: '/amber_photo.jpg',
+      imgStyle: { transform: 'scale(1.7)', transformOrigin: '50% 18%' },
       nameNode:
         language === 'jp' ? (
           <><ruby>倉増<rt>クラマス</rt></ruby> アンバー</>
@@ -73,6 +75,7 @@ export default function Team() {
                     src={member.photo}
                     alt={typeof member.nameNode === 'string' ? member.nameNode : undefined}
                     className="w-full h-full object-cover object-top"
+                    style={member.imgStyle}
                   />
                 ) : (
                   <div className="w-full h-full bg-[var(--color-sky-wash)] flex items-center justify-center text-[var(--color-sky)] text-sm font-semibold">
