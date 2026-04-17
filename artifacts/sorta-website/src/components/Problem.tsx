@@ -9,7 +9,7 @@ export default function Problem() {
   const stats = [
     { valueKey: 'stat1Value' as const, labelKey: 'stat1Label' as const, bg: '/bottle-left.png',   nudge: 0   },
     { valueKey: 'stat2Value' as const, labelKey: 'stat2Label' as const, bg: '/bottle-middle.png', nudge: -14 },
-    { valueKey: 'stat3Value' as const, labelKey: 'stat3Label' as const, bg: '/bottle-right.png',  nudge: 0   },
+    { valueKey: 'stat3Value' as const, labelKey: 'stat3Label' as const, bg: '/bottle-right.png',  nudge: -14 },
   ];
 
   return (
