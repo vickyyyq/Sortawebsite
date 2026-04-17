@@ -14,12 +14,14 @@ import WhyNow from '@/components/WhyNow';
 import FooterCTA from '@/components/FooterCTA';
 import Footer from '@/components/Footer';
 import { NavigationProvider, useNavigation } from '@/contexts/NavigationContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 function HomeContent() {
   const { blurring } = useNavigation();
+  const { language } = useLanguage();
 
   return (
-    <div className="w-full min-h-[100dvh] bg-[var(--color-bg-page)] font-sans text-[var(--color-text-body)] overflow-x-hidden">
+    <div data-lang={language} className="w-full min-h-[100dvh] bg-[var(--color-bg-page)] font-sans text-[var(--color-text-body)] overflow-x-hidden">
       {/* Blur transition overlay — sits below the nav */}
       <div
         className="fixed inset-0 z-[40] pointer-events-none"

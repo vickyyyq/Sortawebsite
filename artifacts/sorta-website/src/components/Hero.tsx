@@ -1,9 +1,25 @@
 import React, { useEffect, useState } from 'react';
+import { loadDefaultJapaneseParser } from 'budoux';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useNavigation } from '@/contexts/NavigationContext';
 import { ArrowDown, ArrowRight } from 'lucide-react';
 
 const heroImagePath = '/hero_image.jpg';
+const jpParser = loadDefaultJapaneseParser();
+
+function JpLine({ text }: { text: string }) {
+  const chunks = jpParser.parse(text);
+  return (
+    <>
+      {chunks.map((chunk, i) => (
+        <React.Fragment key={i}>
+          <span style={{ display: 'inline-block' }}>{chunk}</span>
+          {i < chunks.length - 1 && <wbr />}
+        </React.Fragment>
+      ))}
+    </>
+  );
+}
 
 export default function Hero() {
   const { tr, language } = useLanguage();
@@ -15,6 +31,9 @@ export default function Hero() {
     const t = setTimeout(() => setLoaded(true), 60);
     return () => clearTimeout(t);
   }, []);
+
+  const headline = tr('hero', 'headline');
+  const lines = headline.split('\n');
 
   return (
     <section className="relative h-[100dvh] w-full flex items-center overflow-hidden">
@@ -45,18 +64,28 @@ export default function Hero() {
           className="text-[var(--color-navy)] max-w-2xl mb-8"
           style={isJP ? {
             fontSize: 'clamp(28px, 3.6vw, 50px)',
-            letterSpacing: '-0.01em',
-            lineHeight: 1.45,
+            letterSpacing: '0.04em',
+            lineHeight: 1.5,
             fontWeight: 800,
+            wordBreak: 'keep-all',
+            overflowWrap: 'break-word',
           } : {
             fontSize: 'clamp(36px, 5vw, 68px)',
             letterSpacing: '-0.025em',
             lineHeight: 1.08,
           }}
         >
-          {tr('hero', 'headline').split('\n').map((line, i, arr) => (
-            <React.Fragment key={i}>{line}{i < arr.length - 1 && <br />}</React.Fragment>
-          ))}
+          {isJP
+            ? lines.map((line, i, arr) => (
+                <React.Fragment key={i}>
+                  <JpLine text={line} />
+                  {i < arr.length - 1 && <br />}
+                </React.Fragment>
+              ))
+            : lines.map((line, i, arr) => (
+                <React.Fragment key={i}>{line}{i < arr.length - 1 && <br />}</React.Fragment>
+              ))
+          }
         </h1>
 
         <button

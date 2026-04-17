@@ -1,3 +1,4 @@
+import { JpH2 } from '@/components/JpH2';
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -17,9 +18,9 @@ export default function Traction() {
           <span className="text-[var(--color-sky)] text-label mb-3 block">
             {tr('traction', 'overline')}
           </span>
-          <h2>
+          <JpH2>
             {tr('traction', 'heading')}
-          </h2>
+          </JpH2>
         </div>
 
         <div className="max-w-4xl py-10 animate-in fade-in duration-1000 delay-200 fill-mode-both">

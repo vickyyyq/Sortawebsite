@@ -1,3 +1,4 @@
+import { JpH2 } from '@/components/JpH2';
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -19,9 +20,9 @@ export default function FooterCTA() {
           <span className="text-[var(--color-sky)] text-label mb-6 block">
             {tr('footerCta', 'overline')}
           </span>
-          <h2 className="text-[var(--color-navy)] mb-6 font-extrabold">
+          <JpH2 className="text-[var(--color-navy)] mb-6 font-extrabold">
             {tr('footerCta', 'heading')}
-          </h2>
+          </JpH2>
           <p className="text-[var(--color-text-muted)] text-lg mb-10">
             {tr('footerCta', 'body')}
           </p>

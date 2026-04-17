@@ -35,7 +35,7 @@ export const translations = {
     stat1Label: { en: 'of PET bottles horizontally recycled in Japan', jp: '水平リサイクルされるPETボトルの割合' },
     stat2Label: { en: 'contamination rate at public recycling bins', jp: '公共リサイクルビンの汚染率' },
     stat3Label: { en: 'of contaminated PET waste generated yearly', jp: '年間発生する汚染PET廃棄物' },
-    stat1Value: { en: '<38%', jp: '38%未満' },
+    stat1Value: { en: '<38%', jp: '<38%' },
     stat2Value: { en: '29%', jp: '29%' },
     stat3Value: { en: '91kt', jp: '91kt' },
     point1Title: { en: 'Poor Sorting & Contamination', jp: '不適切な分別と汚染' },

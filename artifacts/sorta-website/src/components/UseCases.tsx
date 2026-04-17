@@ -1,3 +1,4 @@
+import { JpH2 } from '@/components/JpH2';
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Train, TreePine, ShoppingBag, Building2, Ticket, Tent } from 'lucide-react';
@@ -21,9 +22,9 @@ export default function UseCases() {
           <span className="text-[var(--color-sky)] text-label mb-3 block">
             {tr('useCases', 'overline')}
           </span>
-          <h2 className="text-[var(--color-navy)]">
+          <JpH2 className="text-[var(--color-navy)]">
             {tr('useCases', 'heading')}
-          </h2>
+          </JpH2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--color-mist)] border border-[var(--color-mist)] rounded-sm overflow-hidden">

@@ -1,3 +1,4 @@
+import { JpH2 } from '@/components/JpH2';
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -54,9 +55,9 @@ export default function Team() {
           <span className="text-[var(--color-sky)] text-label mb-3 block">
             {tr('team', 'overline')}
           </span>
-          <h2>
+          <JpH2>
             {tr('team', 'heading')}
-          </h2>
+          </JpH2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--color-mist)] border border-[var(--color-mist)] rounded-sm overflow-hidden mb-16">

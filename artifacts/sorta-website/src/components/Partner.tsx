@@ -1,3 +1,4 @@
+import { JpH2 } from '@/components/JpH2';
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useForm } from 'react-hook-form';
@@ -95,9 +96,9 @@ export default function Partner() {
             <span className="text-[var(--color-sky)] text-label mb-4 block">
               {tr('partner', 'overline')}
             </span>
-            <h2 className="text-[var(--color-navy)] mb-6">
+            <JpH2 className="text-[var(--color-navy)] mb-6">
               {tr('partner', 'heading')}
-            </h2>
+            </JpH2>
             <p className="text-lg text-[var(--color-text-muted)] mb-10">
               {tr('partner', 'body')}
             </p>

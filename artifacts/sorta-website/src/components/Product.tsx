@@ -1,3 +1,4 @@
+import { JpH2 } from '@/components/JpH2';
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Eye, Shuffle, Settings, Activity } from 'lucide-react';
@@ -19,9 +20,9 @@ export default function Product() {
           <span className="text-[var(--color-sky)] text-label mb-4 block">
             {tr('product', 'overline')}
           </span>
-          <h2 className="mb-5">
+          <JpH2 className="mb-5">
             {tr('product', 'heading')}
-          </h2>
+          </JpH2>
           <p className="text-large text-[var(--color-text-muted)]">
             {tr('product', 'body')}
           </p>

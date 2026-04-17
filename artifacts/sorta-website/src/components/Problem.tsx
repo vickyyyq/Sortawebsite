@@ -1,3 +1,4 @@
+import { JpH2 } from '@/components/JpH2';
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Users, BarChart2, HardHat } from 'lucide-react';
@@ -18,9 +19,9 @@ export default function Problem() {
           <span className="text-[var(--color-sky)] text-label mb-3 block">
             {tr('problem', 'overline')}
           </span>
-          <h2 className="mb-5">
+          <JpH2 className="mb-5">
             {tr('problem', 'heading')}
-          </h2>
+          </JpH2>
           <p className="text-large text-[var(--color-text-muted)]">
             {tr('problem', 'body')}
           </p>

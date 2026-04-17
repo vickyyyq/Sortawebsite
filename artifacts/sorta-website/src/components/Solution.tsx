@@ -1,3 +1,4 @@
+import { JpH2 } from '@/components/JpH2';
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ArrowRight, CheckCircle2, Shuffle, Layers } from 'lucide-react';
@@ -24,9 +25,9 @@ export default function Solution() {
           <span className="text-[var(--color-navy)] text-label mb-3 block opacity-70">
             {tr('solution', 'overline')}
           </span>
-          <h2 className="mb-5 text-[var(--color-navy)]">
+          <JpH2 className="mb-5 text-[var(--color-navy)]">
             {tr('solution', 'heading')}
-          </h2>
+          </JpH2>
           <p className="text-large text-[var(--color-navy)]/70">
             {tr('solution', 'body')}
           </p>
