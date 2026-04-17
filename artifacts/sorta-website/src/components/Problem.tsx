@@ -32,14 +32,14 @@ export default function Problem() {
           {stats.map((item, index) => (
             <div
               key={index}
-              className="relative p-8 md:p-10 flex flex-col justify-between animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both overflow-hidden min-h-[320px] md:min-h-[200px]"
+              className="relative p-8 md:p-10 flex flex-col justify-between animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both overflow-hidden min-h-[320px]"
               style={{ animationDelay: `${150 + index * 100}ms` }}
             >
               <img
                 src={item.bg}
                 alt=""
                 aria-hidden="true"
-                className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+                className="absolute inset-0 w-full h-full object-cover rotate-90 md:rotate-0 pointer-events-none select-none"
                 style={{ mixBlendMode: 'screen' }}
               />
               <div className="relative z-10 text-[var(--color-navy)] font-heading font-extrabold text-5xl md:text-6xl mb-4" style={{ letterSpacing: '-0.02em' }}>
