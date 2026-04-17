@@ -1,4 +1,3 @@
-import { JpH2 } from '@/components/JpH2';
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -18,9 +17,7 @@ export default function Mission() {
               {tr('mission', 'statementJP')}
             </p>
           )}
-          <JpH2 className="text-[var(--color-navy)] max-w-4xl leading-tight">
-            {tr('mission', 'statementEN')}
-          </JpH2>
+
         </div>
 
         <div className="mt-16 w-full border-t border-[var(--color-mist)] pt-8 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
