@@ -25,9 +25,13 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-8 mb-12">
 
           <div className="text-center md:text-left">
-            <div className="text-[var(--color-gold)] font-heading font-extrabold text-3xl tracking-wide mb-4">
-              SORTA
-            </div>
+            <img
+              src="/sorta_logo.png"
+              alt="Sorta"
+              className="h-8 mb-4 mx-auto md:mx-0"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              style={{ cursor: 'pointer' }}
+            />
             <a href="mailto:hello@sorta.co" className="text-[var(--color-mist)] hover:text-white transition-colors" data-testid="link-footer-email">
               hello@sorta.co
             </a>
