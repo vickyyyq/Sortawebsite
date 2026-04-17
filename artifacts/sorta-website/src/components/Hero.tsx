@@ -2,7 +2,7 @@ import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ArrowDown } from 'lucide-react';
 
-const heroVideoPath = '/hero_video.mp4';
+const heroImagePath = '/hero_image.jpg';
 
 export default function Hero() {
   const { tr } = useLanguage();
@@ -13,19 +13,15 @@ export default function Hero() {
 
   return (
     <section className="relative h-[100dvh] w-full flex items-center justify-center overflow-hidden">
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
+      <img
+        src={heroImagePath}
+        alt="Sorta hero"
         className="absolute inset-0 w-full h-full object-cover z-0"
-      >
-        <source src={heroVideoPath} type="video/mp4" />
-      </video>
+      />
 
-      {/* Light sky-blue tint overlay — airy not heavy */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#00A5E5]/30 via-white/20 to-white/60 z-10" />
-      <div className="absolute inset-0 bg-white/25 z-10" />
+      {/* Subtle gradient so text stays readable on the left */}
+      <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/30 to-transparent z-10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-white/50 via-transparent to-transparent z-10" />
 
       {/* Content */}
       <div className="relative z-20 max-w-[1200px] w-full mx-auto px-5 flex flex-col items-start justify-end h-full pb-20 md:pb-28">
@@ -34,11 +30,11 @@ export default function Hero() {
             {tr('hero', 'overline')}
           </span>
 
-          <h1 className="text-[var(--color-navy)] max-w-5xl mb-6 leading-[1.0]">
+          <h1 className="text-[var(--color-navy)] max-w-2xl mb-6 leading-[1.0]">
             {tr('hero', 'headline')}
           </h1>
 
-          <p className="text-[var(--color-text-muted)] text-lg md:text-xl max-w-2xl mb-10 font-sans leading-relaxed">
+          <p className="text-[var(--color-text-muted)] text-lg md:text-xl max-w-xl mb-10 font-sans leading-relaxed">
             {tr('hero', 'subheadline')}
           </p>
 
