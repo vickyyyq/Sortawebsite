@@ -7,9 +7,9 @@ export default function Problem() {
   const { tr } = useLanguage();
 
   const stats = [
-    { valueKey: 'stat1Value' as const, labelKey: 'stat1Label' as const },
-    { valueKey: 'stat2Value' as const, labelKey: 'stat2Label' as const },
-    { valueKey: 'stat3Value' as const, labelKey: 'stat3Label' as const },
+    { valueKey: 'stat1Value' as const, labelKey: 'stat1Label' as const, bg: '/bottle-left.png' },
+    { valueKey: 'stat2Value' as const, labelKey: 'stat2Label' as const, bg: '/bottle-middle.png' },
+    { valueKey: 'stat3Value' as const, labelKey: 'stat3Label' as const, bg: '/bottle-right.png' },
   ];
 
   return (
@@ -32,13 +32,19 @@ export default function Problem() {
           {stats.map((item, index) => (
             <div
               key={index}
-              className="bg-white p-8 md:p-10 flex flex-col justify-between animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both"
-              style={{ animationDelay: `${150 + index * 100}ms` }}
+              className="relative p-8 md:p-10 flex flex-col justify-between animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both overflow-hidden min-h-[180px]"
+              style={{
+                animationDelay: `${150 + index * 100}ms`,
+                backgroundColor: '#0a0a0a',
+                backgroundImage: `url(${item.bg})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }}
             >
-              <div className="text-[var(--color-navy)] font-heading font-extrabold text-5xl md:text-6xl mb-4" style={{ letterSpacing: '-0.02em' }}>
+              <div className="text-white font-heading font-extrabold text-5xl md:text-6xl mb-4" style={{ letterSpacing: '-0.02em' }}>
                 {tr('problem', item.valueKey)}
               </div>
-              <p className="font-semibold text-sm text-[var(--color-text-muted)]">{tr('problem', item.labelKey)}</p>
+              <p className="font-semibold text-sm text-white/60">{tr('problem', item.labelKey)}</p>
             </div>
           ))}
         </div>
