@@ -214,19 +214,19 @@ export const translations = {
     member1Role: { en: 'Business Strategy', jp: 'ビジネス戦略' },
     member1Bio: {
       en: 'Leads Sorta\'s commercial strategy, partnership development, and go-to-market planning.',
-      jp: 'Sortaの商業戦略、パートナーシップ開発、市場投入計画を主導しています。',
+      jp: '金融・ゼネコン業界での経営企画の管理職を経て、観光・リテール開発の戦略コンサルに従事。仕事を通じてゴミのインフラ課題に着目し、スマートリサイクルボックス「Sorta」を構想。',
     },
     member2Name: { en: 'Justin Lin', jp: 'Justin Lin' },
     member2Role: { en: 'Mechanics & Engineering', jp: 'メカニクス・エンジニアリング' },
     member2Bio: {
       en: 'Responsible for Sorta\'s hardware design, mechanical systems, and engineering development.',
-      jp: 'Sortaのハードウェア設計、機械システム、エンジニアリング開発を担当しています。',
+      jp: 'エネルギー業界でメカニカルエンジニアを経て、米大手コンサルでサプライチェーンのDXに従事。迅速なプロトタイプ開発と量産の経験を活かし、「Sorta」の開発と実装をリード。',
     },
     member3Name: { en: 'Vicky Yang', jp: 'Vicky Yang' },
     member3Role: { en: 'Research & Design', jp: 'リサーチ・デザイン' },
     member3Bio: {
       en: 'Drives Sorta\'s UX research, product design, and user experience across hardware and digital interfaces.',
-      jp: 'SortaのUXリサーチ、プロダクトデザイン、ハードウェアおよびデジタルインターフェースのユーザー体験を主導しています。',
+      jp: '米大手コンサルで大企業の組織設計や再編成に携わり、戦略から社内システム改善検討・定着まで支援。人とデジタルをつなぐ視点で「Sorta」のUX設計と技術リサーチをリードする。',
     },
     hiring: {
       en: 'We are recruiting across engineering, operations, and partnerships. Interested?',
