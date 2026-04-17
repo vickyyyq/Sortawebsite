@@ -101,7 +101,7 @@ export const translations = {
     case1Body: { en: 'High daily throughput with minimal staff oversight makes contamination control at the bin level essential.', jp: '利用者が多く、現場のスタッフ対応が限られるため、捨てる場所での汚染コントロールが欠かせません。' },
     case2Title: { en: 'Public infrastructure — parks, streets', jp: '公共インフラ（公園・街路）' },
     case2Body: { en: 'Distributed, unmanned locations require reliable autonomous sorting without ongoing maintenance.', jp: '分散して設置される無人の場所では、こまめな保守をせずに安定して動く自動分別の仕組みが求められます。' },
-    case3Title: { en: 'Shopping centers & retail', jp: 'ショッピングセンター・小売' },
+    case3Title: { en: 'Shopping centers & retail', jp: 'ショッピングセンター・商業施設' },
     case3Body: { en: 'Consumer behavior varies widely; automated preprocessing removes the burden of correct disposal from shoppers.', jp: '来店者の捨て方は人それぞれ。自動の前処理が、来店者に「正しく捨てる」負担を求めない仕組みを実現します。' },
     case4Title: { en: 'Office buildings', jp: 'オフィスビル' },
     case4Body: { en: 'Consistent daily waste generation benefits from embedded preprocessing at point of generation.', jp: '日々一定量の廃棄物が出る環境だからこそ、発生したその場で前処理ができる仕組みが効いてきます。' },
