@@ -26,9 +26,9 @@ export default function Footer() {
 
           <div className="text-center md:text-left">
             <img
-              src="/sorta_logo.png"
+              src="/sorta_logo_black.png"
               alt="Sorta"
-              className="h-8 mb-4 mx-auto md:mx-0"
+              className="h-8 mb-4 mx-auto md:mx-0 brightness-0 invert"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               style={{ cursor: 'pointer' }}
             />

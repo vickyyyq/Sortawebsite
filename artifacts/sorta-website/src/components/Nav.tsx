@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Menu, X } from 'lucide-react';
 
-const sortaLogoPath = '/sorta_logo.png';
+const sortaLogoPath = '/sorta_logo_black.png';
 
 export default function Nav() {
   const { language, toggleLanguage, tr } = useLanguage();

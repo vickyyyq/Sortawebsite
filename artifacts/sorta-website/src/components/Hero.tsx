@@ -19,8 +19,8 @@ export default function Hero() {
         className="absolute inset-0 w-full h-full object-cover z-0"
       />
 
-      {/* Gradient: solid white from bottom, fading out partway up */}
-      <div className="absolute inset-0 z-10" style={{ backgroundImage: 'linear-gradient(to top, white 30%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,0.2) 60%, transparent 75%)' }} />
+      {/* Thin white band at very bottom for text, image stays mostly visible */}
+      <div className="absolute inset-0 z-10" style={{ backgroundImage: 'linear-gradient(to top, white 12%, rgba(255,255,255,0.7) 22%, transparent 35%)' }} />
 
       {/* Content anchored to bottom */}
       <div className="relative z-20 max-w-[1200px] w-full mx-auto px-5 pb-16 md:pb-20">
