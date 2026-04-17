@@ -22,13 +22,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { CheckCircle2, ArrowRight } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
+import { CheckCircle2, ArrowRight, AlertCircle } from 'lucide-react';
+
+type FormStatus = 'idle' | 'success' | 'error';
 
 export default function Partner() {
   const { tr } = useLanguage();
-  const { toast } = useToast();
   const [submitting, setSubmitting] = useState(false);
+  const [formStatus, setFormStatus] = useState<FormStatus>('idle');
 
   const formSchema = z.object({
     companyName: z.string().min(2, { message: tr('partner', 'validationCompany') }),
@@ -57,6 +58,7 @@ export default function Partner() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setSubmitting(true);
+    setFormStatus('idle');
     try {
       const res = await fetch(`${import.meta.env.BASE_URL}api/contact`, {
         method: 'POST',
@@ -64,17 +66,10 @@ export default function Partner() {
         body: JSON.stringify(values),
       });
       if (!res.ok) throw new Error('server error');
-      toast({
-        title: tr('partner', 'toastTitle'),
-        description: tr('partner', 'toastDescription'),
-      });
       form.reset();
+      setFormStatus('success');
     } catch {
-      toast({
-        title: tr('partner', 'toastErrorTitle'),
-        description: tr('partner', 'toastErrorDescription'),
-        variant: 'destructive',
-      });
+      setFormStatus('error');
     } finally {
       setSubmitting(false);
     }
@@ -134,6 +129,24 @@ export default function Partner() {
             className="p-8 md:p-10 rounded-sm border border-[var(--color-mist)] animate-in fade-in duration-1000 delay-300 fill-mode-both"
             style={{ background: 'var(--color-sky-wash)' }}
           >
+            {formStatus === 'success' ? (
+              <div
+                className="flex flex-col items-start gap-4 py-6"
+                data-testid="partner-success-banner"
+                role="status"
+                aria-live="polite"
+              >
+                <div className="flex items-center gap-3">
+                  <CheckCircle2 className="text-green-600 shrink-0" size={28} strokeWidth={2} />
+                  <h3 className="text-lg font-bold text-[var(--color-navy)]">
+                    {tr('partner', 'successTitle')}
+                  </h3>
+                </div>
+                <p className="text-[var(--color-text-muted)] leading-relaxed">
+                  {tr('partner', 'successBody')}
+                </p>
+              </div>
+            ) : (
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
 
@@ -277,6 +290,36 @@ export default function Partner() {
                   )}
                 />
 
+                {formStatus === 'error' && (
+                  <div
+                    className="flex items-start gap-3 rounded-sm border border-red-200 bg-red-50 px-4 py-3"
+                    data-testid="partner-error-banner"
+                    role="alert"
+                    aria-live="assertive"
+                  >
+                    <AlertCircle className="text-red-600 shrink-0 mt-0.5" size={18} strokeWidth={2} />
+                    <div className="flex flex-col gap-1">
+                      <p className="text-sm font-semibold text-red-700">{tr('partner', 'errorTitle')}</p>
+                      <p className="text-sm text-red-700 leading-relaxed">
+                        {tr('partner', 'errorBody')}{' '}
+                        <a
+                          href={`mailto:${tr('partner', 'errorEmail')}`}
+                          className="font-semibold underline underline-offset-2"
+                        >
+                          {tr('partner', 'errorEmail')}
+                        </a>
+                      </p>
+                      <button
+                        type="button"
+                        onClick={() => setFormStatus('idle')}
+                        className="mt-1 self-start text-xs font-semibold text-red-700 underline underline-offset-2 hover:text-red-900 transition-colors"
+                      >
+                        {tr('partner', 'errorRetry')}
+                      </button>
+                    </div>
+                  </div>
+                )}
+
                 <div className="pt-4 flex flex-col items-start gap-4">
                   <Button
                     type="submit"
@@ -296,6 +339,7 @@ export default function Partner() {
                 </div>
               </form>
             </Form>
+            )}
           </div>
 
         </div>
