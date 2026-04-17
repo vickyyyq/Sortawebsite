@@ -1,0 +1,19 @@
+{
+  "id": "c2463e52-d6f2-43ec-91ae-995d23a3196c"
+}
+Request Body
+
+{
+  "bcc": [],
+  "cc": [],
+  "from": "Sorta <noreply@sorta.co.jp>",
+  "replyTo": [
+    "task10-reply-to@example.com"
+  ],
+  "subject": "New partner enquiry — Sorta E2E Delivery Confirmation",
+  "to": [
+    "hello@sorta.co.jp"
+  ],
+  "html": "\n    <!DOCTYPE html>\n    <html>\n      <body style=\"font-family:sans-serif;max-width:600px;margin:0 auto;padding:24px\">\n        <h2 style=\"color:#1a202c;margin-bottom:4px\">New partner enquiry</h2>\n        <p style=\"color:#718096;margin-top:0\">Submitted via sorta.co.jp</p>\n        <table style=\"width:100%;border-collapse:collapse;margin-top:16px\">\n          \n        <tr>\n          <td style=\"padding:8px 12px;font-weight:600;color:#4a5568;background:#f7fafc;white-space:nowrap;border:1px solid #e2e8f0\">Company</td>\n          <td style=\"padding:8px 12px;color:#1a202c;border:1px solid #e2e8f0\">Sorta E2E Delivery Confirmation</td>\n        </tr>\n        <tr>\n          <td style=\"padding:8px 12px;font-weight:600;color:#4a5568;background:#f7fafc;white-space:nowrap;border:1px solid #e2e8f0\">Industry</td>\n          <td style=\"padding:8px 12px;color:#1a202c;border:1px solid #e2e8f0\">Retail</td>\n        </tr>\n        <tr>\n          <td style=\"padding:8px 12px;font-weight:600;color:#4a5568;background:#f7fafc;white-space:nowrap;border:1px solid #e2e8f0\">Location</td>\n          <td style=\"padding:8px 12px;color:#1a202c;border:1px solid #e2e8f0\">Tokyo, Japan</td>\n        </tr>\n        <tr>\n          <td style=\"padding:8px 12px;font-weight:600;color:#4a5568;background:#f7fafc;white-space:nowrap;border:1px solid #e2e8f0\">Space Type</td>\n          <td style=\"padding:8px 12px;color:#1a202c;border:1px solid #e2e8f0\">Flagship store</td>\n        </tr>\n        <tr>\n          <td style=\"padding:8px 12px;font-weight:600;color:#4a5568;background:#f7fafc;white-space:nowrap;border:1px solid #e2e8f0\">Footfall</td>\n          <td style=\"padding:8px 12px;color:#1a202c;border:1px solid #e2e8f0\">1200/day</td>\n        </tr>\n        <tr>\n          <td style=\"padding:8px 12px;font-weight:600;color:#4a5568;background:#f7fafc;white-space:nowrap;border:1px solid #e2e8f0\">Contact Name</td>\n          <td style=\"padding:8px 12px;color:#1a202c;border:1px solid #e2e8f0\">Task 10 Final Test</td>\n        </tr>\n        <tr>\n          <td style=\"padding:8px 12px;font-weight:600;color:#4a5568;background:#f7fafc;white-space:nowrap;border:1px solid #e2e8f0\">Email</td>\n          <td style=\"padding:8px 12px;color:#1a202c;border:1px solid #e2e8f0\">task10-reply-to@example.com</td>\n        </tr>\n        <tr>\n          <td style=\"padding:8px 12px;font-weight:600;color:#4a5568;background:#f7fafc;white-space:nowrap;border:1px solid #e2e8f0\">Message</td>\n          <td style=\"padding:8px 12px;color:#1a202c;border:1px solid #e2e8f0\">End-to-end delivery confirmation after Resend domain verification and API key rotation.</td>\n        </tr>\n        </table>\n        <p style=\"margin-top:24px;color:#718096;font-size:13px\">\n          Reply directly to this email to respond to Task 10 Final Test at task10-reply-to@example.com.\n        </p>\n      </body>\n    </html>\n  ",
+  "text": "NEW PARTNER ENQUIRY\n\nSubmitted via sorta.co.jp\n\nCompany Sorta E2E Delivery Confirmation Industry Retail Location Tokyo, Japan Space Type Flagship store Footfall 1200/day Contact Name Task 10 Final Test Email task10-reply-to@example.com Message End-to-end delivery confirmation after Resend domain verification and API key rotation.\n\nReply directly to this email to respond to Task 10 Final Test at task10-reply-to@example.com."
+}
