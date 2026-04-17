@@ -39,7 +39,7 @@ export default function Nav() {
           data-testid="link-home"
         >
           <img
-            src={scrolled ? '/sorta_logo_black.png' : '/sorta_logo_white.png'}
+            src="/sorta_logo_black.png"
             alt="Sorta Logo"
             className="h-7 md:h-8 transition-opacity duration-300"
           />
@@ -52,11 +52,7 @@ export default function Nav() {
               <button
                 key={link.id}
                 onClick={() => scrollTo(link.id)}
-                className={`text-sm font-semibold tracking-wide transition-colors ${
-                  scrolled
-                    ? 'text-[var(--color-text-muted)] hover:text-[var(--color-navy)]'
-                    : 'text-white/80 hover:text-white'
-                }`}
+                className="text-[var(--color-text-muted)] hover:text-[var(--color-navy)] text-sm font-semibold tracking-wide transition-colors"
                 data-testid={`link-${link.id}`}
               >
                 {tr('nav', link.labelKey)}
@@ -67,22 +63,14 @@ export default function Nav() {
           <div className="flex items-center gap-4">
             <button
               onClick={toggleLanguage}
-              className={`text-xs font-bold tracking-widest transition-colors ${
-                scrolled
-                  ? 'text-[var(--color-text-muted)] hover:text-[var(--color-navy)]'
-                  : 'text-white/70 hover:text-white'
-              }`}
+              className="text-[var(--color-text-muted)] text-xs font-bold tracking-widest hover:text-[var(--color-navy)] transition-colors"
               data-testid="button-lang-toggle"
             >
               {language === 'en' ? 'EN / JP' : 'JP / EN'}
             </button>
             <button
               onClick={() => scrollTo('partner')}
-              className={`font-semibold px-5 py-2 text-sm rounded-sm transition-colors ${
-                scrolled
-                  ? 'bg-[var(--color-sky)] text-white hover:bg-[var(--color-sky)]/90'
-                  : 'bg-white/15 text-white border border-white/40 hover:bg-white/25'
-              }`}
+              className="bg-[var(--color-sky)] text-white font-semibold px-5 py-2 text-sm rounded-sm hover:bg-[var(--color-sky)]/90 transition-colors"
               data-testid="button-nav-cta"
             >
               {tr('nav', 'cta')}
@@ -94,16 +82,14 @@ export default function Nav() {
         <div className="lg:hidden flex items-center gap-4">
           <button
             onClick={toggleLanguage}
-            className={`text-xs font-bold tracking-widest ${
-              scrolled ? 'text-[var(--color-text-muted)]' : 'text-white/70'
-            }`}
+            className="text-[var(--color-text-muted)] text-xs font-bold tracking-widest"
             data-testid="button-lang-toggle-mobile"
           >
             {language === 'en' ? 'EN' : 'JP'}
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={scrolled ? 'text-[var(--color-navy)] p-2' : 'text-white p-2'}
+            className="text-[var(--color-navy)] p-2"
             data-testid="button-mobile-menu"
           >
             {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
