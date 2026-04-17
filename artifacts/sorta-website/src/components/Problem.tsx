@@ -32,7 +32,7 @@ export default function Problem() {
           {stats.map((item, index) => (
             <div
               key={index}
-              className="relative p-8 md:p-10 flex flex-col justify-center gap-2 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both overflow-hidden min-h-[320px]"
+              className="relative p-8 md:p-10 flex flex-col justify-center items-center md:items-start gap-2 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both overflow-hidden min-h-[320px]"
               style={{ animationDelay: `${150 + index * 100}ms` }}
             >
               <img
