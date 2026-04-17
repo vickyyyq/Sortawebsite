@@ -15,10 +15,10 @@ export default function Solution() {
         src="/problem_bg.jpg"
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover z-0"
+        className="absolute inset-0 w-full h-full object-cover z-0 opacity-30"
       />
-      {/* 20% light green overlay */}
-      <div className="absolute inset-0 z-10" style={{ background: 'rgba(134, 194, 134, 0.20)' }} />
+      {/* overlay */}
+      <div className="absolute inset-0 z-10" style={{ background: 'rgba(234, 247, 234, 0.60)' }} />
 
       <div className="relative z-20 max-w-[1200px] mx-auto px-5">
         <div className="max-w-2xl mb-16 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both">
