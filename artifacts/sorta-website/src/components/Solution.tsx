@@ -1,7 +1,8 @@
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ArrowRight, CheckCircle2, Shuffle, Layers } from 'lucide-react';
-import sortaLogoPath from '@assets/sorta_logo_1776429326461.png';
+
+const sortaLogoPath = '/sorta_logo.png';
 
 export default function Solution() {
   const { t } = useLanguage();

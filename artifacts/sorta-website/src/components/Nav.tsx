@@ -1,21 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import sortaLogoPath from '@assets/sorta_logo_1776429326461.png';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
+const sortaLogoPath = '/sorta_logo.png';
+
 export default function Nav() {
   const { language, toggleLanguage, t } = useLanguage();
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const navLinks = [
     { id: 'problem', en: 'Problem', jp: '課題' },
@@ -34,12 +26,8 @@ export default function Nav() {
   };
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-[var(--color-navy)] py-4 shadow-md' : 'bg-transparent py-6'
-      }`}
-    >
-      <div className="max-w-[1200px] mx-auto px-5 flex items-center justify-between">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[var(--color-navy)] shadow-md">
+      <div className="max-w-[1200px] mx-auto px-5 py-4 flex items-center justify-between">
         <div
           className="cursor-pointer"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -102,7 +90,7 @@ export default function Nav() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-[var(--color-navy)] border-t border-[var(--color-navy)]/50 shadow-xl py-4 px-5 flex flex-col gap-4">
+        <div className="lg:hidden bg-[var(--color-navy)] border-t border-white/10 shadow-xl py-4 px-5 flex flex-col gap-4">
           {navLinks.map((link) => (
             <button
               key={link.id}

@@ -2,7 +2,8 @@ import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
-import heroVideoPath from '@assets/video_1776429294907.mp4';
+
+const heroVideoPath = '/hero_video.mp4';
 
 export default function Hero() {
   const { t } = useLanguage();
