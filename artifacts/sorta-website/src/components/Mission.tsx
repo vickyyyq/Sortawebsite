@@ -13,7 +13,7 @@ export default function Mission() {
 
         <div className="w-full animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100 border-t border-[var(--color-mist)] pt-10">
           {language === 'jp' && (
-            <p className="text-[var(--color-sky)] font-heading font-extrabold text-2xl md:text-3xl mb-6 leading-snug" style={{ letterSpacing: '-0.01em' }}>
+            <p className="text-[var(--color-sky)] font-heading font-extrabold text-2xl md:text-3xl mb-6 leading-snug" style={{ letterSpacing: '-0.01em', whiteSpace: 'pre-line' }}>
               {tr('mission', 'statementJP')}
             </p>
           )}
