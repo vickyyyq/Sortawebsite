@@ -28,7 +28,7 @@ export default function Problem() {
         </div>
 
         {/* Stat cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--color-mist)] mb-20 border border-[var(--color-mist)] rounded-sm overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--color-mist)] mb-20 border border-[var(--color-mist)] rounded-sm overflow-hidden max-w-[860px]">
           {stats.map((item, index) => (
             <div
               key={index}
