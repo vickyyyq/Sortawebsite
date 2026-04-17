@@ -78,7 +78,7 @@ export const translations = {
       en: 'Every disposal event is logged — material type, condition, and timing — creating a live dataset that informs logistics, purchasing, and sustainability reporting.',
       jp: '投入された素材の種類・状態・時間を一件ずつ記録。物流、調達、サステナビリティ報告まで活用できるリアルタイムのデータが蓄積されていきます。',
     },
-    pillar2Title: { en: 'Eliminate missorting', jp: '誤分別をなくす' },
+    pillar2Title: { en: 'Eliminate missorting', jp: '不分別をなくす' },
     pillar2Body: {
       en: 'Sorta removes the dependency on user behavior entirely. Correct sorting happens automatically — regardless of language, literacy, or recycling knowledge.',
       jp: '利用者の判断に任せない設計です。言語や知識、年齢を問わず、誰が捨てても正しい分別が自動で行われます。',
