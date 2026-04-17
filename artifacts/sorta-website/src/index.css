@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@700;800&family=Quicksand:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@700;800&family=Quicksand:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
@@ -40,8 +40,8 @@
   --color-destructive-foreground: hsl(0 0% 98%);
   --color-destructive-border: hsl(0 84.2% 60.2%);
 
-  --font-sans: 'Quicksand', sans-serif;
-  --font-heading: 'Rethink Sans', sans-serif;
+  --font-sans: 'Quicksand', 'Noto Sans JP', sans-serif;
+  --font-heading: 'Rethink Sans', 'Noto Sans JP', sans-serif;
 
   --radius-sm: 2px;
   --radius-md: 4px;
