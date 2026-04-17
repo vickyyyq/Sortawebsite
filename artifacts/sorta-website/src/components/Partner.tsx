@@ -1,5 +1,5 @@
 import { JpH2 } from '@/components/JpH2';
-import React from 'react';
+import React, { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -28,6 +28,7 @@ import { useToast } from '@/hooks/use-toast';
 export default function Partner() {
   const { tr } = useLanguage();
   const { toast } = useToast();
+  const [submitting, setSubmitting] = useState(false);
 
   const formSchema = z.object({
     companyName: z.string().min(2, { message: tr('partner', 'validationCompany') }),
@@ -54,13 +55,29 @@ export default function Partner() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    toast({
-      title: tr('partner', 'toastTitle'),
-      description: tr('partner', 'toastDescription'),
-    });
-    form.reset();
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setSubmitting(true);
+    try {
+      const res = await fetch(`${import.meta.env.BASE_URL}api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values),
+      });
+      if (!res.ok) throw new Error('server error');
+      toast({
+        title: tr('partner', 'toastTitle'),
+        description: tr('partner', 'toastDescription'),
+      });
+      form.reset();
+    } catch {
+      toast({
+        title: 'Something went wrong',
+        description: 'Please email us directly at hello@sorta.co.jp',
+        variant: 'destructive',
+      });
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   const bullets = [
@@ -263,10 +280,11 @@ export default function Partner() {
                 <div className="pt-4 flex flex-col items-start gap-4">
                   <Button
                     type="submit"
-                    className="bg-[var(--color-sky)] text-white hover:bg-[var(--color-sky)]/90 font-bold px-8 py-6 text-base w-full md:w-auto rounded-sm"
+                    disabled={submitting}
+                    className="bg-[var(--color-sky)] text-white hover:bg-[var(--color-sky)]/90 font-bold px-8 py-6 text-base w-full md:w-auto rounded-sm disabled:opacity-60 disabled:cursor-not-allowed"
                     data-testid="button-partner-submit"
                   >
-                    {tr('partner', 'ctaPrimary')}
+                    {submitting ? 'Sending…' : tr('partner', 'ctaPrimary')}
                   </Button>
                   <button
                     type="button"
