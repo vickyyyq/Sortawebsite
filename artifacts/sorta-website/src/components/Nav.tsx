@@ -6,15 +6,15 @@ import { Button } from '@/components/ui/button';
 const sortaLogoPath = '/sorta_logo.png';
 
 export default function Nav() {
-  const { language, toggleLanguage, t } = useLanguage();
+  const { language, toggleLanguage, tr } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { id: 'problem', en: 'Problem', jp: '課題' },
-    { id: 'solution', en: 'Solution', jp: 'ソリューション' },
-    { id: 'use-cases', en: 'Use Cases', jp: 'ユースケース' },
-    { id: 'why-now', en: 'Why Now', jp: 'なぜ今か' },
-    { id: 'team', en: 'Our Team', jp: 'チーム' },
+    { id: 'problem', labelKey: 'problem' as const },
+    { id: 'solution', labelKey: 'solution' as const },
+    { id: 'use-cases', labelKey: 'useCases' as const },
+    { id: 'why-now', labelKey: 'whyNow' as const },
+    { id: 'team', labelKey: 'ourTeam' as const },
   ];
 
   const scrollTo = (id: string) => {
@@ -46,7 +46,7 @@ export default function Nav() {
                 className="text-white hover:text-[var(--color-gold)] text-sm font-semibold tracking-wide transition-colors"
                 data-testid={`link-${link.id}`}
               >
-                {t(link.en, link.jp)}
+                {tr('nav', link.labelKey)}
               </button>
             ))}
           </div>
@@ -64,7 +64,7 @@ export default function Nav() {
               className="bg-[var(--color-gold)] text-[var(--color-navy)] hover:bg-[var(--color-gold)]/90 font-semibold px-6"
               data-testid="button-nav-cta"
             >
-              {t('Get in touch', 'お問い合わせ')}
+              {tr('nav', 'cta')}
             </Button>
           </div>
         </div>
@@ -98,7 +98,7 @@ export default function Nav() {
               className="text-white text-left text-lg font-semibold py-2"
               data-testid={`link-mobile-${link.id}`}
             >
-              {t(link.en, link.jp)}
+              {tr('nav', link.labelKey)}
             </button>
           ))}
           <Button
@@ -106,7 +106,7 @@ export default function Nav() {
             className="bg-[var(--color-gold)] text-[var(--color-navy)] hover:bg-[var(--color-gold)]/90 font-semibold w-full mt-4"
             data-testid="button-mobile-cta"
           >
-            {t('Get in touch', 'お問い合わせ')}
+            {tr('nav', 'cta')}
           </Button>
         </div>
       )}

@@ -2,19 +2,19 @@ import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Team() {
-  const { t } = useLanguage();
+  const { tr, language } = useLanguage();
 
   const teamMembers = [
     {
-      name: t("Founder Name", "創業者名"),
-      role: t("CEO & Co-founder", "CEO・共同創業者"),
-      bio: t("[BIO COPY — INSERT FROM DECK]", "[略歴コピー — デッキから挿入]")
+      name: tr('team', 'founderName'),
+      role: tr('team', 'founderRole'),
+      bio: tr('team', 'founderBio'),
     },
     {
-      name: t("Founder Name", "創業者名"),
-      role: t("CTO & Co-founder", "CTO・共同創業者"),
-      bio: t("[BIO COPY — INSERT FROM DECK]", "[略歴コピー — デッキから挿入]")
-    }
+      name: tr('team', 'founderName'),
+      role: tr('team', 'founderRole'),
+      bio: tr('team', 'founderBio'),
+    },
   ];
 
   return (
@@ -22,17 +22,17 @@ export default function Team() {
       <div className="max-w-[1200px] mx-auto px-5">
         <div className="text-center mb-16 animate-in fade-in slide-in-from-bottom-8 duration-700">
           <span className="text-[var(--color-gold)] text-label mb-4 block">
-            {t('The Team', 'チーム')}
+            {tr('team', 'overline')}
           </span>
           <h2>
-            {t('Built by people who understand the problem.', '課題を理解した人々によって作られた。')}
+            {tr('team', 'heading')}
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
           {teamMembers.map((member, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="bg-white border border-[var(--color-mist)] p-8 rounded-xl flex flex-col items-center text-center shadow-sm animate-in fade-in slide-in-from-bottom-8 duration-700"
               style={{ animationDelay: `${100 + index * 100}ms` }}
             >
@@ -54,14 +54,12 @@ export default function Team() {
 
         <div className="text-center animate-in fade-in duration-700 delay-300">
           <p className="text-[var(--color-text-muted)] font-medium text-lg border-t border-[var(--color-mist)] pt-12 inline-block max-w-2xl">
-            {t(
-              "We are recruiting across engineering, operations, and partnerships. Interested? ",
-              "エンジニアリング、オペレーション、パートナーシップの各分野で採用中です。ご興味のある方は"
-            )}
+            {tr('team', 'hiring')}
+            {' '}
             <a href="mailto:hello@sorta.co" className="text-[var(--color-sky)] hover:underline font-bold" data-testid="link-team-email">
               hello@sorta.co
             </a>
-            {t("", " まで。")}
+            {language === 'jp' && ' まで。'}
           </p>
         </div>
       </div>

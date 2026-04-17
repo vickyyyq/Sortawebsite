@@ -141,6 +141,13 @@ export const translations = {
     ctaSecondary: { en: 'Start a PoC discussion', jp: 'PoC相談を始める' },
     toastTitle: { en: 'Application Submitted', jp: '申請を受け付けました' },
     toastDescription: { en: "Thank you for your interest. We'll be in touch shortly.", jp: 'ご関心をお寄せいただきありがとうございます。追ってご連絡いたします。' },
+    validationCompany: { en: 'Company name is required', jp: '会社名を入力してください' },
+    validationIndustry: { en: 'Industry is required', jp: '業界を選択してください' },
+    validationLocation: { en: 'Location is required', jp: '所在地を入力してください' },
+    validationSpaceType: { en: 'Space type is required', jp: 'スペースの種類を選択してください' },
+    validationFootfall: { en: 'Estimated footfall is required', jp: '推定訪問者数を入力してください' },
+    validationContact: { en: 'Contact name is required', jp: '担当者名を入力してください' },
+    validationEmail: { en: 'Valid email is required', jp: '有効なメールアドレスを入力してください' },
   },
   mission: {
     overline: { en: 'Our Mission', jp: 'ミッション' },
