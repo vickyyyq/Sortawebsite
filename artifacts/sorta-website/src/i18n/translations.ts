@@ -190,6 +190,7 @@ export const translations = {
     },
   },
   footerCta: {
+    overline: { en: "Let's work together", jp: '一緒に取り組みましょう' },
     heading: { en: 'Ready to rethink recycling infrastructure?', jp: 'リサイクルインフラを再考する準備ができていますか？' },
     body: { en: "Whether you're a potential partner or an investor, we want to hear from you.", jp: 'パートナー候補の方も、投資家の方も、ぜひご連絡ください。' },
     ctaPrimary: { en: 'Apply for Pilot', jp: 'パイロットを申請する' },

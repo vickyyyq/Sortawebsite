@@ -12,10 +12,10 @@ export default function WhyNow() {
   ];
 
   return (
-    <section id="why-now" className="bg-[var(--color-fog)] section-padding">
+    <section id="why-now" className="bg-white section-padding section-divider">
       <div className="max-w-[1200px] mx-auto px-5">
-        <div className="text-center mb-16 animate-in fade-in slide-in-from-bottom-8 duration-700">
-          <span className="text-[var(--color-gold)] text-label mb-4 block">
+        <div className="mb-14 animate-in fade-in slide-in-from-bottom-8 duration-700">
+          <span className="text-[var(--color-sky)] text-label mb-3 block">
             {tr('whyNow', 'overline')}
           </span>
           <h2>
@@ -23,17 +23,15 @@ export default function WhyNow() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--color-mist)] border border-[var(--color-mist)] rounded-sm overflow-hidden mb-14">
           {points.map((point, index) => (
             <div
               key={index}
-              className="bg-white p-8 rounded-xl border border-[var(--color-mist)] shadow-sm animate-in fade-in slide-in-from-bottom-8 duration-700"
+              className="bg-white p-8 md:p-10 animate-in fade-in slide-in-from-bottom-8 duration-700"
               style={{ animationDelay: `${100 + index * 100}ms` }}
             >
-              <div className="w-12 h-12 bg-[var(--color-mist)]/30 rounded-lg flex items-center justify-center mb-6">
-                <point.icon size={24} className="text-[var(--color-sky)]" />
-              </div>
-              <h4 className="mb-4">{tr('whyNow', point.labelKey)}</h4>
+              <point.icon size={24} className="text-[var(--color-sky)] mb-5" strokeWidth={1.5} />
+              <h4 className="mb-3 text-base">{tr('whyNow', point.labelKey)}</h4>
               <p className="text-[var(--color-text-muted)] text-sm leading-relaxed">
                 {tr('whyNow', point.bodyKey)}
               </p>
@@ -41,8 +39,8 @@ export default function WhyNow() {
           ))}
         </div>
 
-        <div className="text-center max-w-3xl mx-auto animate-in fade-in duration-700 delay-400">
-          <h3 className="text-[var(--color-navy)] font-extrabold px-6 py-8 border-y-2 border-[var(--color-mist)]">
+        <div className="animate-in fade-in duration-700 delay-400">
+          <h3 className="text-[var(--color-navy)] font-extrabold border-l-4 border-[var(--color-sky)] pl-6 py-2 leading-tight">
             {tr('whyNow', 'closing')}
           </h3>
         </div>

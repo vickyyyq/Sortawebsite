@@ -18,10 +18,10 @@ export default function Team() {
   ];
 
   return (
-    <section id="team" className="bg-white section-padding">
+    <section id="team" className="bg-white section-padding section-divider">
       <div className="max-w-[1200px] mx-auto px-5">
-        <div className="text-center mb-16 animate-in fade-in slide-in-from-bottom-8 duration-700">
-          <span className="text-[var(--color-gold)] text-label mb-4 block">
+        <div className="mb-14 animate-in fade-in slide-in-from-bottom-8 duration-700">
+          <span className="text-[var(--color-sky)] text-label mb-3 block">
             {tr('team', 'overline')}
           </span>
           <h2>
@@ -29,22 +29,26 @@ export default function Team() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[var(--color-mist)] border border-[var(--color-mist)] rounded-sm overflow-hidden mb-16">
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="bg-white border border-[var(--color-mist)] p-8 rounded-xl flex flex-col items-center text-center shadow-sm animate-in fade-in slide-in-from-bottom-8 duration-700"
+              className="bg-white p-10 flex gap-6 animate-in fade-in slide-in-from-bottom-8 duration-700"
               style={{ animationDelay: `${100 + index * 100}ms` }}
             >
-              <div className="w-[120px] h-[120px] rounded-full overflow-hidden border-4 border-[var(--color-fog)] mb-6 bg-[var(--color-mist)]">
-                <img src="https://placehold.co/120x120/CDDFED/121C29?text=Photo" alt={member.name} className="w-full h-full object-cover" />
+              <div className="w-[80px] h-[80px] flex-shrink-0 rounded-sm overflow-hidden border border-[var(--color-mist)]">
+                <img
+                  src="https://placehold.co/80x80/EDF7FD/00A5E5?text=+"
+                  alt={member.name}
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <h3 className="mb-1">{member.name}</h3>
-              <div className="text-[var(--color-sky)] font-semibold text-sm uppercase tracking-wider mb-4">
-                {member.role}
-              </div>
-              <div className="bg-[var(--color-fog)] p-4 rounded-lg w-full">
-                <p className="text-[var(--color-text-muted)] italic text-sm">
+              <div className="min-w-0">
+                <h4 className="mb-1">{member.name}</h4>
+                <div className="text-[var(--color-sky)] font-semibold text-xs uppercase tracking-wider mb-3">
+                  {member.role}
+                </div>
+                <p className="text-[var(--color-text-muted)] text-sm leading-relaxed italic">
                   {member.bio}
                 </p>
               </div>
@@ -52,8 +56,8 @@ export default function Team() {
           ))}
         </div>
 
-        <div className="text-center animate-in fade-in duration-700 delay-300">
-          <p className="text-[var(--color-text-muted)] font-medium text-lg border-t border-[var(--color-mist)] pt-12 inline-block max-w-2xl">
+        <div className="animate-in fade-in duration-700 delay-300">
+          <p className="text-[var(--color-text-muted)] text-sm">
             {tr('team', 'hiring')}
             {' '}
             <a href="mailto:hello@sorta.co" className="text-[var(--color-sky)] hover:underline font-bold" data-testid="link-team-email">

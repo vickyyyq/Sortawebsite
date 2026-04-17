@@ -13,35 +13,31 @@ export default function ValueProp() {
   ];
 
   return (
-    <section id="value" className="bg-[var(--color-fog)] section-padding">
+    <section id="value" className="bg-white section-padding section-divider">
       <div className="max-w-[1200px] mx-auto px-5">
-        <div className="max-w-3xl mb-16 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both">
-          <span className="text-[var(--color-gold)] text-label mb-4 block">
-            {tr('valueProp', 'overline')}
-          </span>
-          <h2>
-            {tr('valueProp', 'heading')}
-          </h2>
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-14 gap-6">
+          <div className="max-w-xl">
+            <span className="text-[var(--color-sky)] text-label mb-3 block">
+              {tr('valueProp', 'overline')}
+            </span>
+            <h2>
+              {tr('valueProp', 'heading')}
+            </h2>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[var(--color-mist)] border border-[var(--color-mist)] rounded-sm overflow-hidden">
           {pillars.map((pillar, index) => (
             <div
               key={index}
-              className="bg-white border border-[var(--color-mist)] p-8 md:p-10 rounded-xl relative overflow-hidden group animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both"
+              className="bg-white p-10 md:p-12 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both"
               style={{ animationDelay: `${100 + index * 100}ms` }}
             >
-              <div className="absolute -right-8 -top-8 text-[var(--color-gold)] opacity-[0.03] transition-transform duration-500 group-hover:scale-110">
-                <pillar.icon size={200} />
+              <div className="w-10 h-10 flex items-center justify-center mb-6 border border-[var(--color-sky)]/30 rounded-sm">
+                <pillar.icon className="text-[var(--color-sky)]" size={20} strokeWidth={1.5} />
               </div>
-
-              <div className="relative z-10">
-                <div className="w-14 h-14 rounded-full bg-[var(--color-gold)]/15 flex items-center justify-center mb-6">
-                  <pillar.icon className="text-[var(--color-gold)]" size={28} />
-                </div>
-                <h4 className="mb-4">{tr('valueProp', pillar.titleKey)}</h4>
-                <p className="text-[var(--color-text-muted)]">{tr('valueProp', pillar.descKey)}</p>
-              </div>
+              <h4 className="mb-3">{tr('valueProp', pillar.titleKey)}</h4>
+              <p className="text-[var(--color-text-muted)] text-sm leading-relaxed">{tr('valueProp', pillar.descKey)}</p>
             </div>
           ))}
         </div>

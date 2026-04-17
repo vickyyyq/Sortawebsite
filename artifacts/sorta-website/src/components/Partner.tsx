@@ -87,7 +87,7 @@ export default function Partner() {
   ];
 
   return (
-    <section id="partner" className="bg-[var(--color-navy)] text-white section-padding">
+    <section id="partner" className="bg-white section-padding section-divider">
       <div className="max-w-[1200px] mx-auto px-5">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
 
@@ -95,24 +95,27 @@ export default function Partner() {
             <span className="text-[var(--color-sky)] text-label mb-4 block">
               {tr('partner', 'overline')}
             </span>
-            <h2 className="text-white mb-6">
+            <h2 className="text-[var(--color-navy)] mb-6">
               {tr('partner', 'heading')}
             </h2>
-            <p className="text-lg text-[var(--color-mist)] opacity-90 mb-10">
+            <p className="text-lg text-[var(--color-text-muted)] mb-10">
               {tr('partner', 'body')}
             </p>
 
-            <div className="space-y-6">
+            <div className="space-y-5">
               {bullets.map((key) => (
                 <div key={key} className="flex gap-4">
-                  <CheckCircle2 className="text-[var(--color-gold)] shrink-0 mt-1" size={24} />
-                  <p className="font-medium text-lg">{tr('partner', key)}</p>
+                  <CheckCircle2 className="text-[var(--color-sky)] shrink-0 mt-0.5" size={20} strokeWidth={2} />
+                  <p className="font-medium">{tr('partner', key)}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="bg-[#1A2635] p-8 md:p-10 rounded-xl border border-[var(--color-mist)]/20 animate-in fade-in duration-1000 delay-300 fill-mode-both">
+          <div
+            className="p-8 md:p-10 rounded-sm border border-[var(--color-mist)] animate-in fade-in duration-1000 delay-300 fill-mode-both"
+            style={{ background: 'var(--color-sky-wash)' }}
+          >
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
 
@@ -121,9 +124,9 @@ export default function Partner() {
                   name="companyName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-[var(--color-mist)]">{tr('partner', 'formCompany')}</FormLabel>
+                      <FormLabel className="text-[var(--color-navy)] text-xs font-semibold tracking-wider uppercase">{tr('partner', 'formCompany')}</FormLabel>
                       <FormControl>
-                        <Input className="bg-[var(--color-navy)] border-[var(--color-mist)]/30 text-white focus-visible:ring-[var(--color-gold)]" {...field} data-testid="input-partner-company" />
+                        <Input className="bg-white border-[var(--color-mist)] text-[var(--color-navy)] focus-visible:ring-[var(--color-sky)] rounded-sm" {...field} data-testid="input-partner-company" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -136,10 +139,10 @@ export default function Partner() {
                     name="industry"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-[var(--color-mist)]">{tr('partner', 'formIndustry')}</FormLabel>
+                        <FormLabel className="text-[var(--color-navy)] text-xs font-semibold tracking-wider uppercase">{tr('partner', 'formIndustry')}</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
-                            <SelectTrigger className="bg-[var(--color-navy)] border-[var(--color-mist)]/30 text-white focus:ring-[var(--color-gold)]" data-testid="select-partner-industry">
+                            <SelectTrigger className="bg-white border-[var(--color-mist)] text-[var(--color-navy)] focus:ring-[var(--color-sky)] rounded-sm" data-testid="select-partner-industry">
                               <SelectValue placeholder={tr('partner', 'formSelect')} />
                             </SelectTrigger>
                           </FormControl>
@@ -161,10 +164,10 @@ export default function Partner() {
                     name="spaceType"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-[var(--color-mist)]">{tr('partner', 'formSpaceType')}</FormLabel>
+                        <FormLabel className="text-[var(--color-navy)] text-xs font-semibold tracking-wider uppercase">{tr('partner', 'formSpaceType')}</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
-                            <SelectTrigger className="bg-[var(--color-navy)] border-[var(--color-mist)]/30 text-white focus:ring-[var(--color-gold)]" data-testid="select-partner-space">
+                            <SelectTrigger className="bg-white border-[var(--color-mist)] text-[var(--color-navy)] focus:ring-[var(--color-sky)] rounded-sm" data-testid="select-partner-space">
                               <SelectValue placeholder={tr('partner', 'formSelect')} />
                             </SelectTrigger>
                           </FormControl>
@@ -188,9 +191,9 @@ export default function Partner() {
                     name="location"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-[var(--color-mist)]">{tr('partner', 'formLocation')}</FormLabel>
+                        <FormLabel className="text-[var(--color-navy)] text-xs font-semibold tracking-wider uppercase">{tr('partner', 'formLocation')}</FormLabel>
                         <FormControl>
-                          <Input className="bg-[var(--color-navy)] border-[var(--color-mist)]/30 text-white focus-visible:ring-[var(--color-gold)]" {...field} data-testid="input-partner-location" />
+                          <Input className="bg-white border-[var(--color-mist)] text-[var(--color-navy)] focus-visible:ring-[var(--color-sky)] rounded-sm" {...field} data-testid="input-partner-location" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -202,9 +205,9 @@ export default function Partner() {
                     name="footfall"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-[var(--color-mist)]">{tr('partner', 'formFootfall')}</FormLabel>
+                        <FormLabel className="text-[var(--color-navy)] text-xs font-semibold tracking-wider uppercase">{tr('partner', 'formFootfall')}</FormLabel>
                         <FormControl>
-                          <Input className="bg-[var(--color-navy)] border-[var(--color-mist)]/30 text-white focus-visible:ring-[var(--color-gold)]" {...field} data-testid="input-partner-footfall" />
+                          <Input className="bg-white border-[var(--color-mist)] text-[var(--color-navy)] focus-visible:ring-[var(--color-sky)] rounded-sm" {...field} data-testid="input-partner-footfall" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -218,9 +221,9 @@ export default function Partner() {
                     name="contactName"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-[var(--color-mist)]">{tr('partner', 'formContact')}</FormLabel>
+                        <FormLabel className="text-[var(--color-navy)] text-xs font-semibold tracking-wider uppercase">{tr('partner', 'formContact')}</FormLabel>
                         <FormControl>
-                          <Input className="bg-[var(--color-navy)] border-[var(--color-mist)]/30 text-white focus-visible:ring-[var(--color-gold)]" {...field} data-testid="input-partner-contact" />
+                          <Input className="bg-white border-[var(--color-mist)] text-[var(--color-navy)] focus-visible:ring-[var(--color-sky)] rounded-sm" {...field} data-testid="input-partner-contact" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -232,9 +235,9 @@ export default function Partner() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-[var(--color-mist)]">{tr('partner', 'formEmail')}</FormLabel>
+                        <FormLabel className="text-[var(--color-navy)] text-xs font-semibold tracking-wider uppercase">{tr('partner', 'formEmail')}</FormLabel>
                         <FormControl>
-                          <Input type="email" className="bg-[var(--color-navy)] border-[var(--color-mist)]/30 text-white focus-visible:ring-[var(--color-gold)]" {...field} data-testid="input-partner-email" />
+                          <Input type="email" className="bg-white border-[var(--color-mist)] text-[var(--color-navy)] focus-visible:ring-[var(--color-sky)] rounded-sm" {...field} data-testid="input-partner-email" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -247,9 +250,9 @@ export default function Partner() {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-[var(--color-mist)]">{tr('partner', 'formMessage')}</FormLabel>
+                      <FormLabel className="text-[var(--color-navy)] text-xs font-semibold tracking-wider uppercase">{tr('partner', 'formMessage')}</FormLabel>
                       <FormControl>
-                        <Textarea className="bg-[var(--color-navy)] border-[var(--color-mist)]/30 text-white focus-visible:ring-[var(--color-gold)] resize-none" rows={3} {...field} data-testid="input-partner-message" />
+                        <Textarea className="bg-white border-[var(--color-mist)] text-[var(--color-navy)] focus-visible:ring-[var(--color-sky)] resize-none rounded-sm" rows={3} {...field} data-testid="input-partner-message" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -259,17 +262,17 @@ export default function Partner() {
                 <div className="pt-4 flex flex-col items-start gap-4">
                   <Button
                     type="submit"
-                    className="bg-[var(--color-gold)] text-[var(--color-navy)] hover:bg-[var(--color-gold)]/90 font-bold px-8 py-6 text-lg w-full md:w-auto"
+                    className="bg-[var(--color-sky)] text-white hover:bg-[var(--color-sky)]/90 font-bold px-8 py-6 text-base w-full md:w-auto rounded-sm"
                     data-testid="button-partner-submit"
                   >
                     {tr('partner', 'ctaPrimary')}
                   </Button>
                   <button
                     type="button"
-                    className="text-[var(--color-sky)] hover:text-white flex items-center gap-2 text-sm font-semibold transition-colors mt-2"
+                    className="text-[var(--color-text-muted)] hover:text-[var(--color-navy)] flex items-center gap-2 text-sm font-semibold transition-colors"
                     data-testid="button-partner-poc"
                   >
-                    {tr('partner', 'ctaSecondary')} <ArrowRight size={16} />
+                    {tr('partner', 'ctaSecondary')} <ArrowRight size={14} />
                   </button>
                 </div>
               </form>
