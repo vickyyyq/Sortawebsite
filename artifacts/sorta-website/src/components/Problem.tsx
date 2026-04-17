@@ -1,9 +1,15 @@
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Droplet, Grid3X3, DollarSign } from 'lucide-react';
+import { Users, BarChart2, HardHat } from 'lucide-react';
 
 export default function Problem() {
   const { tr } = useLanguage();
+
+  const stats = [
+    { valueKey: 'stat1Value' as const, labelKey: 'stat1Label' as const },
+    { valueKey: 'stat2Value' as const, labelKey: 'stat2Label' as const },
+    { valueKey: 'stat3Value' as const, labelKey: 'stat3Label' as const },
+  ];
 
   return (
     <section id="problem" className="bg-white section-padding section-divider">
@@ -22,27 +28,16 @@ export default function Problem() {
 
         {/* Stat cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--color-mist)] mb-20 border border-[var(--color-mist)] rounded-sm overflow-hidden">
-          {(
-            [
-              { stat: '[STAT]%', labelKey: 'stat1Label' },
-              { stat: '[STAT]%', labelKey: 'stat2Label' },
-              { stat: '$[STAT]B', labelKey: 'stat3Label' },
-            ] as const
-          ).map((item, index) => (
+          {stats.map((item, index) => (
             <div
               key={index}
               className="bg-white p-8 md:p-10 flex flex-col justify-between animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both"
               style={{ animationDelay: `${150 + index * 100}ms` }}
             >
-              <div>
-                <div className="text-[var(--color-sky)] font-heading font-extrabold text-5xl md:text-6xl mb-1" style={{ letterSpacing: '-0.02em' }}>
-                  {item.stat}
-                </div>
-                <div className="text-[var(--color-text-muted)] text-xs mb-4 italic">
-                  {tr('problem', 'dataPlaceholder')}
-                </div>
+              <div className="text-[var(--color-navy)] font-heading font-extrabold text-5xl md:text-6xl mb-4" style={{ letterSpacing: '-0.02em' }}>
+                {tr('problem', item.valueKey)}
               </div>
-              <p className="font-semibold text-sm text-[var(--color-navy)]">{tr('problem', item.labelKey)}</p>
+              <p className="font-semibold text-sm text-[var(--color-text-muted)]">{tr('problem', item.labelKey)}</p>
             </div>
           ))}
         </div>
@@ -51,9 +46,9 @@ export default function Problem() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16">
           {(
             [
-              { icon: <Droplet size={28} className="text-[var(--color-sky)] mb-5" />, titleKey: 'point1Title', bodyKey: 'point1Body' },
-              { icon: <Grid3X3 size={28} className="text-[var(--color-sky)] mb-5" />, titleKey: 'point2Title', bodyKey: 'point2Body' },
-              { icon: <DollarSign size={28} className="text-[var(--color-sky)] mb-5" />, titleKey: 'point3Title', bodyKey: 'point3Body' },
+              { icon: <BarChart2 size={24} className="text-[var(--color-sky)] mb-5" strokeWidth={1.5} />, titleKey: 'point1Title', bodyKey: 'point1Body' },
+              { icon: <Users size={24} className="text-[var(--color-sky)] mb-5" strokeWidth={1.5} />, titleKey: 'point2Title', bodyKey: 'point2Body' },
+              { icon: <HardHat size={24} className="text-[var(--color-sky)] mb-5" strokeWidth={1.5} />, titleKey: 'point3Title', bodyKey: 'point3Body' },
             ] as const
           ).map((item, index) => (
             <div
