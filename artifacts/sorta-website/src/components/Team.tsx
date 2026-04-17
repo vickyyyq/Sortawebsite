@@ -25,7 +25,7 @@ export default function Team() {
       bioKey: 'member1Bio',
     },
     {
-      photo: null,
+      photo: '/justin_photo.jpg',
       nameNode:
         language === 'jp' ? (
           <><ruby>林<rt>ハヤシ</rt></ruby> ジャスティン</>
@@ -36,7 +36,7 @@ export default function Team() {
       bioKey: 'member2Bio',
     },
     {
-      photo: null,
+      photo: '/vicky_photo.jpg',
       nameNode:
         language === 'jp' ? (
           <><ruby>楊<rt>ヨー</rt></ruby> <ruby>韻琦<rt>ユンチー</rt></ruby></>
@@ -67,7 +67,7 @@ export default function Team() {
               className="bg-white p-10 flex flex-col animate-in fade-in slide-in-from-bottom-8 duration-700"
               style={{ animationDelay: `${100 + index * 100}ms` }}
             >
-              <div className="w-[64px] h-[64px] flex-shrink-0 rounded-sm overflow-hidden border border-[var(--color-mist)] mb-6">
+              <div className="w-[72px] h-[72px] flex-shrink-0 rounded-full overflow-hidden border border-[var(--color-mist)] mb-6">
                 {member.photo ? (
                   <img
                     src={member.photo}
