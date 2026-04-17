@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@700;800&family=Quicksand:wght@400;500;600&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--color-fog);
+  --color-foreground: var(--color-navy);
+  --color-border: var(--color-mist);
+  --color-input: var(--color-mist);
+  --color-ring: var(--color-gold);
+
+  --color-card: var(--color-bg-surface);
+  --color-card-foreground: var(--color-navy);
+  --color-card-border: var(--color-mist);
+
+  --color-popover: var(--color-bg-surface);
+  --color-popover-foreground: var(--color-navy);
+  --color-popover-border: var(--color-mist);
+
+  --color-primary: var(--color-gold);
+  --color-primary-foreground: var(--color-navy);
+  --color-primary-border: var(--color-gold);
+
+  --color-secondary: transparent;
+  --color-secondary-foreground: var(--color-navy);
+  --color-secondary-border: var(--color-navy);
+
+  --color-muted: var(--color-mist);
+  --color-muted-foreground: var(--color-text-muted);
+  --color-muted-border: var(--color-mist);
+
+  --color-accent: var(--color-sky);
+  --color-accent-foreground: var(--color-text-on-dark);
+  --color-accent-border: var(--color-sky);
+
+  --color-destructive: hsl(0 84.2% 60.2%);
+  --color-destructive-foreground: hsl(0 0% 98%);
+  --color-destructive-border: hsl(0 84.2% 60.2%);
+
+  --font-sans: 'Quicksand', sans-serif;
+  --font-heading: 'Rethink Sans', sans-serif;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+}
+
+:root {
+  --color-gold: #E1A200;
+  --color-sky: #00A5E5;
+  --color-navy: #121C29;
+  --color-mist: #CDDFED;
+  --color-fog: #F4F9FF;
+  --color-bg-page: var(--color-fog);
+  --color-bg-dark: var(--color-navy);
+  --color-bg-surface: #FFFFFF;
+  --color-accent-primary: var(--color-gold);
+  --color-accent-secondary: var(--color-sky);
+  --color-border: var(--color-mist);
+  --color-text-on-dark: #FFFFFF;
+  --color-text-body: var(--color-navy);
+  --color-text-muted: #4A6070;
+
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 48px;
+  --space-xl: 80px;
+  --space-xxl: 120px;
+}
+
+.dark {
+  /* same as light for this site unless specified */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    color: var(--color-navy);
+  }
+
+  h1 {
+    font-size: 36px;
+    line-height: 1.1;
+  }
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 56px;
+    }
+  }
+
+  h2 {
+    font-size: 28px;
+    line-height: 1.15;
+  }
+  @media (min-width: 768px) {
+    h2 {
+      font-size: 40px;
+    }
+  }
+
+  h3 {
+    font-size: 22px;
+    line-height: 1.2;
+  }
+  @media (min-width: 768px) {
+    h3 {
+      font-size: 28px;
+    }
+  }
+
+  h4 {
+    font-size: 18px;
+    line-height: 1.25;
+  }
+  @media (min-width: 768px) {
+    h4 {
+      font-size: 20px;
+    }
+  }
+
+  p, li {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--color-navy);
+  }
+}
+
+@layer utilities {
+  .text-large {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+  .text-small {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+  .text-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .section-padding {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+  }
+}
