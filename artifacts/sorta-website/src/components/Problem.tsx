@@ -33,17 +33,19 @@ export default function Problem() {
             <div
               key={index}
               className="relative p-8 md:p-10 flex flex-col justify-between animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both overflow-hidden min-h-[180px]"
-              style={{
-                animationDelay: `${150 + index * 100}ms`,
-                backgroundImage: `url(${item.bg})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              }}
+              style={{ animationDelay: `${150 + index * 100}ms` }}
             >
-              <div className="text-[var(--color-navy)] font-heading font-extrabold text-5xl md:text-6xl mb-4" style={{ letterSpacing: '-0.02em' }}>
+              <img
+                src={item.bg}
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover rotate-90 md:rotate-0 pointer-events-none select-none"
+                style={{ mixBlendMode: 'screen' }}
+              />
+              <div className="relative z-10 text-[var(--color-navy)] font-heading font-extrabold text-5xl md:text-6xl mb-4" style={{ letterSpacing: '-0.02em' }}>
                 {tr('problem', item.valueKey)}
               </div>
-              <p className="font-semibold text-sm text-[var(--color-text-muted)]">{tr('problem', item.labelKey)}</p>
+              <p className="relative z-10 font-semibold text-sm text-[var(--color-text-muted)]">{tr('problem', item.labelKey)}</p>
             </div>
           ))}
         </div>
