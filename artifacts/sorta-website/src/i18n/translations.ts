@@ -58,7 +58,7 @@ export const translations = {
     overline: { en: 'Our Approach', jp: '私たちのアプローチ' },
     heading: {
       en: 'Remove human error from the equation — at the bin itself.',
-      jp: 'こうした課題に対しては、廃棄される段階での対応が重要です。',
+      jp: 'リサイクルは、捨てる瞬間で決まる。',
     },
     body: {
       en: 'Sorta is a smart recycling bin that automatically sorts and processes waste to prevent point-of-disposal contamination. By moving critical recycling steps upstream, we deliver cleaner material streams and a more efficient chain — end to end.',
