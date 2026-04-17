@@ -32,8 +32,8 @@ export default function Footer() {
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               style={{ cursor: 'pointer' }}
             />
-            <a href="mailto:hello@sorta.co" className="text-[var(--color-mist)] hover:text-white transition-colors" data-testid="link-footer-email">
-              hello@sorta.co
+            <a href="mailto:hello@sorta.co.jp" className="text-[var(--color-mist)] hover:text-white transition-colors" data-testid="link-footer-email">
+              hello@sorta.co.jp
             </a>
           </div>
 

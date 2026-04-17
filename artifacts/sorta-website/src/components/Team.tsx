@@ -4,21 +4,46 @@ import { useLanguage } from '@/contexts/LanguageContext';
 export default function Team() {
   const { tr, language } = useLanguage();
 
-  const teamMembers = [
+  type Member = {
+    photo: string | null;
+    nameNode: React.ReactNode;
+    roleKey: 'member1Role' | 'member2Role' | 'member3Role';
+    bioKey: 'member1Bio' | 'member2Bio' | 'member3Bio';
+  };
+
+  const teamMembers: Member[] = [
     {
-      name: tr('team', 'member1Name'),
-      role: tr('team', 'member1Role'),
-      bio: tr('team', 'member1Bio'),
+      photo: '/amber_photo.jpg',
+      nameNode:
+        language === 'jp' ? (
+          <><ruby>倉増<rt>クラマス</rt></ruby> アンバー</>
+        ) : (
+          'Amber Kuramasu'
+        ),
+      roleKey: 'member1Role',
+      bioKey: 'member1Bio',
     },
     {
-      name: tr('team', 'member2Name'),
-      role: tr('team', 'member2Role'),
-      bio: tr('team', 'member2Bio'),
+      photo: null,
+      nameNode:
+        language === 'jp' ? (
+          <><ruby>林<rt>ハヤシ</rt></ruby> ジャスティン</>
+        ) : (
+          'Justin Lin'
+        ),
+      roleKey: 'member2Role',
+      bioKey: 'member2Bio',
     },
     {
-      name: tr('team', 'member3Name'),
-      role: tr('team', 'member3Role'),
-      bio: tr('team', 'member3Bio'),
+      photo: null,
+      nameNode:
+        language === 'jp' ? (
+          <><ruby>楊<rt>ヨー</rt></ruby> <ruby>韻琦<rt>ユンチー</rt></ruby></>
+        ) : (
+          'Vicky Yang'
+        ),
+      roleKey: 'member3Role',
+      bioKey: 'member3Bio',
     },
   ];
 
@@ -42,18 +67,24 @@ export default function Team() {
               style={{ animationDelay: `${100 + index * 100}ms` }}
             >
               <div className="w-[64px] h-[64px] flex-shrink-0 rounded-sm overflow-hidden border border-[var(--color-mist)] mb-6">
-                <img
-                  src="https://placehold.co/64x64/EDF7FD/00A5E5?text=+"
-                  alt={member.name}
-                  className="w-full h-full object-cover"
-                />
+                {member.photo ? (
+                  <img
+                    src={member.photo}
+                    alt={typeof member.nameNode === 'string' ? member.nameNode : undefined}
+                    className="w-full h-full object-cover object-top"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-[var(--color-sky-wash)] flex items-center justify-center text-[var(--color-sky)] text-sm font-semibold">
+                    +
+                  </div>
+                )}
               </div>
-              <h4 className="mb-1 text-base">{member.name}</h4>
+              <h4 className="mb-1 text-base">{member.nameNode}</h4>
               <div className="text-[var(--color-sky)] font-semibold text-xs uppercase tracking-wider mb-4">
-                {member.role}
+                {tr('team', member.roleKey)}
               </div>
               <p className="text-[var(--color-text-muted)] text-sm leading-relaxed">
-                {member.bio}
+                {tr('team', member.bioKey)}
               </p>
             </div>
           ))}
@@ -63,8 +94,8 @@ export default function Team() {
           <p className="text-[var(--color-text-muted)] text-sm">
             {tr('team', 'hiring')}
             {' '}
-            <a href="mailto:hello@sorta.co" className="text-[var(--color-sky)] hover:underline font-bold" data-testid="link-team-email">
-              hello@sorta.co
+            <a href="mailto:hello@sorta.co.jp" className="text-[var(--color-sky)] hover:underline font-bold" data-testid="link-team-email">
+              hello@sorta.co.jp
             </a>
             {language === 'jp' && ' まで。'}
           </p>
