@@ -28,7 +28,9 @@ export default function Hero() {
           className="text-[var(--color-navy)] max-w-2xl mb-8"
           style={{ fontSize: 'clamp(36px, 5vw, 68px)', letterSpacing: '-0.025em', lineHeight: 1.08 }}
         >
-          {tr('hero', 'headline')}
+          {tr('hero', 'headline').split('\n').map((line, i, arr) => (
+            <React.Fragment key={i}>{line}{i < arr.length - 1 && <br />}</React.Fragment>
+          ))}
         </h1>
 
         <button

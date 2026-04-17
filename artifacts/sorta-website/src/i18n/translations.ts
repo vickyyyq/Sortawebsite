@@ -12,8 +12,8 @@ export const translations = {
   hero: {
     overline: { en: 'NEXT-GENERATION RECYCLING INFRASTRUCTURE', jp: '次世代リサイクルインフラ' },
     headline: {
-      en: 'Solving the recycling issue, right where it starts.',
-      jp: '問題が始まる場所で、リサイクル問題を解決する。',
+      en: 'Solving the recycling issue,\nright where it starts.',
+      jp: '問題が始まる場所で、\nリサイクル問題を解決する。',
     },
     subheadline: {
       en: 'Intelligent sorting and preprocessing at the point of intake. Smarter, cleaner, and more sustainable.',
