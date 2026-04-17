@@ -43,7 +43,7 @@ export default function Nav() {
             <button
               key={link.id}
               onClick={() => scrollTo(link.id)}
-              className="text-[var(--color-text-muted)] hover:text-[var(--color-navy)] text-sm font-semibold tracking-wide transition-colors whitespace-nowrap"
+              className="text-[var(--color-text-muted)] hover:text-[var(--color-navy)] text-[10px] font-bold uppercase tracking-[0.15em] transition-colors whitespace-nowrap"
               data-testid={`link-${link.id}`}
             >
               {tr('nav', link.labelKey)}
