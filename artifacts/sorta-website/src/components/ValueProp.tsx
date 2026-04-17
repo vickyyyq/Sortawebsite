@@ -1,16 +1,16 @@
 import { JpH2 } from '@/components/JpH2';
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Diamond, ArrowDownCircle, Leaf, Recycle } from 'lucide-react';
+import { CloudUpload, CopyCheck, JapaneseYen, Trash2 } from 'lucide-react';
 
 export default function ValueProp() {
   const { tr } = useLanguage();
 
   const pillars = [
-    { icon: Diamond, titleKey: 'pillar1Title' as const, descKey: 'pillar1Body' as const },
-    { icon: ArrowDownCircle, titleKey: 'pillar2Title' as const, descKey: 'pillar2Body' as const },
-    { icon: Leaf, titleKey: 'pillar3Title' as const, descKey: 'pillar3Body' as const },
-    { icon: Recycle, titleKey: 'pillar4Title' as const, descKey: 'pillar4Body' as const },
+    { icon: CloudUpload, titleKey: 'pillar1Title' as const, descKey: 'pillar1Body' as const },
+    { icon: CopyCheck,   titleKey: 'pillar2Title' as const, descKey: 'pillar2Body' as const },
+    { icon: JapaneseYen, titleKey: 'pillar3Title' as const, descKey: 'pillar3Body' as const },
+    { icon: Trash2,      titleKey: 'pillar4Title' as const, descKey: 'pillar4Body' as const },
   ];
 
   return (
