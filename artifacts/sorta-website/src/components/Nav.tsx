@@ -2,15 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Menu, X } from 'lucide-react';
 
-const sortaLogoPath = '/sorta_logo_black.png';
-
 export default function Nav() {
   const { language, toggleLanguage, tr } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -30,7 +28,9 @@ export default function Nav() {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm border-b border-[var(--color-mist)]' : 'bg-white'
+      scrolled
+        ? 'bg-white/95 backdrop-blur-sm shadow-sm border-b border-[var(--color-mist)]'
+        : 'bg-transparent'
     }`}>
       <div className="max-w-[1200px] mx-auto px-5 py-4 flex items-center justify-between">
         <div
@@ -38,7 +38,11 @@ export default function Nav() {
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           data-testid="link-home"
         >
-          <img src={sortaLogoPath} alt="Sorta Logo" className="h-7 md:h-8" />
+          <img
+            src={scrolled ? '/sorta_logo_black.png' : '/sorta_logo_white.png'}
+            alt="Sorta Logo"
+            className="h-7 md:h-8 transition-opacity duration-300"
+          />
         </div>
 
         {/* Desktop Nav */}
@@ -48,7 +52,11 @@ export default function Nav() {
               <button
                 key={link.id}
                 onClick={() => scrollTo(link.id)}
-                className="text-[var(--color-text-muted)] hover:text-[var(--color-navy)] text-sm font-semibold tracking-wide transition-colors"
+                className={`text-sm font-semibold tracking-wide transition-colors ${
+                  scrolled
+                    ? 'text-[var(--color-text-muted)] hover:text-[var(--color-navy)]'
+                    : 'text-white/80 hover:text-white'
+                }`}
                 data-testid={`link-${link.id}`}
               >
                 {tr('nav', link.labelKey)}
@@ -59,14 +67,22 @@ export default function Nav() {
           <div className="flex items-center gap-4">
             <button
               onClick={toggleLanguage}
-              className="text-[var(--color-text-muted)] text-xs font-bold tracking-widest hover:text-[var(--color-navy)] transition-colors"
+              className={`text-xs font-bold tracking-widest transition-colors ${
+                scrolled
+                  ? 'text-[var(--color-text-muted)] hover:text-[var(--color-navy)]'
+                  : 'text-white/70 hover:text-white'
+              }`}
               data-testid="button-lang-toggle"
             >
               {language === 'en' ? 'EN / JP' : 'JP / EN'}
             </button>
             <button
               onClick={() => scrollTo('partner')}
-              className="bg-[var(--color-sky)] text-white font-semibold px-5 py-2 text-sm rounded-sm hover:bg-[var(--color-sky)]/90 transition-colors"
+              className={`font-semibold px-5 py-2 text-sm rounded-sm transition-colors ${
+                scrolled
+                  ? 'bg-[var(--color-sky)] text-white hover:bg-[var(--color-sky)]/90'
+                  : 'bg-white/15 text-white border border-white/40 hover:bg-white/25'
+              }`}
               data-testid="button-nav-cta"
             >
               {tr('nav', 'cta')}
@@ -78,14 +94,16 @@ export default function Nav() {
         <div className="lg:hidden flex items-center gap-4">
           <button
             onClick={toggleLanguage}
-            className="text-[var(--color-text-muted)] text-xs font-bold tracking-widest"
+            className={`text-xs font-bold tracking-widest ${
+              scrolled ? 'text-[var(--color-text-muted)]' : 'text-white/70'
+            }`}
             data-testid="button-lang-toggle-mobile"
           >
             {language === 'en' ? 'EN' : 'JP'}
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="text-[var(--color-navy)] p-2"
+            className={scrolled ? 'text-[var(--color-navy)] p-2' : 'text-white p-2'}
             data-testid="button-mobile-menu"
           >
             {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
