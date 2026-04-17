@@ -6,33 +6,22 @@ export default function Problem() {
   const { tr } = useLanguage();
 
   return (
-    <section id="problem" className="relative section-padding section-divider overflow-hidden">
-      {/* Background image */}
-      <img
-        src="/problem_bg.jpg"
-        alt=""
-        aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover z-0"
-      />
-      {/* Very light overlay to lift contrast slightly without killing the image */}
-      <div className="absolute inset-0 bg-white/20 z-10" />
-
-      <div className="relative z-20 max-w-[1200px] mx-auto px-5">
-        {/* Header */}
+    <section id="problem" className="bg-white section-padding section-divider">
+      <div className="max-w-[1200px] mx-auto px-5">
         <div className="max-w-2xl mb-16 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both">
-          <span className="text-[var(--color-navy)] text-label mb-3 block opacity-70">
+          <span className="text-[var(--color-sky)] text-label mb-3 block">
             {tr('problem', 'overline')}
           </span>
-          <h2 className="text-[var(--color-navy)] mb-5">
+          <h2 className="mb-5">
             {tr('problem', 'heading')}
           </h2>
-          <p className="text-large text-[var(--color-navy)]/70">
+          <p className="text-large text-[var(--color-text-muted)]">
             {tr('problem', 'body')}
           </p>
         </div>
 
-        {/* Stat cards — frosted glass on cyan background */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-20">
+        {/* Stat cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--color-mist)] mb-20 border border-[var(--color-mist)] rounded-sm overflow-hidden">
           {(
             [
               { stat: '[STAT]%', labelKey: 'stat1Label' },
@@ -42,39 +31,39 @@ export default function Problem() {
           ).map((item, index) => (
             <div
               key={index}
-              className="bg-white/70 backdrop-blur-sm p-8 md:p-10 flex flex-col justify-between animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both rounded-sm"
+              className="bg-white p-8 md:p-10 flex flex-col justify-between animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both"
               style={{ animationDelay: `${150 + index * 100}ms` }}
             >
               <div>
-                <div className="text-[var(--color-navy)] font-heading font-extrabold text-5xl md:text-6xl mb-1" style={{ letterSpacing: '-0.02em' }}>
+                <div className="text-[var(--color-sky)] font-heading font-extrabold text-5xl md:text-6xl mb-1" style={{ letterSpacing: '-0.02em' }}>
                   {item.stat}
                 </div>
-                <div className="text-[var(--color-navy)]/50 text-xs mb-4 italic">
+                <div className="text-[var(--color-text-muted)] text-xs mb-4 italic">
                   {tr('problem', 'dataPlaceholder')}
                 </div>
               </div>
-              <p className="font-semibold text-sm text-[var(--color-navy)]/80">{tr('problem', item.labelKey)}</p>
+              <p className="font-semibold text-sm text-[var(--color-navy)]">{tr('problem', item.labelKey)}</p>
             </div>
           ))}
         </div>
 
-        {/* Problem points — white pill cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+        {/* Problem points */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16">
           {(
             [
-              { icon: <Droplet size={24} className="text-[var(--color-navy)] mb-5 opacity-60" />, titleKey: 'point1Title', bodyKey: 'point1Body' },
-              { icon: <Grid3X3 size={24} className="text-[var(--color-navy)] mb-5 opacity-60" />, titleKey: 'point2Title', bodyKey: 'point2Body' },
-              { icon: <DollarSign size={24} className="text-[var(--color-navy)] mb-5 opacity-60" />, titleKey: 'point3Title', bodyKey: 'point3Body' },
+              { icon: <Droplet size={28} className="text-[var(--color-sky)] mb-5" />, titleKey: 'point1Title', bodyKey: 'point1Body' },
+              { icon: <Grid3X3 size={28} className="text-[var(--color-sky)] mb-5" />, titleKey: 'point2Title', bodyKey: 'point2Body' },
+              { icon: <DollarSign size={28} className="text-[var(--color-sky)] mb-5" />, titleKey: 'point3Title', bodyKey: 'point3Body' },
             ] as const
           ).map((item, index) => (
             <div
               key={index}
-              className="bg-white/60 backdrop-blur-sm p-8 rounded-sm animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both"
+              className="animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both"
               style={{ animationDelay: `${200 + index * 100}ms` }}
             >
               {item.icon}
-              <h4 className="mb-3 text-[var(--color-navy)]">{tr('problem', item.titleKey)}</h4>
-              <p className="text-[var(--color-navy)]/65 text-sm leading-relaxed">{tr('problem', item.bodyKey)}</p>
+              <h4 className="mb-3">{tr('problem', item.titleKey)}</h4>
+              <p className="text-[var(--color-text-muted)] text-sm leading-relaxed">{tr('problem', item.bodyKey)}</p>
             </div>
           ))}
         </div>
