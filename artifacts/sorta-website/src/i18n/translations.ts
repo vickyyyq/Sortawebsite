@@ -184,6 +184,8 @@ export const translations = {
     ctaSecondary: { en: 'Start a PoC discussion', jp: 'PoC相談を始める' },
     toastTitle: { en: 'Application Submitted', jp: '申請を受け付けました' },
     toastDescription: { en: "Thank you for your interest. We'll be in touch shortly.", jp: 'ご関心をお寄せいただきありがとうございます。追ってご連絡いたします。' },
+    toastErrorTitle: { en: 'Something went wrong', jp: '送信に失敗しました' },
+    toastErrorDescription: { en: 'Please email us directly at hello@sorta.co.jp', jp: 'お手数ですが hello@sorta.co.jp まで直接ご連絡ください' },
     validationCompany: { en: 'Company name is required', jp: '会社名を入力してください' },
     validationIndustry: { en: 'Industry is required', jp: '業界を選択してください' },
     validationLocation: { en: 'Location is required', jp: '所在地を入力してください' },

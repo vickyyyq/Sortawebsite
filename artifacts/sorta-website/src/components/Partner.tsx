@@ -71,8 +71,8 @@ export default function Partner() {
       form.reset();
     } catch {
       toast({
-        title: 'Something went wrong',
-        description: 'Please email us directly at hello@sorta.co.jp',
+        title: tr('partner', 'toastErrorTitle'),
+        description: tr('partner', 'toastErrorDescription'),
         variant: 'destructive',
       });
     } finally {
