@@ -1,7 +1,7 @@
 import { JpH2 } from '@/components/JpH2';
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Users, BarChart2, HardHat } from 'lucide-react';
+import { Users, Droplets, HardHat } from 'lucide-react';
 
 export default function Problem() {
   const { tr } = useLanguage();
@@ -47,7 +47,7 @@ export default function Problem() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16">
           {(
             [
-              { icon: <BarChart2 size={24} className="text-[var(--color-sky)] mb-5" strokeWidth={1.5} />, titleKey: 'point1Title', bodyKey: 'point1Body' },
+              { icon: <Droplets size={24} className="text-[var(--color-sky)] mb-5" strokeWidth={1.5} />, titleKey: 'point1Title', bodyKey: 'point1Body' },
               { icon: <Users size={24} className="text-[var(--color-sky)] mb-5" strokeWidth={1.5} />, titleKey: 'point2Title', bodyKey: 'point2Body' },
               { icon: <HardHat size={24} className="text-[var(--color-sky)] mb-5" strokeWidth={1.5} />, titleKey: 'point3Title', bodyKey: 'point3Body' },
             ] as const
