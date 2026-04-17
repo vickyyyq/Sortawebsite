@@ -13,10 +13,23 @@ import Team from '@/components/Team';
 import WhyNow from '@/components/WhyNow';
 import FooterCTA from '@/components/FooterCTA';
 import Footer from '@/components/Footer';
+import { NavigationProvider, useNavigation } from '@/contexts/NavigationContext';
 
-export default function Home() {
+function HomeContent() {
+  const { blurring } = useNavigation();
+
   return (
     <div className="w-full min-h-[100dvh] bg-[var(--color-bg-page)] font-sans text-[var(--color-text-body)] overflow-x-hidden">
+      {/* Blur transition overlay — sits below the nav */}
+      <div
+        className="fixed inset-0 z-[40] pointer-events-none"
+        style={{
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          opacity: blurring ? 1 : 0,
+          transition: 'opacity 280ms ease',
+        }}
+      />
       <Nav />
       <main>
         <Hero />
@@ -34,5 +47,13 @@ export default function Home() {
       </main>
       <Footer />
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <NavigationProvider>
+      <HomeContent />
+    </NavigationProvider>
   );
 }

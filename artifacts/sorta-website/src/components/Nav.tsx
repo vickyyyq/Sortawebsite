@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useNavigation } from '@/contexts/NavigationContext';
 
 export default function Nav() {
   const { language, toggleLanguage, tr } = useLanguage();
+  const { navigateTo } = useNavigation();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -18,10 +20,6 @@ export default function Nav() {
     { id: 'team',      labelKey: 'ourTeam'   as const },
     { id: 'why-now',   labelKey: 'whyNow'    as const },
   ];
-
-  const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -42,7 +40,7 @@ export default function Nav() {
           {navLinks.map((link) => (
             <button
               key={link.id}
-              onClick={() => scrollTo(link.id)}
+              onClick={() => navigateTo(link.id)}
               className="text-[var(--color-text-muted)] hover:text-[var(--color-navy)] text-[10px] font-bold uppercase tracking-[0.15em] transition-colors whitespace-nowrap"
               data-testid={`link-${link.id}`}
             >
@@ -60,7 +58,7 @@ export default function Nav() {
             {language === 'en' ? 'EN / JP' : 'JP / EN'}
           </button>
           <button
-            onClick={() => scrollTo('partner')}
+            onClick={() => navigateTo('partner')}
             className="bg-black/[0.06] hover:bg-black/[0.10] backdrop-blur-sm border border-black/[0.12] text-[var(--color-navy)] text-[10px] font-bold uppercase tracking-[0.15em] px-5 py-2.5 rounded-sm transition-all whitespace-nowrap"
             data-testid="button-nav-cta"
           >
