@@ -38,20 +38,20 @@ export const translations = {
     stat1Value: { en: '<38%', jp: '<38%' },
     stat2Value: { en: '29%', jp: '29%' },
     stat3Value: { en: '91kt', jp: '91kt' },
-    point1Title: { en: 'Poor Sorting & Contamination', jp: '不適切な分別と汚染' },
+    point1Title: { en: 'Poor Sorting & Contamination', jp: '分別と汚れの問題' },
     point1Body: {
       en: '29% contamination rate at public bins. 91,000 tonnes of contaminated PET waste generated yearly — degrading material quality before collection even begins.',
-      jp: '公共ビンでの汚染率は29%。毎年91,000トンの汚染PET廃棄物が発生し、回収前から素材品質を低下させています。',
+      jp: '公共の回収ボックスでは、異物の混入や飲み残しなどが多く見られます。その結果、回収前の段階で資源としての価値が損なわれています。',
     },
-    point2Title: { en: 'Sharp Influx in Tourism', jp: '急増するインバウンド需要' },
+    point2Title: { en: 'Sharp Influx in Tourism', jp: '観光客増加による影響' },
     point2Body: {
       en: '1 in 5 locals put other trash in public recycling bins. 55% of people don\'t fully understand recycling rules — a gap that grows as tourist volumes rise.',
-      jp: '5人に1人が公共リサイクルビンに他のゴミを入れています。55%の人がリサイクルルールを十分に理解しておらず、訪日客の増加とともにこのギャップは拡大しています。',
+      jp: '分別ルールが十分に伝わらないケースも多く、利用者の多様化により現場での対応が難しくなっています。',
     },
-    point3Title: { en: 'Labor-Intensive Recycling', jp: '人手に頼るリサイクル' },
+    point3Title: { en: 'Labor-Intensive Recycling', jp: '人手に依存した処理' },
     point3Body: {
       en: '56% of waste processors report a labor shortage. Manual sorting at facilities is expensive, inconsistent, and unsustainable at the volumes Japan\'s recycling system demands.',
-      jp: '廃棄物処理業者の56%が人手不足を報告しています。施設での手作業による分別はコストが高く、一貫性がなく、日本のリサイクルシステムが求める量には持続不可能です。',
+      jp: '廃棄物処理の現場では人手不足が進んでおり、手作業による選別にはコスト・精度の両面で限界があります。',
     },
   },
   solution: {
