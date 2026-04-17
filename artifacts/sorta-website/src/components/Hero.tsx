@@ -14,7 +14,7 @@ export default function Hero() {
   return (
     <section className="relative w-full bg-white flex flex-col items-center pt-24 pb-16 md:pt-28 md:pb-20 min-h-screen">
       {/* Image — contained with white margins, ~80% width */}
-      <div className="relative w-[82%] mx-auto">
+      <div className="relative w-[93%] mx-auto">
         <img
           src={heroImagePath}
           alt="Sorta hero"
