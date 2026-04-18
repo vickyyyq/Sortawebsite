@@ -22,7 +22,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { CheckCircle2, ArrowRight, AlertCircle } from 'lucide-react';
+import { CheckCircle2, AlertCircle } from 'lucide-react';
 
 type FormStatus = 'idle' | 'success' | 'error';
 
@@ -329,13 +329,6 @@ export default function Partner() {
                   >
                     {submitting ? 'Sending…' : tr('partner', 'ctaPrimary')}
                   </Button>
-                  <button
-                    type="button"
-                    className="text-[var(--color-text-muted)] hover:text-[var(--color-navy)] flex items-center gap-2 text-sm font-semibold transition-colors"
-                    data-testid="button-partner-poc"
-                  >
-                    {tr('partner', 'ctaSecondary')} <ArrowRight size={14} />
-                  </button>
                 </div>
               </form>
             </Form>

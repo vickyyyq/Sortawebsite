@@ -180,7 +180,7 @@ export const translations = {
     spaceOffice: { en: 'Office Building', jp: 'オフィスビル' },
     spaceVenue: { en: 'Event Venue', jp: 'イベント会場' },
     spaceOther: { en: 'Other', jp: 'その他' },
-    ctaPrimary: { en: 'Apply for Pilot', jp: 'パイロットに応募する' },
+    ctaPrimary: { en: 'Submit', jp: '送信する' },
     ctaSecondary: { en: 'Start a PoC discussion', jp: 'PoCについて相談する' },
     toastTitle: { en: 'Application Submitted', jp: '応募を受け付けました' },
     toastDescription: { en: "Thank you for your interest. We'll be in touch shortly.", jp: 'ご関心をお寄せいただきありがとうございます。追ってご連絡いたします。' },
