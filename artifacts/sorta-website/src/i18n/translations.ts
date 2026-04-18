@@ -217,7 +217,7 @@ export const translations = {
   },
   team: {
     overline: { en: 'The Team', jp: 'チーム' },
-    heading: { en: 'Built by people who understand the problem.', jp: '課題を肌で知るメンバーが、ゼロから作っています。' },
+    heading: { en: 'Built by people who understand the problem.', jp: 'Sorta創業メンバー' },
     member1Name: { en: 'Amber Kuramasu', jp: 'Amber Kuramasu' },
     member1Role: { en: 'Business Strategy', jp: 'ビジネス戦略' },
     member1Bio: {
