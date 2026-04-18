@@ -244,10 +244,10 @@ export const translations = {
   whyNow: {
     overline: { en: 'Why Now', jp: 'なぜ今か' },
     heading: { en: 'The infrastructure moment has arrived.', jp: 'インフラを変える、ちょうどいまがその時。' },
-    col1Label: { en: 'Rising sustainability pressure', jp: '高まるサステナビリティ要請' },
+    col1Label: { en: 'Rising sustainability pressure', jp: 'ボトルtoボトルの未達' },
     col1Body: {
       en: 'Extended producer responsibility legislation is expanding in Japan and globally, increasingly liability for material end-of-life outcomes. Brands are under pressure to demonstrate genuine circular impact.',
-      jp: '日本でも世界でも、拡大生産者責任（EPR）に関する規制が広がり、製品の廃棄段階まで企業が責任を負う流れが強まっています。ブランドには、見せかけではない「本物の循環」への実績が求められています。',
+      jp: '日本では、ペットボトルの水平リサイクル拡大に向けた高い目標が掲げられているが、その目標の達成までの道のりがまだ長いです。回収後の技術だけではなく、汚れや異物混入といった回収前の構造的課題に対する根本的な対策がありません。',
     },
     col2Label: { en: 'Sharp influx in tourism', jp: '観光客の急増' },
     col2Body: {
