@@ -204,7 +204,7 @@ export const translations = {
     overline: { en: 'Our Vision', jp: 'ビジョン' },
     statementJP: {
       en: '水平リサイクルが「目標」ではなく、「現実」になる世界を。',
-      jp: '水平リサイクルが「目標」ではなく、\n「あたりまえ」になる社会へ。',
+      jp: '水平リサイクルが「目標」ではなく、\n「現実」になる社会へ。',
     },
     statementEN: {
       en: 'Create a world where horizontal recycling is a reality, not a goal.',
