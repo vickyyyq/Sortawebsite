@@ -324,7 +324,7 @@ export default function Partner() {
                   <Button
                     type="submit"
                     disabled={submitting}
-                    className="bg-[var(--color-sky)] text-white hover:bg-[var(--color-sky)]/90 font-bold px-8 py-6 text-base w-full md:w-auto rounded-sm disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="bg-[var(--color-sky)] text-white hover:bg-[var(--color-sky)]/90 font-bold px-8 py-3 text-base w-full md:w-auto rounded-sm disabled:opacity-60 disabled:cursor-not-allowed"
                     data-testid="button-partner-submit"
                   >
                     {submitting ? 'Sending…' : tr('partner', 'ctaPrimary')}
