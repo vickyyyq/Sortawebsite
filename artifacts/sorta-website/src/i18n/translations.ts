@@ -212,7 +212,7 @@ export const translations = {
     },
     visionPlaceholder: {
       en: 'Today, most PET bottles that get "recycled" are melted down into lower-grade materials. We believe the infrastructure to close that loop already exists — it just needs to start at the bin.',
-      jp: '今、「リサイクルされた」とされるペットボトルの多くは、価値の低い素材へとダウンサイクルされています。資源を資源のまま循環させるインフラは、すでに揃っているはず。あとは、捨てる瞬間から始めるだけです。',
+      jp: '回収されたペットボトルの多くは、一度分解され、原料へと戻されている。しかし本来は、分解せず、そのまま再生することもできる。\n\n高品質を保ったまま、CO₂排出を抑え、コストも下げられる——それが「水平リサイクル」。メーカーの負担を減らし、製品価格を抑え、環境負荷の高い資源輸入への依存も減らしていく。\n\nただ、汚れや異物混入が壁となり、ボトルtoボトルリサイクルはまだ十分に進んでいない。すべては、捨てる瞬間にかかっている。',
     },
   },
   team: {
