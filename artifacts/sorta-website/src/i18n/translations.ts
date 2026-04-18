@@ -112,7 +112,7 @@ export const translations = {
   },
   product: {
     overline: { en: 'The Product', jp: 'プロダクト' },
-    heading: { en: 'One bin. Four functions. Zero contamination.', jp: '1台で4機能。汚染ゼロへ。' },
+    heading: { en: 'One bin. Four functions. Zero contamination.', jp: '4つの機能で、異物混入ゼロへ。' },
     body: {
       en: 'Sorta is a smart recycling bin that detects, sorts, and preprocesses waste at the point of disposal. AI and sensors handle material identification — no reliance on user behavior required.',
       jp: 'Sortaは、捨てるその瞬間に廃棄物を検知し、分別し、前処理するスマートリサイクルボックスです。素材の判別はAIとセンサーが担い、利用者の操作には頼りません。',
