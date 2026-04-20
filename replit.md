@@ -36,6 +36,17 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 ### API Server (`artifacts/api-server`)
 - Express 5, esbuild, Zod validation
 - Routes in `artifacts/api-server/src/routes/`
+- `/api/share/:section` — returns fully-rendered OG-tag HTML for social crawlers
+
+## Bot-Detection Reverse Proxy
+
+Social crawlers (Slack, LINE, Facebook, Twitter/X, LinkedIn, etc.) are intercepted before they reach the React SPA so they receive correct Open Graph meta tags.
+
+**Files:**
+- `Caddyfile` — canonical Caddy reverse-proxy config for self-hosted / custom-domain deployments at sorta.co.jp. Matches known bot user-agents and routes section paths (`/problem`, `/solution`, `/use-cases`, `/team`, `/why-now`, `/contact`, `/`) to `/api/share/:section`.
+- `artifacts/sorta-website/proxy-server.mjs` — zero-extra-dependency Node.js server used by Replit's production deployment. Same bot-detection logic: bots → API OG preview; humans → static SPA files with index.html fallback.
+
+**Production deployment:** The website's `artifact.toml` now runs `proxy-server.mjs` instead of static-file serving, so bot detection is active in every Replit deployment.
 
 ## Key Commands
 
