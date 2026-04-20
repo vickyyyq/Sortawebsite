@@ -78,6 +78,50 @@ router.get("/share", (_req: Request, res: Response) => {
   res.send(buildPreviewHtml(section));
 });
 
+router.get("/og-preview", (_req: Request, res: Response) => {
+  const cards = sections.map((s) => {
+    const label = s.route === "/" ? "/" : s.route;
+    return `
+      <figure style="margin:0;display:flex;flex-direction:column;align-items:center;gap:8px;">
+        <a href="${escapeHtml(s.ogImage)}" target="_blank" rel="noopener" style="display:block;">
+          <img src="${escapeHtml(s.ogImage)}"
+               alt="${escapeHtml(s.title)}"
+               width="560" height="294"
+               style="border-radius:6px;border:1px solid #e2e8f0;max-width:100%;height:auto;display:block;" />
+        </a>
+        <figcaption style="font-family:monospace;font-size:13px;color:#4a5568;background:#f7fafc;padding:3px 10px;border-radius:4px;">
+          ${escapeHtml(label)}
+        </figcaption>
+      </figure>`;
+  });
+
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OG Image Preview — Sorta</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; padding: 32px 24px; background: #f0f4f8; font-family: system-ui, sans-serif; }
+    h1 { font-size: 20px; font-weight: 600; color: #1a202c; margin: 0 0 24px; }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; max-width: 1160px; }
+    @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <h1>OG Image Preview (${sections.length} sections)</h1>
+  <div class="grid">
+    ${cards.join("\n")}
+  </div>
+</body>
+</html>`;
+
+  res.setHeader("Content-Type", "text/html; charset=utf-8");
+  res.setHeader("Cache-Control", "no-store");
+  res.send(html);
+});
+
 router.get("/share-sections", (_req: Request, res: Response) => {
   const result = sections.map((s) => ({
     id: s.route.replace(/^\//, "") || "home",
