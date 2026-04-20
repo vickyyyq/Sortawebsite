@@ -222,7 +222,7 @@ export const translations = {
     member1Role: { en: 'Business Strategy', jp: 'ビジネス戦略' },
     member1Bio: {
       en: 'Leads Sorta\'s commercial strategy, partnership development, and go-to-market planning.',
-      jp: '金融・ゼネコン業界での経営企画の管理職を経て、観光・リテール開発の戦略コンサルに従事。仕事を通じてゴミのインフラ課題に着目し、スマートリサイクルボックス「Sorta」を構想。',
+      jp: '金融・建設ゼネコンでの経営企画を経て、観光地・リテール開発の戦略コンサルに従事。仕事を通じてゴミのインフラ課題に着目し、スマートリサイクルボックス「Sorta」を構想。',
     },
     member2Name: { en: 'Justin Lin', jp: 'Justin Lin' },
     member2Role: { en: 'Mechanics & Engineering', jp: 'ハードウェア開発' },
