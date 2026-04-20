@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Nav from '@/components/Nav';
 import Hero from '@/components/Hero';
 import Problem from '@/components/Problem';
@@ -16,13 +16,28 @@ import Footer from '@/components/Footer';
 import { NavigationProvider, useNavigation } from '@/contexts/NavigationContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-function HomeContent() {
+type HomeContentProps = {
+  initialSection?: string;
+};
+
+function HomeContent({ initialSection }: HomeContentProps) {
   const { blurring } = useNavigation();
   const { language } = useLanguage();
 
+  useEffect(() => {
+    if (!initialSection) return;
+    const scrollToSection = () => {
+      const el = document.getElementById(initialSection);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+    const timer = setTimeout(scrollToSection, 300);
+    return () => clearTimeout(timer);
+  }, [initialSection]);
+
   return (
     <div data-lang={language} className="w-full min-h-[100dvh] bg-[var(--color-bg-page)] font-sans text-[var(--color-text-body)] overflow-x-hidden">
-      {/* Blur transition overlay — sits below the nav */}
       <div
         className="fixed inset-0 z-[40] pointer-events-none"
         style={{
@@ -52,10 +67,14 @@ function HomeContent() {
   );
 }
 
-export default function Home() {
+type HomeProps = {
+  initialSection?: string;
+};
+
+export default function Home({ initialSection }: HomeProps) {
   return (
     <NavigationProvider>
-      <HomeContent />
+      <HomeContent initialSection={initialSection} />
     </NavigationProvider>
   );
 }

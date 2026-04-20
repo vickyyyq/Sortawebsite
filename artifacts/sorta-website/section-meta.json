@@ -1,0 +1,55 @@
+{
+  "baseUrl": "https://sorta.co.jp",
+  "defaultImage": "https://sorta.co.jp/hero_image.jpg",
+  "sections": [
+    {
+      "route": "/",
+      "title": "Sorta — Next-Gen Recycling",
+      "description": "Sortaは、投入された瞬間に自動で分別・前処理を行うスマートリサイクルボックスです。より高精度に、よりクリーンに、より持続可能なリサイクルへ。",
+      "ogImage": "https://sorta.co.jp/hero_image.jpg",
+      "scrollTargetId": null
+    },
+    {
+      "route": "/problem",
+      "title": "リサイクルの課題 — Sorta",
+      "description": "日本のリサイクル率は依然として低迷し、不適切な分別が資源回収の大きな障壁になっています。Sortaはその根本課題を解決します。",
+      "ogImage": "https://sorta.co.jp/hero_image.jpg",
+      "scrollTargetId": "problem"
+    },
+    {
+      "route": "/solution",
+      "title": "AIスマートリサイクルボックス — Sorta",
+      "description": "投入された瞬間に自動で分別・前処理。AIと独自センサーが素材を識別し、より高精度・よりクリーンなリサイクルを実現します。",
+      "ogImage": "https://sorta.co.jp/hero_image.jpg",
+      "scrollTargetId": "solution"
+    },
+    {
+      "route": "/use-cases",
+      "title": "活用シーン — Sorta",
+      "description": "商業施設・オフィス・集合住宅など、さまざまな現場でSortaが自動分別を実現。スタッフの負担を減らし、回収コストを削減します。",
+      "ogImage": "https://sorta.co.jp/hero_image.jpg",
+      "scrollTargetId": "use-cases"
+    },
+    {
+      "route": "/team",
+      "title": "チームを知る — Sorta",
+      "description": "Sortaを作るのはリサイクル・AI・ハードウェアの専門家チームです。持続可能な社会を実現するために日々取り組んでいます。",
+      "ogImage": "https://sorta.co.jp/hero_image.jpg",
+      "scrollTargetId": "team"
+    },
+    {
+      "route": "/why-now",
+      "title": "なぜ今か — Sorta",
+      "description": "規制強化・ESG投資の拡大・廃棄物コストの急上昇。今こそスマートリサイクルが求められる時代です。Sortaが変革をリードします。",
+      "ogImage": "https://sorta.co.jp/hero_image.jpg",
+      "scrollTargetId": "why-now"
+    },
+    {
+      "route": "/contact",
+      "title": "パートナーシップのお問い合わせ — Sorta",
+      "description": "SortaはB2Bパートナーを募集しています。商業施設・自治体・廃棄物処理事業者の方はぜひご連絡ください。",
+      "ogImage": "https://sorta.co.jp/hero_image.jpg",
+      "scrollTargetId": "partner"
+    }
+  ]
+}
