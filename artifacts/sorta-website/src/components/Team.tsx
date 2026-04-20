@@ -79,7 +79,7 @@ export default function Team() {
               <img
                 src={member.flag}
                 alt={member.flagAlt}
-                className="absolute top-4 right-4 w-7 h-auto rounded-sm"
+                className="absolute top-4 right-4 w-7 h-auto rounded-sm border border-[var(--color-mist)]"
               />
               <div className="w-[72px] h-[72px] flex-shrink-0 rounded-full overflow-hidden border border-[var(--color-mist)] mb-6">
                 {member.photo ? (
