@@ -11,6 +11,8 @@ export default function Team() {
     nameNode: React.ReactNode;
     roleKey: 'member1Role' | 'member2Role' | 'member3Role';
     bioKey: 'member1Bio' | 'member2Bio' | 'member3Bio';
+    flag: string;
+    flagAlt: string;
   };
 
   const teamMembers: Member[] = [
@@ -24,6 +26,8 @@ export default function Team() {
         ),
       roleKey: 'member1Role',
       bioKey: 'member1Bio',
+      flag: '/flag_japan.png',
+      flagAlt: 'Japan',
     },
     {
       photo: '/justin_photo.jpg',
@@ -35,6 +39,8 @@ export default function Team() {
         ),
       roleKey: 'member2Role',
       bioKey: 'member2Bio',
+      flag: '/flag_us.png',
+      flagAlt: 'United States',
     },
     {
       photo: '/vicky_photo.jpg',
@@ -46,6 +52,8 @@ export default function Team() {
         ),
       roleKey: 'member3Role',
       bioKey: 'member3Bio',
+      flag: '/flag_us.png',
+      flagAlt: 'United States',
     },
   ];
 
@@ -65,9 +73,14 @@ export default function Team() {
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="bg-white p-10 flex flex-col animate-in fade-in slide-in-from-bottom-8 duration-700"
+              className="relative bg-white p-10 flex flex-col animate-in fade-in slide-in-from-bottom-8 duration-700"
               style={{ animationDelay: `${100 + index * 100}ms` }}
             >
+              <img
+                src={member.flag}
+                alt={member.flagAlt}
+                className="absolute top-4 right-4 w-7 h-auto rounded-sm"
+              />
               <div className="w-[72px] h-[72px] flex-shrink-0 rounded-full overflow-hidden border border-[var(--color-mist)] mb-6">
                 {member.photo ? (
                   <img
