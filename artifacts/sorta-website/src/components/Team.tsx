@@ -76,11 +76,13 @@ export default function Team() {
               className="relative bg-white p-10 flex flex-col animate-in fade-in slide-in-from-bottom-8 duration-700"
               style={{ animationDelay: `${100 + index * 100}ms` }}
             >
-              <img
-                src={member.flag}
-                alt={member.flagAlt}
-                className="absolute top-4 right-4 w-7 h-auto rounded-sm border border-[var(--color-mist)] block"
-              />
+              <div className="absolute top-4 right-4 w-8 rounded-sm border border-[var(--color-mist)] overflow-hidden" style={{ aspectRatio: '3/2' }}>
+                <img
+                  src={member.flag}
+                  alt={member.flagAlt}
+                  className="w-full h-full object-cover block"
+                />
+              </div>
               <div className="w-[72px] h-[72px] flex-shrink-0 rounded-full overflow-hidden border border-[var(--color-mist)] mb-6">
                 {member.photo ? (
                   <img
