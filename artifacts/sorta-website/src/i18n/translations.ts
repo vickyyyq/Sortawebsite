@@ -243,7 +243,7 @@ export const translations = {
   },
   whyNow: {
     overline: { en: 'Why Now', jp: 'なぜ今か' },
-    heading: { en: 'The infrastructure moment has arrived.', jp: '日本のインフラが、もうすぐ100歳になる。老朽化と最適化が急務。' },
+    heading: { en: 'The infrastructure moment has arrived.', jp: '日本のインフラが、もうすぐ100歳になる。老朽化対策と最適化が急務。' },
     col1Label: { en: 'Rising sustainability pressure', jp: 'ボトルtoボトルの未達' },
     col1Body: {
       en: 'Extended producer responsibility legislation is expanding in Japan and globally, increasingly liability for material end-of-life outcomes. Brands are under pressure to demonstrate genuine circular impact.',
