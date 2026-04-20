@@ -13,7 +13,7 @@ export const translations = {
     overline: { en: 'NEXT-GENERATION RECYCLING INFRASTRUCTURE', jp: '次世代のリサイクルインフラ' },
     headline: {
       en: 'Solving the recycling issue,\nright where it starts.',
-      jp: '資源循環は、\n捨てる瞬間から変えていく。',
+      jp: '資源循環を、\n捨てる瞬間から変えていく。',
     },
     subheadline: {
       en: 'Intelligent sorting and preprocessing at the point of intake. Smarter, cleaner, and more sustainable.',
