@@ -110,6 +110,7 @@ type CardType = 'detect' | 'sort' | 'process' | 'monitor';
 interface ProcessCardProps {
   step: number;
   title: string;
+  jpSuffix?: string;
   description: string;
   outcome: string;
   type: CardType;
@@ -119,27 +120,13 @@ interface ProcessCardProps {
   className?: string;
 }
 
-function ProcessCard({ step, title, description, outcome, type, initialAnimate, visible, delay, className = '' }: ProcessCardProps) {
-  const [animKey, setAnimKey] = useState(0);
-  const [hovered, setHovered] = useState(false);
-
-  const handleMouseEnter = () => {
-    setHovered(true);
-    setAnimKey((k) => k + 1);
-  };
-  const handleMouseLeave = () => {
-    setHovered(false);
-  };
-
-  const shouldAnimate = initialAnimate || hovered;
-
+function ProcessCard({ step, title, jpSuffix, description, outcome, type, initialAnimate, visible, delay, className = '' }: ProcessCardProps) {
   const renderIcon = () => {
-    const key = `${type}-${animKey}`;
     switch (type) {
-      case 'detect':  return <DetectIcon key={key} animate={shouldAnimate} />;
-      case 'sort':    return <SortIcon key={key} animate={shouldAnimate} />;
-      case 'process': return <ProcessIcon key={key} animate={hovered} />;
-      case 'monitor': return <MonitorIcon key={key} animate={shouldAnimate} />;
+      case 'detect':  return <DetectIcon animate={initialAnimate} />;
+      case 'sort':    return <SortIcon animate={initialAnimate} />;
+      case 'process': return <ProcessIcon animate={initialAnimate} />;
+      case 'monitor': return <MonitorIcon animate={initialAnimate} />;
     }
   };
 
@@ -153,13 +140,11 @@ function ProcessCard({ step, title, description, outcome, type, initialAnimate, 
         transform: visible ? 'translateY(0)' : 'translateY(28px)',
         transition: `opacity 0.55s ease ${delay}ms, transform 0.55s ease ${delay}ms`,
       }}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
     >
       <div
         className="flex flex-col flex-1"
         style={{
-          background: 'var(--color-fog)',
+          background: '#FFFFFF',
           borderRadius: '24px',
           minHeight: '360px',
           padding: '64px 28px 28px',
@@ -200,6 +185,19 @@ function ProcessCard({ step, title, description, outcome, type, initialAnimate, 
           }}
         >
           {title}
+          {jpSuffix && (
+            <span
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: '16px',
+                fontWeight: 400,
+                marginLeft: '8px',
+                verticalAlign: 'middle',
+              }}
+            >
+              {jpSuffix}
+            </span>
+          )}
         </h3>
 
         <p
@@ -309,40 +307,36 @@ export default function Solution() {
     {
       type: 'detect' as CardType,
       title: tr('solution', 'card1Title'),
+      jpSuffix: tr('solution', 'card1TitleJpSuffix'),
       desc: tr('solution', 'card1Desc'),
       outcome: tr('solution', 'card1Outcome'),
     },
     {
       type: 'sort' as CardType,
       title: tr('solution', 'card2Title'),
+      jpSuffix: tr('solution', 'card2TitleJpSuffix'),
       desc: tr('solution', 'card2Desc'),
       outcome: tr('solution', 'card2Outcome'),
     },
     {
       type: 'process' as CardType,
       title: tr('solution', 'card3Title'),
+      jpSuffix: tr('solution', 'card3TitleJpSuffix'),
       desc: tr('solution', 'card3Desc'),
       outcome: tr('solution', 'card3Outcome'),
     },
     {
       type: 'monitor' as CardType,
       title: tr('solution', 'card4Title'),
+      jpSuffix: tr('solution', 'card4TitleJpSuffix'),
       desc: tr('solution', 'card4Desc'),
       outcome: tr('solution', 'card4Outcome'),
     },
   ];
 
   return (
-    <section ref={sectionRef} id="solution" className="relative section-padding section-divider overflow-hidden">
-      <img
-        src="/problem_bg.jpg"
-        alt=""
-        aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover z-0 opacity-30"
-      />
-      <div className="absolute inset-0 z-10" style={{ background: 'rgba(234, 247, 234, 0.60)' }} />
-
-      <div className="relative z-20 max-w-[1200px] mx-auto px-5">
+    <section ref={sectionRef} id="solution" className="section-padding section-divider" style={{ background: 'var(--color-fog)' }}>
+      <div className="max-w-[1200px] mx-auto px-5">
         <div className="max-w-2xl mb-16 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both">
           <span className="text-[var(--color-navy)] text-label mb-3 block opacity-70">
             {tr('solution', 'overline')}
@@ -368,6 +362,7 @@ export default function Solution() {
             <ProcessCard
               step={1}
               title={cards[0].title}
+              jpSuffix={cards[0].jpSuffix}
               description={cards[0].desc}
               outcome={cards[0].outcome}
               type={cards[0].type}
@@ -380,6 +375,7 @@ export default function Solution() {
             <ProcessCard
               step={2}
               title={cards[1].title}
+              jpSuffix={cards[1].jpSuffix}
               description={cards[1].desc}
               outcome={cards[1].outcome}
               type={cards[1].type}
@@ -396,6 +392,7 @@ export default function Solution() {
             <ProcessCard
               step={3}
               title={cards[2].title}
+              jpSuffix={cards[2].jpSuffix}
               description={cards[2].desc}
               outcome={cards[2].outcome}
               type={cards[2].type}
@@ -408,6 +405,7 @@ export default function Solution() {
             <ProcessCard
               step={4}
               title={cards[3].title}
+              jpSuffix={cards[3].jpSuffix}
               description={cards[3].desc}
               outcome={cards[3].outcome}
               type={cards[3].type}
