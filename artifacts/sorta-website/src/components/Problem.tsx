@@ -3,43 +3,13 @@ import React, { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { RotateCcw } from 'lucide-react';
 
-const metrics = [
-  {
-    value: '29%',
-    label: 'contamination rate at public recycling bins',
-    accent: 'var(--color-sky)',
-    backBg: '#0E3A52',
-    placeholder: '[ Add description / image here ]',
-  },
-  {
-    value: '91kt',
-    label: 'of contaminated PET waste generated yearly',
-    accent: 'var(--color-gold)',
-    backBg: '#1C2C1A',
-    placeholder: '[ Add description / image here ]',
-  },
-  {
-    value: '1 in 5',
-    label: 'locals put other trash in public recycling bins',
-    accent: 'var(--color-sky)',
-    backBg: '#0E3A52',
-    placeholder: '[ Add description / image here ]',
-  },
-  {
-    value: '55%',
-    label: 'of tourists don\'t fully understand recycling rules',
-    accent: 'var(--color-gold)',
-    backBg: '#2C1C0A',
-    placeholder: '[ Add description / image here ]',
-  },
-  {
-    value: '56%',
-    label: 'of waste processors report a labor shortage',
-    accent: 'var(--color-sky)',
-    backBg: '#0E3A52',
-    placeholder: '[ Add description / image here ]',
-  },
-];
+const metaConfig = [
+  { valueKey: 'stat2Value', labelKey: 'stat2Label', accent: 'var(--color-sky)',  backBg: '#0E3A52' },
+  { valueKey: 'stat3Value', labelKey: 'stat3Label', accent: 'var(--color-gold)', backBg: '#1C2C1A' },
+  { valueKey: 'stat4Value', labelKey: 'stat4Label', accent: 'var(--color-sky)',  backBg: '#0E3A52' },
+  { valueKey: 'stat5Value', labelKey: 'stat5Label', accent: 'var(--color-gold)', backBg: '#2C1C0A' },
+  { valueKey: 'stat6Value', labelKey: 'stat6Label', accent: 'var(--color-sky)',  backBg: '#0E3A52' },
+] as const;
 
 export default function Problem() {
   const { tr } = useLanguage();
@@ -53,7 +23,7 @@ export default function Problem() {
     <section id="problem" className="section-padding section-divider bg-white">
       <div className="max-w-[1200px] mx-auto px-5">
 
-        {/* Heading — constrained so it wraps to max 2 lines */}
+        {/* Heading — constrained so it wraps naturally to ~2 lines */}
         <div className="max-w-[640px] mb-14 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both">
           <span className="text-label mb-3 block">
             {tr('problem', 'overline')}
@@ -67,21 +37,27 @@ export default function Problem() {
         </div>
 
         {/* Infographic: bottle + flip cards */}
-        <div className="flex flex-col md:flex-row items-center md:items-stretch gap-10 md:gap-16 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both" style={{ animationDelay: '150ms' }}>
+        <div
+          className="flex flex-col md:flex-row items-center md:items-stretch gap-10 md:gap-16 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both"
+          style={{ animationDelay: '150ms' }}
+        >
 
           {/* Bottle image */}
-          <div className="flex-shrink-0 flex items-center justify-center w-full md:w-[260px]">
+          <div className="flex-shrink-0 flex items-center justify-center w-full md:w-[240px]">
             <img
               src="/bottle-middle.png"
               alt="Sorta recycling bottle"
-              className="w-48 md:w-full max-h-[480px] object-contain drop-shadow-lg select-none"
+              className="w-44 md:w-full max-h-[480px] object-contain drop-shadow-lg select-none"
             />
           </div>
 
           {/* Flip card metrics */}
           <div className="flex-1 flex flex-col gap-3 w-full">
-            {metrics.map((metric, index) => {
+            {metaConfig.map((metric, index) => {
               const isFlipped = flipped === index;
+              const value = tr('problem', metric.valueKey);
+              const label = tr('problem', metric.labelKey);
+
               return (
                 <div
                   key={index}
@@ -111,10 +87,10 @@ export default function Problem() {
                           className="font-heading font-extrabold text-3xl md:text-4xl leading-none mb-1"
                           style={{ color: metric.accent, letterSpacing: '0.02em' }}
                         >
-                          {metric.value}
+                          {value}
                         </div>
                         <p className="text-[var(--color-text-muted)] text-sm leading-snug line-clamp-1">
-                          {metric.label}
+                          {label}
                         </p>
                       </div>
                       <div className="flex-shrink-0 flex flex-col items-center gap-1 text-[var(--color-mist)]">
@@ -140,10 +116,10 @@ export default function Problem() {
                           Image<br />coming<br />soon
                         </span>
                       </div>
-                      {/* Text placeholder */}
+                      {/* Text area */}
                       <div className="flex-1 bg-[var(--color-fog)] flex items-center px-5">
-                        <p className="text-[var(--color-text-muted)] text-sm italic leading-relaxed line-clamp-2">
-                          {metric.placeholder}
+                        <p className="text-[var(--color-text-muted)] text-sm leading-relaxed line-clamp-2">
+                          {value} — {label}
                         </p>
                       </div>
                       {/* Close hint */}
