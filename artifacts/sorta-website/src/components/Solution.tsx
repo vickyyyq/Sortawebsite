@@ -1,7 +1,7 @@
 import { JpH2 } from '@/components/JpH2';
 import React, { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { CheckCircle2 } from 'lucide-react';
+
 
 function DetectIcon({ animate }: { animate: boolean }) {
   return (
@@ -359,17 +359,6 @@ export default function Solution() {
           </div>
         </div>
 
-        {/* Value points */}
-        <div className="flex flex-col md:flex-row justify-start gap-6 md:gap-12 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both delay-400 border-t border-white/40 pt-10">
-          {(
-            ['point1', 'point2', 'point3'] as const
-          ).map((key) => (
-            <div key={key} className="flex items-center gap-3">
-              <CheckCircle2 className="text-[var(--color-navy)]/60 shrink-0" size={20} strokeWidth={2} />
-              <span className="font-semibold text-sm text-[var(--color-navy)]/80">{tr('solution', key)}</span>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
