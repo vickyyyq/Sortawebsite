@@ -6,11 +6,11 @@ const BOTTLE_H = 290; // desktop bottle height px
 const CAP_W = 52;    // desktop cap width px
 
 const metaConfig = [
-  { valueKey: 'stat2Value', labelKey: 'stat2Label', captionKey: 'point1Body', accent: 'var(--color-sky)',  backBg: '#0A2535' },
-  { valueKey: 'stat3Value', labelKey: 'stat3Label', captionKey: 'point1Body', accent: 'var(--color-gold)', backBg: '#1A2710' },
-  { valueKey: 'stat4Value', labelKey: 'stat4Label', captionKey: 'point2Body', accent: 'var(--color-sky)',  backBg: '#0A2535' },
-  { valueKey: 'stat5Value', labelKey: 'stat5Label', captionKey: 'point2Body', accent: 'var(--color-gold)', backBg: '#2C1C0A' },
-  { valueKey: 'stat6Value', labelKey: 'stat6Label', captionKey: 'point3Body', accent: 'var(--color-sky)',  backBg: '#0A2535' },
+  { valueKey: 'stat2Value', labelKey: 'stat2Label', accent: 'var(--color-sky)',  backBg: '#0A2535', backImage: '/stat-contamination.png', backDescKey: 'stat2Back' },
+  { valueKey: 'stat3Value', labelKey: 'stat3Label', accent: 'var(--color-gold)', backBg: '#1A2710', backImage: '/stat-pet-waste.png',     backDescKey: 'stat3Back' },
+  { valueKey: 'stat4Value', labelKey: 'stat4Label', accent: 'var(--color-sky)',  backBg: '#0A2535', backImage: '/stat-misuse.png',        backDescKey: 'stat4Back' },
+  { valueKey: 'stat5Value', labelKey: 'stat5Label', accent: 'var(--color-gold)', backBg: '#2C1C0A', backImage: '/stat-confusion.png',     backDescKey: 'stat5Back' },
+  { valueKey: 'stat6Value', labelKey: 'stat6Label', accent: 'var(--color-sky)',  backBg: '#0A2535', backImage: '/stat-labor.png',         backDescKey: 'stat6Back' },
 ] as const;
 
 export default function Problem() {
@@ -52,7 +52,7 @@ export default function Problem() {
                 const faceRadius = isFirst ? '28px 0 0 28px' : isLast ? '0 28px 28px 0' : '0';
                 const value   = tr('problem', metric.valueKey);
                 const label   = tr('problem', metric.labelKey);
-                const caption = tr('problem', metric.captionKey);
+                const backDesc = tr('problem', metric.backDescKey);
 
                 return (
                   <div
@@ -101,14 +101,18 @@ export default function Problem() {
                           borderRadius: faceRadius,
                         }}
                       >
-                        {/* Placeholder bg — swap for <img> when Task #31 supplies images */}
-                        <div className="absolute inset-0" style={{ background: metric.backBg }} />
+                        {/* Real image tag */}
+                        <img
+                          src={metric.backImage}
+                          alt=""
+                          className="absolute inset-0 w-full h-full object-cover opacity-80"
+                        />
                         {/* Gradient overlay */}
                         <div
                           className="absolute inset-0"
                           style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 60%)' }}
                         />
-                        {/* Caption */}
+                        {/* Description */}
                         <p
                           className="absolute bottom-0 left-0 line-clamp-2"
                           style={{
@@ -119,7 +123,7 @@ export default function Problem() {
                             padding: '20px 24px',
                           }}
                         >
-                          {caption}
+                          {backDesc}
                         </p>
                       </div>
                     </div>
@@ -177,7 +181,7 @@ export default function Problem() {
                 const isTapped = tapped === i;
                 const value    = tr('problem', metric.valueKey);
                 const label    = tr('problem', metric.labelKey);
-                const caption  = tr('problem', metric.captionKey);
+                const backDesc = tr('problem', metric.backDescKey);
 
                 return (
                   <div
@@ -225,7 +229,11 @@ export default function Problem() {
                           borderRadius: faceRadius,
                         }}
                       >
-                        <div className="absolute inset-0" style={{ background: metric.backBg }} />
+                        <img
+                          src={metric.backImage}
+                          alt=""
+                          className="absolute inset-0 w-full h-full object-cover opacity-80"
+                        />
                         <div
                           className="absolute inset-0"
                           style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 60%)' }}
@@ -240,7 +248,7 @@ export default function Problem() {
                             padding: '16px 24px',
                           }}
                         >
-                          {caption}
+                          {backDesc}
                         </p>
                       </div>
                     </div>

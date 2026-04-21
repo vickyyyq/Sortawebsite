@@ -1,0 +1,32 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "2HbnzuYzpZH-gSvb0DobR"
+uri = "file://artifacts/sorta-website/public/stat-contamination.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "ZGpEKF1fgnNVdbE2j3NiM"
+uri = "file://artifacts/sorta-website/public/stat-pet-waste.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "REX7Z8McOyYY7jxVtHD1b"
+uri = "file://artifacts/sorta-website/public/stat-misuse.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "bQOOIide_bsezqVuqY4Fv"
+uri = "file://artifacts/sorta-website/public/stat-confusion.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "uE7DG3CaxAuYedoZDeLOk"
+uri = "file://artifacts/sorta-website/public/stat-labor.png"
+type = "image"
+title = "generated_image"
