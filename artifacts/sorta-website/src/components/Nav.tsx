@@ -74,7 +74,7 @@ export default function Nav() {
             </button>
             <button
               onClick={() => navigateTo('partner')}
-              className="bg-[var(--color-gold)] hover:bg-[var(--color-gold)]/90 text-[var(--color-navy)] text-[11px] font-semibold px-5 py-2.5 rounded-full transition-all whitespace-nowrap"
+              className="bg-[var(--color-gold)] hover:bg-[var(--color-gold)]/90 text-black text-[11px] font-semibold px-5 py-2.5 rounded-full transition-all whitespace-nowrap"
               data-testid="button-nav-cta"
             >
               {tr('nav', 'cta')}
@@ -131,7 +131,7 @@ export default function Nav() {
           <div className="px-6 pb-10 flex flex-col gap-3">
             <button
               onClick={() => { handleNav('partner'); }}
-              className="w-full bg-[var(--color-gold)] hover:bg-[var(--color-gold)]/90 text-[var(--color-navy)] text-[11px] font-semibold px-5 py-3.5 rounded-full transition-all"
+              className="w-full bg-[var(--color-gold)] hover:bg-[var(--color-gold)]/90 text-black text-[11px] font-semibold px-5 py-3.5 rounded-full transition-all"
               data-testid="button-nav-cta"
             >
               {tr('nav', 'cta')}
