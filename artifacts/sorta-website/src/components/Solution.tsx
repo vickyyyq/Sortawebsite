@@ -116,21 +116,36 @@ interface ProcessCardProps {
   initialAnimate: boolean;
   visible: boolean;
   delay: number;
+  className?: string;
 }
 
-function ProcessCard({ step, title, description, outcome, type, initialAnimate, visible, delay }: ProcessCardProps) {
+function ProcessCard({ step, title, description, outcome, type, initialAnimate, visible, delay, className = '' }: ProcessCardProps) {
+  const [animKey, setAnimKey] = useState(0);
+  const [hovered, setHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setHovered(true);
+    setAnimKey((k) => k + 1);
+  };
+  const handleMouseLeave = () => {
+    setHovered(false);
+  };
+
+  const shouldAnimate = initialAnimate || hovered;
+
   const renderIcon = () => {
+    const key = `${type}-${animKey}`;
     switch (type) {
-      case 'detect':  return <DetectIcon animate={initialAnimate} />;
-      case 'sort':    return <SortIcon animate={initialAnimate} />;
-      case 'process': return <ProcessIcon animate={initialAnimate} />;
-      case 'monitor': return <MonitorIcon animate={initialAnimate} />;
+      case 'detect':  return <DetectIcon key={key} animate={shouldAnimate} />;
+      case 'sort':    return <SortIcon key={key} animate={shouldAnimate} />;
+      case 'process': return <ProcessIcon key={key} animate={hovered} />;
+      case 'monitor': return <MonitorIcon key={key} animate={shouldAnimate} />;
     }
   };
 
   return (
     <div
-      className="relative flex flex-col pt-14"
+      className={`relative flex flex-col pt-14 ${className}`}
       style={{
         flex: '1 1 0',
         minWidth: 0,
@@ -138,6 +153,8 @@ function ProcessCard({ step, title, description, outcome, type, initialAnimate, 
         transform: visible ? 'translateY(0)' : 'translateY(28px)',
         transition: `opacity 0.55s ease ${delay}ms, transform 0.55s ease ${delay}ms`,
       }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <div
         className="flex flex-col flex-1"
@@ -221,23 +238,24 @@ function ProcessCard({ step, title, description, outcome, type, initialAnimate, 
   );
 }
 
-function ChevronArrow({ visible, delay }: { visible: boolean; delay: number }) {
+function ChevronArrow({ visible, delay, className = '' }: { visible: boolean; delay: number; className?: string }) {
   return (
     <div
-      className="process-arrow flex-shrink-0 flex items-center justify-center"
+      className={`process-arrow flex-shrink-0 flex items-center justify-center ${className}`}
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? 'translateY(0)' : 'translateY(28px)',
         transition: `opacity 0.55s ease ${delay}ms, transform 0.55s ease ${delay}ms`,
       }}
     >
+      {/* Right-pointing: desktop only (≥1024px) */}
       <svg
         viewBox="0 0 24 24"
         width="28"
         height="28"
         fill="none"
         aria-hidden="true"
-        className="hidden md:block"
+        className="hidden lg:block"
       >
         <path
           d="M9 6l6 6-6 6"
@@ -247,13 +265,14 @@ function ChevronArrow({ visible, delay }: { visible: boolean; delay: number }) {
           strokeLinejoin="round"
         />
       </svg>
+      {/* Down-pointing: mobile and tablet (<1024px) */}
       <svg
         viewBox="0 0 24 24"
         width="28"
         height="28"
         fill="none"
         aria-hidden="true"
-        className="block md:hidden"
+        className="block lg:hidden"
         style={{ transform: 'rotate(90deg)' }}
       >
         <path
@@ -338,24 +357,65 @@ export default function Solution() {
 
         {/* 4-card process flow */}
         <div className="relative mb-16">
-          <div className="flex flex-col md:flex-row items-stretch gap-4 md:gap-2">
-            {cards.map((card, i) => (
-              <React.Fragment key={card.type}>
-                <ProcessCard
-                  step={i + 1}
-                  title={card.title}
-                  description={card.desc}
-                  outcome={card.outcome}
-                  type={card.type}
-                  initialAnimate={hasAnimated}
-                  visible={hasAnimated}
-                  delay={i * 160}
-                />
-                {i < cards.length - 1 && (
-                  <ChevronArrow visible={hasAnimated} delay={i * 160 + 80} />
-                )}
-              </React.Fragment>
-            ))}
+          {/*
+            Layout:
+              mobile  (<640px):  single column, arrows point down
+              tablet  (640–1023px): 2×2 grid, arrows point down
+              desktop (≥1024px): 4-column row, all arrows point right
+          */}
+          <div className="flex flex-col sm:grid sm:grid-cols-[1fr_auto_1fr] lg:flex lg:flex-row items-stretch gap-4 sm:gap-4 lg:gap-2">
+            {/* Row 1 */}
+            <ProcessCard
+              step={1}
+              title={cards[0].title}
+              description={cards[0].desc}
+              outcome={cards[0].outcome}
+              type={cards[0].type}
+              initialAnimate={hasAnimated}
+              visible={hasAnimated}
+              delay={0}
+              className="sm:col-start-1 sm:row-start-1"
+            />
+            <ChevronArrow visible={hasAnimated} delay={80} className="sm:col-start-2 sm:row-start-1" />
+            <ProcessCard
+              step={2}
+              title={cards[1].title}
+              description={cards[1].desc}
+              outcome={cards[1].outcome}
+              type={cards[1].type}
+              initialAnimate={hasAnimated}
+              visible={hasAnimated}
+              delay={160}
+              className="sm:col-start-3 sm:row-start-1"
+            />
+
+            {/* Inter-row arrow: hidden at tablet (sm), visible at mobile and desktop */}
+            <ChevronArrow visible={hasAnimated} delay={240} className="sm:hidden lg:flex" />
+
+            {/* Row 2 */}
+            <ProcessCard
+              step={3}
+              title={cards[2].title}
+              description={cards[2].desc}
+              outcome={cards[2].outcome}
+              type={cards[2].type}
+              initialAnimate={hasAnimated}
+              visible={hasAnimated}
+              delay={320}
+              className="sm:col-start-1 sm:row-start-2"
+            />
+            <ChevronArrow visible={hasAnimated} delay={400} className="sm:col-start-2 sm:row-start-2" />
+            <ProcessCard
+              step={4}
+              title={cards[3].title}
+              description={cards[3].desc}
+              outcome={cards[3].outcome}
+              type={cards[3].type}
+              initialAnimate={hasAnimated}
+              visible={hasAnimated}
+              delay={480}
+              className="sm:col-start-3 sm:row-start-2"
+            />
           </div>
         </div>
 
