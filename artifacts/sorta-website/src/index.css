@@ -160,6 +160,71 @@
   }
 }
 
+/* ── Process card icon animations ── */
+
+@keyframes detect-pan {
+  0%   { transform: translateX(-6px); }
+  50%  { transform: translateX(6px); }
+  65%  { transform: translateX(6px) scale(1.15); }
+  80%  { transform: translateX(6px) scale(0.95); }
+  100% { transform: translateX(6px) scale(1); }
+}
+
+@keyframes detect-pulse-ring {
+  0%   { opacity: 0; r: 10; }
+  40%  { opacity: 0.5; r: 14; }
+  100% { opacity: 0; r: 18; }
+}
+
+@keyframes sort-node-fade {
+  0%   { opacity: 0; transform: translateY(4px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gear-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes bell-swing {
+  0%   { transform: rotate(0deg); transform-origin: top center; }
+  15%  { transform: rotate(-18deg); transform-origin: top center; }
+  30%  { transform: rotate(18deg); transform-origin: top center; }
+  45%  { transform: rotate(-12deg); transform-origin: top center; }
+  60%  { transform: rotate(12deg); transform-origin: top center; }
+  75%  { transform: rotate(-6deg); transform-origin: top center; }
+  90%  { transform: rotate(6deg); transform-origin: top center; }
+  100% { transform: rotate(0deg); transform-origin: top center; }
+}
+
+@keyframes notif-dot-pulse {
+  0%   { opacity: 0; transform: scale(0.5); }
+  60%  { opacity: 1; transform: scale(1.2); }
+  80%  { transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes arrow-pulse-opacity {
+  0%, 100% { opacity: 0.5; }
+  50%       { opacity: 1; }
+}
+
+.process-arrow {
+  animation: arrow-pulse-opacity 2s ease-in-out infinite;
+}
+
+.icon-detect { animation: detect-pan 1.4s ease-in-out both; }
+.icon-detect-ring { animation: detect-pulse-ring 1.4s ease-in-out both 0.6s; }
+
+.icon-sort-n1 { animation: sort-node-fade 0.4s ease both 0.2s; }
+.icon-sort-n2 { animation: sort-node-fade 0.4s ease both 0.5s; }
+.icon-sort-n3 { animation: sort-node-fade 0.4s ease both 0.8s; }
+
+.icon-gear-hovered { animation: gear-spin 1.2s linear infinite; }
+
+.icon-bell { animation: bell-swing 1s ease-in-out both; }
+.icon-notif { animation: notif-dot-pulse 0.5s ease both 1s; }
+
 /* ── Japanese typography overrides ── */
 [data-lang="jp"] h1 {
   letter-spacing: 0.04em;

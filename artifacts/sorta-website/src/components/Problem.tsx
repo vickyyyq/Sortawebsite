@@ -43,7 +43,7 @@ export default function Problem() {
                  Rounded-rect clipping is achieved instead by applying matching
                  border-radius on the individual card faces (faceRadius below). */}
             <div
-              className="flex rounded-[28px]"
+              className="flex rounded-[28px] overflow-hidden"
               style={{ background: 'var(--color-sky-wash)', height: BOTTLE_H }}
             >
               {metaConfig.map((metric, i) => {
@@ -171,7 +171,7 @@ export default function Problem() {
                  NOTE: overflow:hidden omitted for same preserve-3d reason as desktop.
                  Border-radius on individual row faces provides the silhouette shape. */}
             <div
-              className="flex flex-col rounded-[28px]"
+              className="flex flex-col rounded-[28px] overflow-hidden"
               style={{ background: 'var(--color-sky-wash)' }}
             >
               {metaConfig.map((metric, i) => {
