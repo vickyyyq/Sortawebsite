@@ -157,7 +157,7 @@ function ProcessCard({ step, title, description, outcome, type, initialAnimate }
         }}
       >
         <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 flex items-center justify-center"
+          className="absolute top-0 left-1/2 -translate-x-1/2 flex items-center justify-center bg-[#00A5E5] border-t-[#00A5E5] border-r-[#00A5E5] border-b-[#00A5E5] border-l-[#00A5E5]"
           style={{
             width: '96px',
             height: '96px',
