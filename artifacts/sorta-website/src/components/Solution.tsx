@@ -114,9 +114,11 @@ interface ProcessCardProps {
   outcome: string;
   type: CardType;
   initialAnimate: boolean;
+  visible: boolean;
+  delay: number;
 }
 
-function ProcessCard({ step, title, description, outcome, type, initialAnimate }: ProcessCardProps) {
+function ProcessCard({ step, title, description, outcome, type, initialAnimate, visible, delay }: ProcessCardProps) {
   const renderIcon = () => {
     switch (type) {
       case 'detect':  return <DetectIcon animate={initialAnimate} />;
@@ -129,7 +131,13 @@ function ProcessCard({ step, title, description, outcome, type, initialAnimate }
   return (
     <div
       className="relative flex flex-col pt-14"
-      style={{ flex: '1 1 0', minWidth: 0 }}
+      style={{
+        flex: '1 1 0',
+        minWidth: 0,
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'translateY(0)' : 'translateY(28px)',
+        transition: `opacity 0.55s ease ${delay}ms, transform 0.55s ease ${delay}ms`,
+      }}
     >
       <div
         className="flex flex-col flex-1"
@@ -213,9 +221,16 @@ function ProcessCard({ step, title, description, outcome, type, initialAnimate }
   );
 }
 
-function ChevronArrow() {
+function ChevronArrow({ visible, delay }: { visible: boolean; delay: number }) {
   return (
-    <div className="process-arrow flex-shrink-0 flex items-center justify-center">
+    <div
+      className="process-arrow flex-shrink-0 flex items-center justify-center"
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'translateY(0)' : 'translateY(28px)',
+        transition: `opacity 0.55s ease ${delay}ms, transform 0.55s ease ${delay}ms`,
+      }}
+    >
       <svg
         viewBox="0 0 24 24"
         width="28"
@@ -322,7 +337,7 @@ export default function Solution() {
         </div>
 
         {/* 4-card process flow */}
-        <div className="relative mb-16 animate-in fade-in duration-1000 delay-200 fill-mode-both">
+        <div className="relative mb-16">
           <div className="flex flex-col md:flex-row items-stretch gap-4 md:gap-2">
             {cards.map((card, i) => (
               <React.Fragment key={card.type}>
@@ -333,8 +348,12 @@ export default function Solution() {
                   outcome={card.outcome}
                   type={card.type}
                   initialAnimate={hasAnimated}
+                  visible={hasAnimated}
+                  delay={i * 160}
                 />
-                {i < cards.length - 1 && <ChevronArrow />}
+                {i < cards.length - 1 && (
+                  <ChevronArrow visible={hasAnimated} delay={i * 160 + 80} />
+                )}
               </React.Fragment>
             ))}
           </div>
