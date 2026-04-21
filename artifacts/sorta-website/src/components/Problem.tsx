@@ -1,139 +1,246 @@
 import { JpH2 } from '@/components/JpH2';
 import React, { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { RotateCcw } from 'lucide-react';
+
+const BOTTLE_H = 290; // desktop bottle height px
+const CAP_W = 52;    // desktop cap width px
 
 const metaConfig = [
-  { valueKey: 'stat2Value', labelKey: 'stat2Label', accent: 'var(--color-sky)',  backBg: '#0E3A52' },
-  { valueKey: 'stat3Value', labelKey: 'stat3Label', accent: 'var(--color-gold)', backBg: '#1C2C1A' },
-  { valueKey: 'stat4Value', labelKey: 'stat4Label', accent: 'var(--color-sky)',  backBg: '#0E3A52' },
-  { valueKey: 'stat5Value', labelKey: 'stat5Label', accent: 'var(--color-gold)', backBg: '#2C1C0A' },
-  { valueKey: 'stat6Value', labelKey: 'stat6Label', accent: 'var(--color-sky)',  backBg: '#0E3A52' },
+  { valueKey: 'stat2Value', labelKey: 'stat2Label', captionKey: 'point1Body', accent: 'var(--color-sky)',  backBg: '#0A2535' },
+  { valueKey: 'stat3Value', labelKey: 'stat3Label', captionKey: 'point1Body', accent: 'var(--color-gold)', backBg: '#1A2710' },
+  { valueKey: 'stat4Value', labelKey: 'stat4Label', captionKey: 'point2Body', accent: 'var(--color-sky)',  backBg: '#0A2535' },
+  { valueKey: 'stat5Value', labelKey: 'stat5Label', captionKey: 'point2Body', accent: 'var(--color-gold)', backBg: '#2C1C0A' },
+  { valueKey: 'stat6Value', labelKey: 'stat6Label', captionKey: 'point3Body', accent: 'var(--color-sky)',  backBg: '#0A2535' },
 ] as const;
 
 export default function Problem() {
   const { tr } = useLanguage();
-  const [flipped, setFlipped] = useState<number | null>(null);
-
-  const handleFlip = (index: number) => {
-    setFlipped(prev => (prev === index ? null : index));
-  };
+  const [hovered, setHovered] = useState<number | null>(null);
+  const [tapped, setTapped]   = useState<number | null>(null);
 
   return (
     <section id="problem" className="section-padding section-divider bg-white">
       <div className="max-w-[1200px] mx-auto px-5">
 
-        {/* Heading — constrained so it wraps naturally to ~2 lines */}
+        {/* Heading */}
         <div className="max-w-[640px] mb-14 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both">
-          <span className="text-label mb-3 block">
-            {tr('problem', 'overline')}
-          </span>
-          <JpH2 className="mb-5">
-            {tr('problem', 'heading')}
-          </JpH2>
-          <p className="text-large text-[var(--color-text-muted)]">
-            {tr('problem', 'body')}
-          </p>
+          <span className="text-label mb-3 block">{tr('problem', 'overline')}</span>
+          <JpH2 className="mb-5">{tr('problem', 'heading')}</JpH2>
+          <p className="text-large text-[var(--color-text-muted)]">{tr('problem', 'body')}</p>
         </div>
 
-        {/* Infographic: bottle + flip cards */}
+        {/* ── DESKTOP: landscape bottle ── */}
         <div
-          className="flex flex-col md:flex-row items-center md:items-stretch gap-10 md:gap-16 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both"
+          className="hidden md:block animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both"
           style={{ animationDelay: '150ms' }}
         >
+          <div className="relative" style={{ paddingRight: CAP_W }}>
 
-          {/* Bottle image */}
-          <div className="flex-shrink-0 flex items-center justify-center w-full md:w-[240px]">
-            <img
-              src="/bottle-middle.png"
-              alt="Sorta recycling bottle"
-              className="w-44 md:w-full max-h-[480px] object-contain drop-shadow-lg select-none"
-            />
-          </div>
+            {/* Bottle body */}
+            <div
+              className="flex rounded-[28px]"
+              style={{ background: 'var(--color-sky-wash)', height: BOTTLE_H }}
+            >
+              {metaConfig.map((metric, i) => {
+                const isFirst = i === 0;
+                const isLast  = i === metaConfig.length - 1;
+                const faceRadius = isFirst ? '28px 0 0 28px' : isLast ? '0 28px 28px 0' : '0';
+                const value   = tr('problem', metric.valueKey);
+                const label   = tr('problem', metric.labelKey);
+                const caption = tr('problem', metric.captionKey);
 
-          {/* Flip card metrics */}
-          <div className="flex-1 flex flex-col gap-3 w-full">
-            {metaConfig.map((metric, index) => {
-              const isFlipped = flipped === index;
-              const value = tr('problem', metric.valueKey);
-              const label = tr('problem', metric.labelKey);
-
-              return (
-                <div
-                  key={index}
-                  className="relative cursor-pointer"
-                  style={{ perspective: '1000px', height: '90px' }}
-                  onClick={() => handleFlip(index)}
-                >
+                return (
                   <div
-                    className="relative w-full transition-transform duration-500"
-                    style={{
-                      transformStyle: 'preserve-3d',
-                      transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
-                      height: '90px',
-                    }}
+                    key={i}
+                    className="flex-1 relative cursor-default"
+                    style={{ perspective: '1000px' }}
+                    onMouseEnter={() => setHovered(i)}
+                    onMouseLeave={() => setHovered(null)}
                   >
-                    {/* Front face */}
+                    {/* Flipper */}
                     <div
-                      className="absolute inset-0 flex items-center gap-5 px-5 rounded-sm border border-[var(--color-mist)] bg-white hover:bg-[var(--color-fog)] transition-colors"
-                      style={{ backfaceVisibility: 'hidden' }}
+                      className="absolute inset-0"
+                      style={{
+                        transformStyle: 'preserve-3d',
+                        transition: 'transform 0.6s ease',
+                        transform: hovered === i ? 'rotateX(180deg)' : 'rotateX(0deg)',
+                      }}
                     >
+                      {/* Front face */}
                       <div
-                        className="w-1 self-stretch rounded-full flex-shrink-0 my-4"
-                        style={{ background: metric.accent }}
-                      />
-                      <div className="flex-1 min-w-0">
+                        className={`absolute inset-0 flex flex-col justify-between px-6 py-8 ${i > 0 ? 'border-l border-[var(--color-mist)]' : ''}`}
+                        style={{
+                          backfaceVisibility: 'hidden',
+                          background: 'var(--color-sky-wash)',
+                          borderRadius: faceRadius,
+                        }}
+                      >
                         <div
-                          className="font-heading font-extrabold text-3xl md:text-4xl leading-none mb-1"
-                          style={{ color: metric.accent, letterSpacing: '0.02em' }}
+                          className="font-heading font-extrabold leading-none"
+                          style={{ color: metric.accent, fontSize: '50px', letterSpacing: '0.02em' }}
                         >
                           {value}
                         </div>
-                        <p className="text-[var(--color-text-muted)] text-sm leading-snug line-clamp-1">
+                        <p className="text-[var(--color-text-muted)] text-[13px] leading-snug font-medium line-clamp-3">
                           {label}
                         </p>
                       </div>
-                      <div className="flex-shrink-0 flex flex-col items-center gap-1 text-[var(--color-mist)]">
-                        <RotateCcw size={14} />
-                        <span className="text-[10px] font-semibold uppercase tracking-wider leading-none">flip</span>
-                      </div>
-                    </div>
 
-                    {/* Back face */}
-                    <div
-                      className="absolute inset-0 flex items-stretch rounded-sm overflow-hidden border border-[var(--color-mist)]"
-                      style={{
-                        backfaceVisibility: 'hidden',
-                        transform: 'rotateY(180deg)',
-                      }}
-                    >
-                      {/* Image placeholder */}
+                      {/* Back face */}
                       <div
-                        className="w-24 md:w-32 flex-shrink-0 flex items-center justify-center text-center px-2"
-                        style={{ background: metric.backBg }}
+                        className="absolute inset-0 overflow-hidden"
+                        style={{
+                          backfaceVisibility: 'hidden',
+                          transform: 'rotateX(180deg)',
+                          background: metric.backBg,
+                          borderRadius: faceRadius,
+                        }}
                       >
-                        <span className="text-white/40 text-[9px] font-semibold uppercase tracking-wider leading-relaxed">
-                          Image<br />coming<br />soon
-                        </span>
-                      </div>
-                      {/* Text area */}
-                      <div className="flex-1 bg-[var(--color-fog)] flex items-center px-5">
-                        <p className="text-[var(--color-text-muted)] text-sm leading-relaxed line-clamp-2">
-                          {value} — {label}
+                        {/* Placeholder bg — swap for <img> when Task #31 supplies images */}
+                        <div className="absolute inset-0" style={{ background: metric.backBg }} />
+                        {/* Gradient overlay */}
+                        <div
+                          className="absolute inset-0"
+                          style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 60%)' }}
+                        />
+                        {/* Caption */}
+                        <p
+                          className="absolute bottom-0 left-0 line-clamp-2"
+                          style={{
+                            fontFamily: 'var(--font-sans)',
+                            fontSize: '13px',
+                            fontWeight: 500,
+                            color: '#FFFFFF',
+                            padding: '20px 24px',
+                          }}
+                        >
+                          {caption}
                         </p>
-                      </div>
-                      {/* Close hint */}
-                      <div className="flex-shrink-0 flex items-center pr-4 pl-2 bg-[var(--color-fog)]">
-                        <div className="flex flex-col items-center gap-1 text-[var(--color-mist)]">
-                          <RotateCcw size={14} />
-                          <span className="text-[10px] font-semibold uppercase tracking-wider leading-none">back</span>
-                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
+
+            {/* Cap tab — extends right */}
+            <div
+              className="absolute rounded-r-[20px]"
+              style={{
+                background: 'var(--color-sky-wash)',
+                right: 0,
+                top: '50%',
+                transform: 'translateY(-50%)',
+                width: CAP_W,
+                height: Math.round(BOTTLE_H * 0.44),
+              }}
+            />
+          </div>
+        </div>
+
+        {/* ── MOBILE: portrait bottle ── */}
+        <div
+          className="md:hidden animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both"
+          style={{ animationDelay: '150ms' }}
+        >
+          {/* marginTop makes room for the cap tab above */}
+          <div className="relative" style={{ marginTop: 36 }}>
+
+            {/* Cap tab — sits above the bottle body */}
+            <div
+              className="absolute left-1/2 rounded-t-[20px]"
+              style={{
+                background: 'var(--color-sky-wash)',
+                transform: 'translateX(-50%)',
+                width: '44%',
+                height: 40,
+                top: -36, // 4px overlap into body top
+              }}
+            />
+
+            {/* Bottle body */}
+            <div
+              className="flex flex-col rounded-[28px]"
+              style={{ background: 'var(--color-sky-wash)' }}
+            >
+              {metaConfig.map((metric, i) => {
+                const isFirst = i === 0;
+                const isLast  = i === metaConfig.length - 1;
+                const faceRadius = isFirst ? '28px 28px 0 0' : isLast ? '0 0 28px 28px' : '0';
+                const isTapped = tapped === i;
+                const value    = tr('problem', metric.valueKey);
+                const label    = tr('problem', metric.labelKey);
+                const caption  = tr('problem', metric.captionKey);
+
+                return (
+                  <div
+                    key={i}
+                    className="relative cursor-pointer"
+                    style={{ perspective: '1000px', height: 100 }}
+                    onClick={() => setTapped(prev => (prev === i ? null : i))}
+                  >
+                    {/* Flipper — rotateY on tap */}
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        transformStyle: 'preserve-3d',
+                        transition: 'transform 0.6s ease',
+                        transform: isTapped ? 'rotateY(180deg)' : 'rotateY(0deg)',
+                      }}
+                    >
+                      {/* Front face */}
+                      <div
+                        className={`absolute inset-0 flex items-center gap-4 px-6 ${i > 0 ? 'border-t border-[var(--color-mist)]' : ''}`}
+                        style={{
+                          backfaceVisibility: 'hidden',
+                          background: 'var(--color-sky-wash)',
+                          borderRadius: faceRadius,
+                        }}
+                      >
+                        <div
+                          className="font-heading font-extrabold leading-none flex-shrink-0"
+                          style={{ color: metric.accent, fontSize: '36px', letterSpacing: '0.02em', minWidth: 88 }}
+                        >
+                          {value}
+                        </div>
+                        <p className="text-[var(--color-text-muted)] text-[13px] leading-snug font-medium line-clamp-2 flex-1">
+                          {label}
+                        </p>
+                      </div>
+
+                      {/* Back face */}
+                      <div
+                        className="absolute inset-0 overflow-hidden"
+                        style={{
+                          backfaceVisibility: 'hidden',
+                          transform: 'rotateY(180deg)',
+                          background: metric.backBg,
+                          borderRadius: faceRadius,
+                        }}
+                      >
+                        <div className="absolute inset-0" style={{ background: metric.backBg }} />
+                        <div
+                          className="absolute inset-0"
+                          style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 60%)' }}
+                        />
+                        <p
+                          className="absolute bottom-0 left-0 line-clamp-2"
+                          style={{
+                            fontFamily: 'var(--font-sans)',
+                            fontSize: '13px',
+                            fontWeight: 500,
+                            color: '#FFFFFF',
+                            padding: '16px 24px',
+                          }}
+                        >
+                          {caption}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
 
