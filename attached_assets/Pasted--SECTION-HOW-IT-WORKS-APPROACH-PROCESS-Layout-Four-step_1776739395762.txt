@@ -1,0 +1,170 @@
+## SECTION — HOW IT WORKS (APPROACH PROCESS)
+
+### Layout
+Four-step horizontal process flow. Each step is a rounded card with
+an icon above, connected by animated chevron arrows between cards.
+
+Desktop: all 4 cards in one row with arrows between them
+Tablet (768px): 2×2 grid, arrows point right on row 1, down between
+  rows, right on row 2
+Mobile (375px): single column, arrows point downward between cards
+
+### Card anatomy (top to bottom)
+  1. Icon circle — overlaps top edge of card, centered
+  2. Step title — bold, bilingual (EN + JP) or EN-only (see versions)
+  3. Description text
+  4. Divider line
+  5. Outcome label — bottom of card, centered
+
+### Card styles
+  Background:    #EDF4ED   (light sage green, same as stat card row)
+  Border-radius: 24px
+  Padding:       48px 28px 32px
+  Width:         100% of column
+  Min-height:    360px
+  No border, no box-shadow
+
+### Icon circle
+  Size:          96px diameter
+  Background:    #2D6A3F   (dark green)
+  Border-radius: 50%
+  Position:      centered, margin-top: -48px (overlaps card top edge)
+  Icon color:    #FFFFFF
+  Icon size:     44px
+  Icon style:    line-art SVG (not filled), friendly and rounded strokes
+
+### Icon animation — runs on page load, loops once. Replays on card hover.
+  Use CSS keyframe animations. Each icon has its own animation that
+  reflects what it represents:
+
+  Card 1 — Detect (magnifying glass icon):
+    Animation: the magnifying glass slowly pans left→right, then
+    pulses once (scale 1 → 1.15 → 1) as if locking onto a target.
+    Keyframes: translateX(-4px) → translateX(4px) → scale(1.15) → scale(1)
+    Duration: 1.2s, ease-in-out, runs once on load, replays on hover.
+
+  Card 2 — Sort (branching/sorting diagram icon):
+    Animation: three destination nodes fade in sequentially from the
+    top node downward — staggered opacity 0→1 with a slight
+    translateY(6px→0) per node.
+    Duration: 1.0s total, 0.3s stagger per node, runs once, replays on hover.
+
+  Card 3 — Process (gear/conveyor icon):
+    Animation: gear rotates clockwise continuously while card is hovered,
+    pauses when not hovered.
+    Keyframes: rotate(0deg) → rotate(360deg)
+    Duration: 1.8s linear infinite on hover, stops on mouse-leave.
+
+  Card 4 — Monitor (screen/bell icon):
+    Animation: bell swings left→right (rotate -12deg → 12deg → 0deg)
+    then a small notification dot pulses (scale 0 → 1.2 → 1).
+    Duration: 1.0s, ease-in-out, runs once on load, replays on hover.
+
+### Arrows between cards
+  Shape:    Solid chevron/play triangle (▶), not a line arrow
+  Color:    #00A5E5   (sky blue — Sorta brand accent)
+  Size:     28px
+  Animation: pulses subtly on a slow loop (opacity 0.5 → 1 → 0.5)
+    Duration: 1.6s ease-in-out infinite
+  On mobile/tablet column layout: rotate arrow 90deg to point downward
+
+### Typography — English version
+  Step title:
+    font-family: var(--font-heading);   /* Raleway 800 */
+    font-size:   24px;
+    color:       #2D6A3F;
+    margin-bottom: 12px;
+
+  Description:
+    font-family: var(--font-body);      /* Quicksand */
+    font-size:   14px;
+    font-weight: 400;
+    color:       #2D6A3F;
+    line-height: 1.6;
+
+  Outcome label (below divider):
+    font-family: var(--font-body);
+    font-size:   14px;
+    font-weight: 700;
+    color:       #2D6A3F;
+    text-align:  center;
+
+### Divider line
+  border-top: 1px solid rgba(45, 106, 63, 0.25);
+  margin: 20px 0;
+
+### 4 cards — English version
+
+Card 1:
+  Icon:        Magnifying glass with a scan/pulse ring
+  Title:       Detect
+  Description: AI and sensors detect the product info, material,
+               and condition of the inserted trash.
+  Outcome:     Collect valuable data
+
+Card 2:
+  Icon:        Branching diagram (one input → three outputs)
+  Title:       Sort
+  Description: PET, glass, aluminum, and general trash are sorted
+               automatically at the point of intake.
+  Outcome:     Eliminate missorting
+
+Card 3:
+  Icon:        Gear with conveyor or compression element
+  Title:       Process
+  Description: Caps, liquid, labels, and air are removed from
+               PET bottles automatically.
+  Outcome:     Reduce labor costs
+
+Card 4:
+  Icon:        Monitor screen with a location pin or bell
+  Title:       Monitor
+  Description: Real-time capacity tracking alerts staff
+               when pickup is needed.
+  Outcome:     Prevent overflow
+
+### 4 cards — Japanese version
+Build as a separate HTML block with id="approach-jp" (hidden by default
+if the site has a language toggle, visible if JP is the active language).
+Identical layout and styles. Only the text changes:
+
+Card 1:
+  Title:       Detect 検知
+  Description: AIとセンサーで、投入されたゴミの商品情報・材質・状態を検知する
+  Outcome:     データの収集
+
+Card 2:
+  Title:       Sort 分別
+  Description: 投入物をペットボトル・瓶・缶、そして雑ゴミに分類する
+  Outcome:     異物混入の排除
+
+Card 3:
+  Title:       Process 処理
+  Description: ペットボトルのキャップ・ラベルを外して、残液を出して潰す
+  Outcome:     回収後の人件費削減
+
+Card 4:
+  Title:       Monitor 管理
+  Description: リアルタイム容量管理と通知で、回収業務等を効率化する
+  Outcome:     ゴミあふれを未然に防ぐ
+
+Japanese typography additions:
+  Title suffix (検知 / 分別 / 処理 / 管理):
+    font-size:   16px;
+    font-weight: 400;
+    margin-left: 8px;
+    vertical-align: middle;
+  Description and outcome: same styles as EN version, Quicksand renders
+    CJK as fallback — add to font stack:
+    font-family: var(--font-body), 'Noto Sans JP', sans-serif;
+  Add to Google Fonts link:
+    &family=Noto+Sans+JP:wght@400;700
+
+### Section wrapper
+  Background:   #FFFFFF
+  Padding:      var(--space-xl) 0
+  Eyebrow:      "Our Approach"   (.text-eyebrow class)
+  Heading:      Move critical recycling processes upstream.
+  Subtext:      Sorta relocates sorting, separation, and preprocessing
+                to the point of disposal — where intervention has the
+                highest impact.

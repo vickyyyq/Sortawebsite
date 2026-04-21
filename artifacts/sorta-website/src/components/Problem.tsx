@@ -36,7 +36,12 @@ export default function Problem() {
         >
           <div className="relative" style={{ paddingRight: CAP_W }}>
 
-            {/* Bottle body */}
+            {/* Bottle body.
+                 NOTE: overflow:hidden is intentionally omitted here.
+                 Adding it would flatten the CSS preserve-3d context on each column's
+                 flipper, turning the 3D rotateX card flip into a broken 2D squish.
+                 Rounded-rect clipping is achieved instead by applying matching
+                 border-radius on the individual card faces (faceRadius below). */}
             <div
               className="flex rounded-[28px]"
               style={{ background: 'var(--color-sky-wash)', height: BOTTLE_H }}
@@ -158,7 +163,9 @@ export default function Problem() {
               }}
             />
 
-            {/* Bottle body */}
+            {/* Bottle body.
+                 NOTE: overflow:hidden omitted for same preserve-3d reason as desktop.
+                 Border-radius on individual row faces provides the silhouette shape. */}
             <div
               className="flex flex-col rounded-[28px]"
               style={{ background: 'var(--color-sky-wash)' }}
