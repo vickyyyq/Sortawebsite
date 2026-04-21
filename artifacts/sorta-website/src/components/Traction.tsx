@@ -15,7 +15,7 @@ export default function Traction() {
     <section id="traction" className="section-padding section-divider" style={{ background: 'var(--color-sky-wash)' }}>
       <div className="max-w-[1200px] mx-auto px-5">
         <div className="mb-16 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both">
-          <span className="text-[var(--color-sky)] text-label mb-3 block">
+          <span className="text-label mb-3 block">
             {tr('traction', 'overline')}
           </span>
           <JpH2>

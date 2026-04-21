@@ -19,7 +19,7 @@ export default function UseCases() {
     <section id="use-cases" className="section-padding section-divider" style={{ background: 'var(--color-sky-wash)' }}>
       <div className="max-w-[1200px] mx-auto px-5">
         <div className="max-w-2xl mb-14 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both">
-          <span className="text-[var(--color-sky)] text-label mb-3 block">
+          <span className="text-label mb-3 block">
             {tr('useCases', 'overline')}
           </span>
           <JpH2 className="text-[var(--color-navy)]">

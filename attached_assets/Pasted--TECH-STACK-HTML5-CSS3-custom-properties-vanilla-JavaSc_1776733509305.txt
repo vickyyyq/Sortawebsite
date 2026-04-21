@@ -1,0 +1,111 @@
+## TECH STACK
+- HTML5 + CSS3 (custom properties) + vanilla JavaScript
+- No CSS frameworks (no Tailwind, no Bootstrap)
+- Google Fonts for typography (loaded via <link> in <head>)
+- Mobile-first, fully responsive (breakpoints: 375px, 768px, 1280px)
+
+## COLOR PALETTE
+Define these as CSS custom properties in :root and use them throughout — never hardcode hex values in component CSS.
+
+  --color-gold:       #E1A200;   /* Primary accent — CTAs, highlights */
+  --color-sky:        #00A5E5;   /* Secondary accent — links, badges */
+  --color-navy:       #121C29;   /* Text and selective accents — NOT backgrounds */
+  --color-mist:       #CDDFED;   /* Subtle borders, dividers, input bg */
+  --color-fog:        #F4F9FF;   /* Page background, section fills */
+
+  /* Semantic aliases */
+  --color-bg-page:          var(--color-fog);
+  --color-bg-dark:          var(--color-navy);
+  --color-bg-surface:       #FFFFFF;
+  --color-accent-primary:   var(--color-gold);
+  --color-accent-secondary: var(--color-sky);
+  --color-border:           var(--color-mist);
+  --color-text-on-dark:     #FFFFFF;
+  --color-text-body:        var(--color-navy);
+  --color-text-muted:       #4A6070;
+
+## TYPOGRAPHY
+
+Load fonts from Google Fonts:
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@800&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+
+Define these tokens in :root:
+  --font-heading: 'Raleway', sans-serif;
+  --font-body:    'Quicksand', sans-serif;
+
+/* Eyebrow / section label — apply to .text-eyebrow */
+  font-family:     var(--font-body);
+  font-weight:     600;
+  font-size:       12px;
+  line-height:     1.5;
+  letter-spacing:  0.1em;
+  text-transform:  uppercase;
+  color:           var(--color-text-muted);
+
+/* Heading rules — apply to ALL h1–h4 */
+  font-family:     var(--font-heading);
+  font-weight:     800;
+  letter-spacing:  0.03em;
+  color:           var(--color-navy);
+
+/* Desktop type scale */
+  h1: 56px / line-height 1.1
+  h2: 40px / line-height 1.15
+  h3: 28px / line-height 1.2
+  h4: 20px / line-height 1.25
+
+/* Mobile type scale (max-width: 768px) */
+  h1: 36px / line-height 1.1
+  h2: 28px / line-height 1.15
+  h3: 22px / line-height 1.2
+  h4: 18px / line-height 1.25
+
+/* Body rules — apply to p, li, td, input, label */
+  font-family:  var(--font-body);
+  font-weight:  400;
+  font-size:    16px;
+  line-height:  1.7;
+  color:        var(--color-text-body);
+
+/* Body variants */
+  .text-eyebrow: 12px / weight 600 / letter-spacing 0.1em / uppercase / font-body / color muted
+  .text-large:   18px / weight 400 / line-height 1.7
+  .text-small:   14px / weight 400 / line-height 1.6
+  .text-label:   12px / weight 600 / letter-spacing 0.06em / uppercase
+  .text-button:  16px / weight 600 / font-family body
+
+## BUTTONS
+
+  /* Primary — gold fill */
+  background:    var(--color-gold);
+  color:         var(--color-navy);
+  font-family:   var(--font-body);
+  font-weight:   600;
+  font-size:     16px;
+  padding:       14px 32px;
+  border-radius: 999px;
+  border:        none;
+
+  /* Secondary — outlined */
+  background:    transparent;
+  color:         var(--color-navy);
+  border:        2px solid var(--color-navy);
+  border-radius: 999px;
+
+  /* On gold backgrounds */
+  background:    var(--color-navy);
+  color:         #FFFFFF;
+  border-radius: 999px;
+
+## SPACING SCALE
+
+  --space-xs:   8px
+  --space-sm:   16px
+  --space-md:   24px
+  --space-lg:   48px
+  --space-xl:   80px
+  --space-xxl:  120px
+
+  Section vertical padding: var(--space-xl) top/bottom on desktop, var(--space-lg) on mobile.
+  Max content width: 1200px, centered with auto margins.
+  Inner content padding (mobile): 0 20px.

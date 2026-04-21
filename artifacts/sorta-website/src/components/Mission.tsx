@@ -7,7 +7,7 @@ export default function Mission() {
   return (
     <section id="mission" className="section-padding section-divider" style={{ background: 'var(--color-sky-wash)' }}>
       <div className="max-w-[1200px] mx-auto px-5 flex flex-col items-start">
-        <span className="text-[var(--color-sky)] text-label mb-10 block animate-in fade-in slide-in-from-bottom-8 duration-700">
+        <span className="text-label mb-10 block animate-in fade-in slide-in-from-bottom-8 duration-700">
           {tr('mission', 'overline')}
         </span>
 

@@ -105,7 +105,7 @@ export default function Partner() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
 
           <div className="animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both">
-            <span className="text-[var(--color-sky)] text-label mb-4 block">
+            <span className="text-label mb-4 block">
               {tr('partner', 'overline')}
             </span>
             <JpH2 className="text-[var(--color-navy)] mb-6">

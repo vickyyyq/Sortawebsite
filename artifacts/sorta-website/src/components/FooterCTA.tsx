@@ -17,7 +17,7 @@ export default function FooterCTA() {
     <section className="section-padding" style={{ background: 'var(--color-sky-wash)', borderTop: '1px solid var(--color-mist)' }}>
       <div className="max-w-[1200px] mx-auto px-5">
         <div className="max-w-3xl animate-in fade-in slide-in-from-bottom-8 duration-700">
-          <span className="text-[var(--color-sky)] text-label mb-6 block">
+          <span className="text-label mb-6 block">
             {tr('footerCta', 'overline')}
           </span>
           <JpH2 className="text-[var(--color-navy)] mb-6 font-extrabold">

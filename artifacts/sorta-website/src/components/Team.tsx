@@ -61,7 +61,7 @@ export default function Team() {
     <section id="team" className="bg-white section-padding section-divider">
       <div className="max-w-[1200px] mx-auto px-5">
         <div className="mb-14 animate-in fade-in slide-in-from-bottom-8 duration-700">
-          <span className="text-[var(--color-sky)] text-label mb-3 block">
+          <span className="text-label mb-3 block">
             {tr('team', 'overline')}
           </span>
           <JpH2>

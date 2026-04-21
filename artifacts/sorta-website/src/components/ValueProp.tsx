@@ -18,7 +18,7 @@ export default function ValueProp() {
       <div className="max-w-[1200px] mx-auto px-5">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-14 gap-6">
           <div className="max-w-xl">
-            <span className="text-[var(--color-sky)] text-label mb-3 block">
+            <span className="text-label mb-3 block">
               {tr('valueProp', 'overline')}
             </span>
             <JpH2>

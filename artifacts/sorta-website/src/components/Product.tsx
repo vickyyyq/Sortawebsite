@@ -19,7 +19,7 @@ export default function Product() {
 
         {/* Heading */}
         <div className="max-w-2xl mb-14 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both">
-          <span className="text-[var(--color-sky)] text-label mb-4 block">
+          <span className="text-label mb-4 block">
             {tr('product', 'overline')}
           </span>
           <JpH2 className="mb-5">
