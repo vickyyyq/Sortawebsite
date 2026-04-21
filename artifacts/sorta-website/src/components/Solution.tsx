@@ -117,26 +117,12 @@ interface ProcessCardProps {
 }
 
 function ProcessCard({ step, title, description, outcome, type, initialAnimate }: ProcessCardProps) {
-  const [animKey, setAnimKey] = useState(0);
-  const [hovered, setHovered] = useState(false);
-
-  const handleMouseEnter = () => {
-    setHovered(true);
-    setAnimKey((k) => k + 1);
-  };
-  const handleMouseLeave = () => {
-    setHovered(false);
-  };
-
-  const shouldAnimate = initialAnimate || hovered;
-
   const renderIcon = () => {
-    const key = `${type}-${animKey}`;
     switch (type) {
-      case 'detect':  return <DetectIcon key={key} animate={shouldAnimate} />;
-      case 'sort':    return <SortIcon key={key} animate={shouldAnimate} />;
-      case 'process': return <ProcessIcon key={key} animate={hovered} />;
-      case 'monitor': return <MonitorIcon key={key} animate={shouldAnimate} />;
+      case 'detect':  return <DetectIcon animate={initialAnimate} />;
+      case 'sort':    return <SortIcon animate={initialAnimate} />;
+      case 'process': return <ProcessIcon animate={initialAnimate} />;
+      case 'monitor': return <MonitorIcon animate={initialAnimate} />;
     }
   };
 
@@ -144,8 +130,6 @@ function ProcessCard({ step, title, description, outcome, type, initialAnimate }
     <div
       className="relative flex flex-col pt-14"
       style={{ flex: '1 1 0', minWidth: 0 }}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
     >
       <div
         className="flex flex-col flex-1"
@@ -157,12 +141,12 @@ function ProcessCard({ step, title, description, outcome, type, initialAnimate }
         }}
       >
         <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 flex items-center justify-center border-t-[#00a5e5] border-r-[#00a5e5] border-b-[#00a5e5] border-l-[#00a5e5] bg-[#00a5e5]"
+          className="absolute top-0 left-1/2 -translate-x-1/2 flex items-center justify-center"
           style={{
             width: '96px',
             height: '96px',
             borderRadius: '50%',
-            background: 'var(--color-navy)',
+            background: 'var(--color-sky)',
           }}
         >
           {renderIcon()}
