@@ -121,12 +121,26 @@ interface ProcessCardProps {
 }
 
 function ProcessCard({ step, title, jpSuffix, description, outcome, type, initialAnimate, visible, delay, className = '' }: ProcessCardProps) {
+  const [animKey, setAnimKey] = useState(0);
+  const [hovered, setHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setHovered(true);
+    setAnimKey((k) => k + 1);
+  };
+  const handleMouseLeave = () => {
+    setHovered(false);
+  };
+
+  const shouldAnimate = initialAnimate || hovered;
+
   const renderIcon = () => {
+    const key = `${type}-${animKey}`;
     switch (type) {
-      case 'detect':  return <DetectIcon animate={initialAnimate} />;
-      case 'sort':    return <SortIcon animate={initialAnimate} />;
-      case 'process': return <ProcessIcon animate={initialAnimate} />;
-      case 'monitor': return <MonitorIcon animate={initialAnimate} />;
+      case 'detect':  return <DetectIcon key={key} animate={shouldAnimate} />;
+      case 'sort':    return <SortIcon key={key} animate={shouldAnimate} />;
+      case 'process': return <ProcessIcon key={key} animate={hovered} />;
+      case 'monitor': return <MonitorIcon key={key} animate={shouldAnimate} />;
     }
   };
 
@@ -140,6 +154,8 @@ function ProcessCard({ step, title, jpSuffix, description, outcome, type, initia
         transform: visible ? 'translateY(0)' : 'translateY(28px)',
         transition: `opacity 0.55s ease ${delay}ms, transform 0.55s ease ${delay}ms`,
       }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <div
         className="flex flex-col flex-1"
