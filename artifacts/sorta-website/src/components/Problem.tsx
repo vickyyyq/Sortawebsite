@@ -6,7 +6,7 @@ const BOTTLE_H = 290; // desktop bottle height px
 const CAP_W = 52;    // desktop cap width px
 
 const metaConfig = [
-  { valueKey: 'stat2Value', labelKey: 'stat2Label', accent: 'var(--color-sky)',  backBg: '#0A2535', backImage: '/stat-contamination.png', backDescKey: 'stat2Back' },
+  { valueKey: 'stat2Value', labelKey: 'stat2Label', accent: 'var(--color-sky)',  backBg: '#0A2535', backImage: '/contaminated-bottle.png', backDescKey: 'stat2Back' },
   { valueKey: 'stat3Value', labelKey: 'stat3Label', accent: 'var(--color-gold)', backBg: '#1A2710', backImage: '/stat-pet-waste.png',     backDescKey: 'stat3Back' },
   { valueKey: 'stat4Value', labelKey: 'stat4Label', accent: 'var(--color-sky)',  backBg: '#0A2535', backImage: '/stat-misuse.png',        backDescKey: 'stat4Back' },
   { valueKey: 'stat5Value', labelKey: 'stat5Label', accent: 'var(--color-gold)', backBg: '#2C1C0A', backImage: '/stat-confusion.png',     backDescKey: 'stat5Back' },
