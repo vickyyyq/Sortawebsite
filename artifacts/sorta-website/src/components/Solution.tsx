@@ -118,9 +118,10 @@ interface ProcessCardProps {
   visible: boolean;
   delay: number;
   className?: string;
+  reducedMotion: boolean;
 }
 
-function ProcessCard({ step, title, jpSuffix, description, outcome, type, initialAnimate, visible, delay, className = '' }: ProcessCardProps) {
+function ProcessCard({ step, title, jpSuffix, description, outcome, type, initialAnimate, visible, delay, className = '', reducedMotion }: ProcessCardProps) {
   const [animKey, setAnimKey] = useState(0);
   const [hovered, setHovered] = useState(false);
 
@@ -132,14 +133,14 @@ function ProcessCard({ step, title, jpSuffix, description, outcome, type, initia
     setHovered(false);
   };
 
-  const shouldAnimate = initialAnimate || hovered;
+  const shouldAnimate = (initialAnimate || hovered) && !reducedMotion;
 
   const renderIcon = () => {
     const key = `${type}-${animKey}`;
     switch (type) {
       case 'detect':  return <DetectIcon key={key} animate={shouldAnimate} />;
       case 'sort':    return <SortIcon key={key} animate={shouldAnimate} />;
-      case 'process': return <ProcessIcon key={key} animate={hovered} />;
+      case 'process': return <ProcessIcon key={key} animate={hovered && !reducedMotion} />;
       case 'monitor': return <MonitorIcon key={key} animate={shouldAnimate} />;
     }
   };
@@ -152,7 +153,7 @@ function ProcessCard({ step, title, jpSuffix, description, outcome, type, initia
         minWidth: 0,
         opacity: visible ? 1 : 0,
         transform: visible ? 'translateY(0)' : 'translateY(28px)',
-        transition: `opacity 0.55s ease ${delay}ms, transform 0.55s ease ${delay}ms`,
+        transition: reducedMotion ? 'none' : `opacity 0.55s ease ${delay}ms, transform 0.55s ease ${delay}ms`,
       }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -252,14 +253,14 @@ function ProcessCard({ step, title, jpSuffix, description, outcome, type, initia
   );
 }
 
-function ChevronArrow({ visible, delay, className = '' }: { visible: boolean; delay: number; className?: string }) {
+function ChevronArrow({ visible, delay, className = '', reducedMotion }: { visible: boolean; delay: number; className?: string; reducedMotion: boolean }) {
   return (
     <div
-      className={`process-arrow flex-shrink-0 flex items-center justify-center ${className}`}
+      className={`${reducedMotion ? '' : 'process-arrow '}flex-shrink-0 flex items-center justify-center ${className}`}
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? 'translateY(0)' : 'translateY(28px)',
-        transition: `opacity 0.55s ease ${delay}ms, transform 0.55s ease ${delay}ms`,
+        transition: reducedMotion ? 'none' : `opacity 0.55s ease ${delay}ms, transform 0.55s ease ${delay}ms`,
       }}
     >
       {/* Right-pointing: desktop only (≥1024px) */}
@@ -303,10 +304,17 @@ function ChevronArrow({ visible, delay, className = '' }: { visible: boolean; de
 
 export default function Solution() {
   const { tr } = useLanguage();
+  const [prefersReducedMotion] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  );
   const [hasAnimated, setHasAnimated] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    if (prefersReducedMotion) {
+      setHasAnimated(true);
+      return;
+    }
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting && !hasAnimated) {
@@ -317,7 +325,7 @@ export default function Solution() {
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
-  }, [hasAnimated]);
+  }, [hasAnimated, prefersReducedMotion]);
 
   const cards = [
     {
@@ -386,8 +394,9 @@ export default function Solution() {
               visible={hasAnimated}
               delay={0}
               className="sm:col-start-1 sm:row-start-1"
+              reducedMotion={prefersReducedMotion}
             />
-            <ChevronArrow visible={hasAnimated} delay={80} className="sm:col-start-2 sm:row-start-1" />
+            <ChevronArrow visible={hasAnimated} delay={80} className="sm:col-start-2 sm:row-start-1" reducedMotion={prefersReducedMotion} />
             <ProcessCard
               step={2}
               title={cards[1].title}
@@ -399,10 +408,11 @@ export default function Solution() {
               visible={hasAnimated}
               delay={160}
               className="sm:col-start-3 sm:row-start-1"
+              reducedMotion={prefersReducedMotion}
             />
 
             {/* Inter-row arrow: hidden at tablet (sm), visible at mobile and desktop */}
-            <ChevronArrow visible={hasAnimated} delay={240} className="sm:hidden lg:flex" />
+            <ChevronArrow visible={hasAnimated} delay={240} className="sm:hidden lg:flex" reducedMotion={prefersReducedMotion} />
 
             {/* Row 2 */}
             <ProcessCard
@@ -416,8 +426,9 @@ export default function Solution() {
               visible={hasAnimated}
               delay={320}
               className="sm:col-start-1 sm:row-start-2"
+              reducedMotion={prefersReducedMotion}
             />
-            <ChevronArrow visible={hasAnimated} delay={400} className="sm:col-start-2 sm:row-start-2" />
+            <ChevronArrow visible={hasAnimated} delay={400} className="sm:col-start-2 sm:row-start-2" reducedMotion={prefersReducedMotion} />
             <ProcessCard
               step={4}
               title={cards[3].title}
@@ -429,6 +440,7 @@ export default function Solution() {
               visible={hasAnimated}
               delay={480}
               className="sm:col-start-3 sm:row-start-2"
+              reducedMotion={prefersReducedMotion}
             />
           </div>
         </div>

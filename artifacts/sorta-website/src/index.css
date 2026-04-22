@@ -225,6 +225,30 @@
 .icon-bell { animation: bell-swing 1s ease-in-out both; }
 .icon-notif { animation: notif-dot-pulse 0.5s ease both 1s; }
 
+/* ── Reduced motion accessibility ── */
+@media (prefers-reduced-motion: reduce) {
+  .animate-in,
+  .animate-out {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .process-arrow,
+  .icon-detect,
+  .icon-detect-ring,
+  .icon-sort-n1,
+  .icon-sort-n2,
+  .icon-sort-n3,
+  .icon-gear-hovered,
+  .icon-bell,
+  .icon-notif {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 /* ── Japanese typography overrides ── */
 [data-lang="jp"] h1 {
   letter-spacing: 0.04em;
