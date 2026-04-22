@@ -46,23 +46,23 @@ export const translations = {
     stat6Value: { en: '56%', jp: '56%' },
     stat2Back: {
       en: 'One wrong item ruins the entire recycling batch.',
-      jp: 'たった一つの混入で、バッチ全体が台無しになる。',
+      jp: '公共の回収ボックスに投入されるアイテムのうち、約3件に1件が異物混入。わずかな混入でも、素材全体の品質が損なわれます。',
     },
     stat3Back: {
       en: 'Tons of recyclables lost before processing even begins.',
-      jp: '処理が始まる前に、大量の資源が失われている。',
+      jp: '年間9.1万トンものPETプラスチックが、施設に届く前の段階で汚染済みに。素材価値が失われ、処理コストが増大します。',
     },
     stat4Back: {
       en: 'Even locals get it wrong.',
-      jp: '地元の住民でさえ、誤って捨てている。',
+      jp: '日本人の5人に1人が、公共のリサイクルボックスに非対応の廃棄物を混入。誤った捨て方は例外ではなく、日常的な行動です。',
     },
     stat5Back: {
       en: 'The problem grows as visitor numbers climb.',
-      jp: '訪問者数が増えるにつれ、問題はさらに深刻化する。',
+      jp: '半数以上の人がルールを十分に理解しておらず、避けられるはずの汚染が発生しています。観光客の増加でその影響はさらに広がります。',
     },
     stat6Back: {
       en: 'An industry already stretched thin.',
-      jp: 'すでに限界を迎えつつある業界。',
+      jp: '廃棄物処理事業者の半数以上が人手不足。コストも精度も安定しない手作業の選別は、長期的に維持できません。',
     },
     point1Title: { en: 'Poor Sorting & Contamination', jp: '不分別と異物混入' },
     point1Body: {
