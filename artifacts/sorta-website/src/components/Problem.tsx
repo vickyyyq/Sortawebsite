@@ -86,7 +86,7 @@ export default function Problem() {
                         >
                           {value}
                         </div>
-                        <p className="text-[var(--color-text-muted)] text-[15px] leading-snug font-medium line-clamp-3">
+                        <p className="text-[var(--color-text-muted)] text-[15px] leading-snug font-medium">
                           {label}
                         </p>
                       </div>
@@ -114,14 +114,14 @@ export default function Problem() {
                         />
                         {/* Description */}
                         <p
-                          className="absolute left-0 line-clamp-2"
+                          className="absolute left-0"
                           style={{
                             fontFamily: 'var(--font-sans)',
                             fontSize: '15px',
                             fontWeight: 500,
                             color: '#FFFFFF',
                             padding: '0 24px',
-                            bottom: '24px',
+                            bottom: '32px',
                           }}
                         >
                           {backDesc}
@@ -215,7 +215,7 @@ export default function Problem() {
                         >
                           {value}
                         </div>
-                        <p className="text-[var(--color-text-muted)] text-[15px] leading-snug font-medium line-clamp-2 flex-1">
+                        <p className="text-[var(--color-text-muted)] text-[15px] leading-snug font-medium flex-1">
                           {label}
                         </p>
                       </div>
@@ -240,14 +240,14 @@ export default function Problem() {
                           style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 60%)' }}
                         />
                         <p
-                          className="absolute left-0 line-clamp-2"
+                          className="absolute left-0"
                           style={{
                             fontFamily: 'var(--font-sans)',
                             fontSize: '15px',
                             fontWeight: 500,
                             color: '#FFFFFF',
                             padding: '0 24px',
-                            bottom: '20px',
+                            bottom: '28px',
                           }}
                         >
                           {backDesc}
