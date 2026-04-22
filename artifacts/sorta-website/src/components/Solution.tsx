@@ -94,9 +94,7 @@ function MonitorIcon({ animate }: { animate: boolean }) {
       {animate && (
         <circle
           cx="35" cy="14" r="4"
-          fill="var(--color-sky)"
-          stroke="var(--color-navy)"
-          strokeWidth="1.5"
+          fill="white"
           className="icon-notif"
           style={{ opacity: 0 }}
         />
@@ -119,9 +117,10 @@ interface ProcessCardProps {
   delay: number;
   className?: string;
   reducedMotion: boolean;
+  scrollKey: number;
 }
 
-function ProcessCard({ step, title, jpSuffix, description, outcome, type, initialAnimate, visible, delay, className = '', reducedMotion }: ProcessCardProps) {
+function ProcessCard({ step, title, jpSuffix, description, outcome, type, initialAnimate, visible, delay, className = '', reducedMotion, scrollKey }: ProcessCardProps) {
   const [animKey, setAnimKey] = useState(0);
   const [hovered, setHovered] = useState(false);
 
@@ -136,11 +135,11 @@ function ProcessCard({ step, title, jpSuffix, description, outcome, type, initia
   const shouldAnimate = (initialAnimate || hovered) && !reducedMotion;
 
   const renderIcon = () => {
-    const key = `${type}-${animKey}`;
+    const key = `${type}-${scrollKey}-${animKey}`;
     switch (type) {
       case 'detect':  return <DetectIcon key={key} animate={shouldAnimate} />;
       case 'sort':    return <SortIcon key={key} animate={shouldAnimate} />;
-      case 'process': return <ProcessIcon key={key} animate={hovered && !reducedMotion} />;
+      case 'process': return <ProcessIcon key={key} animate={shouldAnimate} />;
       case 'monitor': return <MonitorIcon key={key} animate={shouldAnimate} />;
     }
   };
@@ -307,25 +306,29 @@ export default function Solution() {
   const [prefersReducedMotion] = useState(
     () => typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
   );
-  const [hasAnimated, setHasAnimated] = useState(false);
+  const [inView, setInView] = useState(false);
+  const [scrollKey, setScrollKey] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     if (prefersReducedMotion) {
-      setHasAnimated(true);
+      setInView(true);
       return;
     }
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
+        if (entries[0].isIntersecting) {
+          setInView(true);
+          setScrollKey((k) => k + 1);
+        } else {
+          setInView(false);
         }
       },
       { threshold: 0.15 }
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
-  }, [hasAnimated, prefersReducedMotion]);
+  }, [prefersReducedMotion]);
 
   const cards = [
     {
@@ -390,13 +393,14 @@ export default function Solution() {
               description={cards[0].desc}
               outcome={cards[0].outcome}
               type={cards[0].type}
-              initialAnimate={hasAnimated}
-              visible={hasAnimated}
+              initialAnimate={inView}
+              visible={inView}
               delay={0}
               className="sm:col-start-1 sm:row-start-1"
               reducedMotion={prefersReducedMotion}
+              scrollKey={scrollKey}
             />
-            <ChevronArrow visible={hasAnimated} delay={80} className="sm:col-start-2 sm:row-start-1" reducedMotion={prefersReducedMotion} />
+            <ChevronArrow visible={inView} delay={80} className="sm:col-start-2 sm:row-start-1" reducedMotion={prefersReducedMotion} />
             <ProcessCard
               step={2}
               title={cards[1].title}
@@ -404,15 +408,16 @@ export default function Solution() {
               description={cards[1].desc}
               outcome={cards[1].outcome}
               type={cards[1].type}
-              initialAnimate={hasAnimated}
-              visible={hasAnimated}
+              initialAnimate={inView}
+              visible={inView}
               delay={160}
               className="sm:col-start-3 sm:row-start-1"
               reducedMotion={prefersReducedMotion}
+              scrollKey={scrollKey}
             />
 
             {/* Inter-row arrow: hidden at tablet (sm), visible at mobile and desktop */}
-            <ChevronArrow visible={hasAnimated} delay={240} className="sm:hidden lg:flex" reducedMotion={prefersReducedMotion} />
+            <ChevronArrow visible={inView} delay={240} className="sm:hidden lg:flex" reducedMotion={prefersReducedMotion} />
 
             {/* Row 2 */}
             <ProcessCard
@@ -422,13 +427,14 @@ export default function Solution() {
               description={cards[2].desc}
               outcome={cards[2].outcome}
               type={cards[2].type}
-              initialAnimate={hasAnimated}
-              visible={hasAnimated}
+              initialAnimate={inView}
+              visible={inView}
               delay={320}
               className="sm:col-start-1 sm:row-start-2"
               reducedMotion={prefersReducedMotion}
+              scrollKey={scrollKey}
             />
-            <ChevronArrow visible={hasAnimated} delay={400} className="sm:col-start-2 sm:row-start-2" reducedMotion={prefersReducedMotion} />
+            <ChevronArrow visible={inView} delay={400} className="sm:col-start-2 sm:row-start-2" reducedMotion={prefersReducedMotion} />
             <ProcessCard
               step={4}
               title={cards[3].title}
@@ -436,11 +442,12 @@ export default function Solution() {
               description={cards[3].desc}
               outcome={cards[3].outcome}
               type={cards[3].type}
-              initialAnimate={hasAnimated}
-              visible={hasAnimated}
+              initialAnimate={inView}
+              visible={inView}
               delay={480}
               className="sm:col-start-3 sm:row-start-2"
               reducedMotion={prefersReducedMotion}
+              scrollKey={scrollKey}
             />
           </div>
         </div>
