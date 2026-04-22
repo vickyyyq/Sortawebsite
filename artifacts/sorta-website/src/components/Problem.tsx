@@ -7,10 +7,10 @@ const CAP_W = 52;    // desktop cap width px
 
 const metaConfig = [
   { valueKey: 'stat2Value', labelKey: 'stat2Label', accent: 'var(--color-sky)',  backBg: '#0A2535', backImage: '/contaminated-bottle.png', backDescKey: 'stat2Back' },
-  { valueKey: 'stat3Value', labelKey: 'stat3Label', accent: 'var(--color-gold)', backBg: '#1A2710', backImage: '/stat-pet-waste.png',     backDescKey: 'stat3Back' },
-  { valueKey: 'stat4Value', labelKey: 'stat4Label', accent: 'var(--color-sky)',  backBg: '#0A2535', backImage: '/stat-misuse.png',        backDescKey: 'stat4Back' },
-  { valueKey: 'stat5Value', labelKey: 'stat5Label', accent: 'var(--color-gold)', backBg: '#2C1C0A', backImage: '/stat-confusion.png',     backDescKey: 'stat5Back' },
-  { valueKey: 'stat6Value', labelKey: 'stat6Label', accent: 'var(--color-sky)',  backBg: '#0A2535', backImage: '/stat-labor.png',         backDescKey: 'stat6Back' },
+  { valueKey: 'stat3Value', labelKey: 'stat3Label', accent: 'var(--color-gold)', backBg: '#1A2710', backImage: '/91kt-waste.jpg',         backDescKey: 'stat3Back' },
+  { valueKey: 'stat4Value', labelKey: 'stat4Label', accent: 'var(--color-sky)',  backBg: '#0A2535', backImage: '/locals.webp',            backDescKey: 'stat4Back' },
+  { valueKey: 'stat5Value', labelKey: 'stat5Label', accent: 'var(--color-gold)', backBg: '#2C1C0A', backImage: '/tourist.avif',           backDescKey: 'stat5Back' },
+  { valueKey: 'stat6Value', labelKey: 'stat6Label', accent: 'var(--color-sky)',  backBg: '#0A2535', backImage: '/labor.jpg',              backDescKey: 'stat6Back' },
 ] as const;
 
 export default function Problem() {
