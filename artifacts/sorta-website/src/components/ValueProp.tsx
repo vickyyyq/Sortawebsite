@@ -3,11 +3,10 @@ import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { CloudUpload, CopyCheck, JapaneseYen, Trash2 } from 'lucide-react';
 
-const DESK_CIRCLE = 'w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0';
-const MOB_CIRCLE  = 'w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0';
-
 const TITLE_CLS = 'font-semibold text-[var(--color-navy)] text-sm mb-1';
 const DESC_CLS  = 'text-[var(--color-text-muted)] text-xs leading-relaxed';
+const DESK_CIRCLE = 'w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0';
+const MOB_CIRCLE  = 'w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0';
 
 export default function ValueProp() {
   const { tr } = useLanguage();
@@ -22,80 +21,90 @@ export default function ValueProp() {
           <JpH2>{tr('valueProp', 'heading')}</JpH2>
         </div>
 
-        {/* ── DESKTOP: Radial orbital layout ── */}
-        <div className="hidden md:flex flex-col items-center gap-10">
+        {/* ── DESKTOP: Radial layout — single relative container, pillars absolutely positioned ── */}
+        <div className="hidden md:block relative" style={{ height: 580 }}>
 
-          {/* TOP — Missorting */}
+          {/* Globe — centered */}
+          <img
+            src="/globe.png"
+            alt="World globe"
+            className="absolute rounded-full animate-in fade-in duration-700 fill-mode-both"
+            style={{
+              width: 260,
+              height: 260,
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              objectFit: 'cover',
+              animationDelay: '50ms',
+            }}
+          />
+
+          {/* TOP — Missorting (pillar2, CopyCheck, #00A5E5) */}
           <div
-            className="flex flex-col items-center gap-3 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both"
-            style={{ animationDelay: '100ms' }}
+            className="absolute flex flex-col items-center gap-3 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both"
+            style={{ top: 0, left: '50%', transform: 'translateX(-50%)', animationDelay: '100ms' }}
           >
             <div className={DESK_CIRCLE} style={{ background: '#00A5E5' }}>
               <CopyCheck size={24} strokeWidth={1.5} color="white" />
             </div>
-            <div className="text-center">
+            <div className="text-center" style={{ maxWidth: 240 }}>
               <p className={TITLE_CLS}>{tr('valueProp', 'pillar2Title')}</p>
-              <p className={`${DESC_CLS} max-w-[240px]`}>{tr('valueProp', 'pillar2Body')}</p>
+              <p className={DESC_CLS}>{tr('valueProp', 'pillar2Body')}</p>
             </div>
           </div>
 
-          {/* MIDDLE ROW — Labor | Globe | Overflow */}
-          <div className="flex items-center gap-10 w-full">
-
-            {/* LEFT — Labor */}
-            <div
-              className="flex-1 flex flex-row items-center justify-end gap-4 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both"
-              style={{ animationDelay: '200ms' }}
-            >
-              <div className="text-right">
-                <p className={TITLE_CLS}>{tr('valueProp', 'pillar3Title')}</p>
-                <p className={`${DESC_CLS} max-w-[200px] ml-auto`}>{tr('valueProp', 'pillar3Body')}</p>
-              </div>
-              <div className={DESK_CIRCLE} style={{ background: '#E1A200' }}>
-                <JapaneseYen size={24} strokeWidth={1.5} color="white" />
-              </div>
-            </div>
-
-            {/* GLOBE */}
-            <div
-              className="flex-shrink-0 animate-in fade-in duration-700 fill-mode-both"
-              style={{ animationDelay: '50ms' }}
-            >
-              <img
-                src="/globe.png"
-                alt="World globe"
-                className="rounded-full"
-                style={{ width: 260, height: 260, objectFit: 'cover' }}
-              />
-            </div>
-
-            {/* RIGHT — Overflow */}
-            <div
-              className="flex-1 flex flex-row items-center gap-4 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both"
-              style={{ animationDelay: '200ms' }}
-            >
-              <div className={DESK_CIRCLE} style={{ background: '#3F8B44' }}>
-                <Trash2 size={24} strokeWidth={1.5} color="white" />
-              </div>
-              <div>
-                <p className={TITLE_CLS}>{tr('valueProp', 'pillar4Title')}</p>
-                <p className={`${DESC_CLS} max-w-[200px]`}>{tr('valueProp', 'pillar4Body')}</p>
-              </div>
-            </div>
-
-          </div>
-
-          {/* BOTTOM — Data */}
+          {/* RIGHT — Overflow (pillar4, Trash2, #3F8B44) */}
           <div
-            className="flex flex-col items-center gap-3 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both"
-            style={{ animationDelay: '300ms' }}
+            className="absolute flex flex-row items-center gap-4 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both"
+            style={{
+              right: 0,
+              top: '50%',
+              transform: 'translateY(-50%)',
+              maxWidth: 'calc(50% - 150px)',
+              animationDelay: '200ms',
+            }}
           >
-            <div className="text-center">
+            <div className={DESK_CIRCLE} style={{ background: '#3F8B44' }}>
+              <Trash2 size={24} strokeWidth={1.5} color="white" />
+            </div>
+            <div className="min-w-0">
+              <p className={TITLE_CLS}>{tr('valueProp', 'pillar4Title')}</p>
+              <p className={DESC_CLS}>{tr('valueProp', 'pillar4Body')}</p>
+            </div>
+          </div>
+
+          {/* BOTTOM — Data (pillar1, CloudUpload, #121C29) */}
+          <div
+            className="absolute flex flex-col items-center gap-3 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both"
+            style={{ bottom: 0, left: '50%', transform: 'translateX(-50%)', animationDelay: '300ms' }}
+          >
+            <div className="text-center" style={{ maxWidth: 240 }}>
               <p className={TITLE_CLS}>{tr('valueProp', 'pillar1Title')}</p>
-              <p className={`${DESC_CLS} max-w-[240px]`}>{tr('valueProp', 'pillar1Body')}</p>
+              <p className={DESC_CLS}>{tr('valueProp', 'pillar1Body')}</p>
             </div>
             <div className={DESK_CIRCLE} style={{ background: '#121C29' }}>
               <CloudUpload size={24} strokeWidth={1.5} color="white" />
+            </div>
+          </div>
+
+          {/* LEFT — Labor (pillar3, JapaneseYen, #E1A200) */}
+          <div
+            className="absolute flex flex-row items-center gap-4 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both"
+            style={{
+              left: 0,
+              top: '50%',
+              transform: 'translateY(-50%)',
+              maxWidth: 'calc(50% - 150px)',
+              animationDelay: '200ms',
+            }}
+          >
+            <div className="min-w-0 text-right">
+              <p className={TITLE_CLS}>{tr('valueProp', 'pillar3Title')}</p>
+              <p className={DESC_CLS}>{tr('valueProp', 'pillar3Body')}</p>
+            </div>
+            <div className={DESK_CIRCLE} style={{ background: '#E1A200' }}>
+              <JapaneseYen size={24} strokeWidth={1.5} color="white" />
             </div>
           </div>
 
