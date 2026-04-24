@@ -30,3 +30,9 @@ id = "uE7DG3CaxAuYedoZDeLOk"
 uri = "file://artifacts/sorta-website/public/stat-labor.png"
 type = "image"
 title = "generated_image"
+
+[[generated]]
+id = "vgchFyPxgQgmh6tsW2Ria"
+uri = "file://artifacts/sorta-website/public/globe.png"
+type = "image"
+title = "generated_image"
