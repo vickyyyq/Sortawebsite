@@ -5,12 +5,6 @@ import { useLanguage } from '@/contexts/LanguageContext';
 export default function Product() {
   const { tr } = useLanguage();
 
-  const capabilities = [
-    { labelKey: 'cap2' as const, descKey: 'cap2Desc' as const },
-    { labelKey: 'cap3' as const, descKey: 'cap3Desc' as const },
-    { labelKey: 'cap4' as const, descKey: 'cap4Desc' as const },
-  ];
-
   return (
     <section id="product" className="bg-white section-padding section-divider">
       <div className="max-w-[1200px] mx-auto px-5">
@@ -61,18 +55,6 @@ export default function Product() {
             playsInline
             className="w-full h-auto block"
           />
-        </div>
-
-        {/* 4 capabilities grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[var(--color-mist)] border border-[var(--color-mist)] rounded-sm overflow-hidden animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both delay-400">
-          {capabilities.map((cap, i) => (
-            <div key={i} className="bg-white p-8 md:p-10 flex gap-5">
-              <div>
-                <h4 className="text-base mb-2">{tr('product', cap.labelKey)}</h4>
-                <p className="text-[var(--color-text-muted)] text-sm leading-relaxed">{tr('product', cap.descKey)}</p>
-              </div>
-            </div>
-          ))}
         </div>
 
       </div>
