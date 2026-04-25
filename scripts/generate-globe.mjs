@@ -1,3 +1,16 @@
+/**
+ * One-time generator for artifacts/sorta-website/public/globe.svg
+ *
+ * Prerequisites (install temporarily before running, remove after):
+ *   pnpm add --workspace-root --save-dev d3-geo topojson-client world-atlas
+ *
+ * Run:
+ *   node scripts/generate-globe.mjs
+ *
+ * Then remove:
+ *   pnpm remove --workspace-root d3-geo topojson-client world-atlas
+ */
+
 import { readFileSync, writeFileSync } from 'fs';
 import { geoOrthographic, geoPath } from 'd3-geo';
 import { feature } from 'topojson-client';
