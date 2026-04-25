@@ -179,7 +179,7 @@ export default function ValueProp() {
               transitionDelay: '0s',
             }}
           >
-            {/* Static globe image */}
+            {/* Static globe image — desaturated so the color overlay below renders precisely */}
             <img
               src="/globe.png"
               alt="World globe"
@@ -190,6 +190,20 @@ export default function ValueProp() {
                 height: '100%',
                 borderRadius: '50%',
                 objectFit: 'cover',
+                filter: 'grayscale(1)',
+              }}
+            />
+
+            {/* Color overlay: #CCF1FF (center) → #C2DAED (edge) via multiply blend */}
+            <div
+              style={{
+                position: 'absolute',
+                inset: 0,
+                borderRadius: '50%',
+                background: 'radial-gradient(circle at 35% 35%, #CCF1FF, #C2DAED)',
+                mixBlendMode: 'multiply',
+                pointerEvents: 'none',
+                zIndex: 1,
               }}
             />
 
