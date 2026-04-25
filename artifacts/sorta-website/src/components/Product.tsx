@@ -62,7 +62,7 @@ export default function Product() {
 
         {/* Product video */}
         <div
-          className="relative w-full mb-14 rounded-sm overflow-hidden bg-[var(--color-fog)] animate-in fade-in duration-700 fill-mode-both delay-300"
+          className="relative w-full mb-14 rounded-sm overflow-hidden animate-in fade-in duration-700 fill-mode-both delay-300"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
