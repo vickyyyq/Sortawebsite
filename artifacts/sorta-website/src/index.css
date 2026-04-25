@@ -156,7 +156,7 @@
     }
   }
   .section-divider {
-    border-top: 1px solid var(--color-mist);
+    border-top: none;
   }
 }
 
