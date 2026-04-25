@@ -127,7 +127,7 @@ export const translations = {
     },
     pillar3Title: { en: 'Reduce labor costs', jp: '人件費を抑える' },
     pillar3Body: {
-      en: 'Automated preprocessing at intake reduces the sorting burden on downstream facilities — lowering cost per tonne and freeing staff for higher-value work.',
+      en: 'Preprocessing at intake lowers cost per tonne and frees staff for higher-value work.',
       jp: '投入時点での自動前処理によって、下流施設の選別作業を大きく軽減。1トンあたりのコストが下がり、スタッフはより価値の高い業務に集中できます。',
     },
     pillar4Title: { en: 'Prevent overflow', jp: '満杯を未然に防ぐ' },
