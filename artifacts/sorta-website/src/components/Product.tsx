@@ -1,9 +1,24 @@
 import { JpH2 } from '@/components/JpH2';
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Product() {
   const { tr } = useLanguage();
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
+  function togglePlay() {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  }
+
+  const showButton = !isPlaying || isHovered;
 
   return (
     <section id="product" className="bg-white section-padding section-divider">
@@ -46,15 +61,49 @@ export default function Product() {
         </div>
 
         {/* Product video */}
-        <div className="w-full mb-14 rounded-sm overflow-hidden bg-[var(--color-fog)] animate-in fade-in duration-700 fill-mode-both delay-300">
+        <div
+          className="relative w-full mb-14 rounded-sm overflow-hidden bg-[var(--color-fog)] animate-in fade-in duration-700 fill-mode-both delay-300"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           <video
+            ref={videoRef}
             src="/sorta_product.mp4"
-            autoPlay
             loop
             muted
             playsInline
+            onPlay={() => setIsPlaying(true)}
+            onPause={() => setIsPlaying(false)}
+            onEnded={() => setIsPlaying(false)}
             className="w-full h-auto block rounded-tl-[24px] rounded-tr-[24px] rounded-br-[24px] rounded-bl-[24px]"
           />
+
+          {/* Play/Pause overlay button */}
+          <button
+            onClick={togglePlay}
+            aria-label={isPlaying ? 'Pause video' : 'Play video'}
+            className="absolute inset-0 w-full h-full flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2"
+            style={{
+              background: 'transparent',
+              opacity: showButton ? 1 : 0,
+              transition: 'opacity 0.2s ease',
+            }}
+          >
+            <div className="w-16 h-16 rounded-full bg-black/50 flex items-center justify-center backdrop-blur-sm pointer-events-none">
+              {isPlaying ? (
+                /* Pause icon */
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="5" y="4" width="4" height="16" rx="1" />
+                  <rect x="15" y="4" width="4" height="16" rx="1" />
+                </svg>
+              ) : (
+                /* Play icon — offset slightly right to look centered */
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" style={{ marginLeft: '3px' }}>
+                  <polygon points="5,3 19,12 5,21" />
+                </svg>
+              )}
+            </div>
+          </button>
         </div>
 
       </div>
