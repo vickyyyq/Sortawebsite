@@ -186,8 +186,6 @@ export default function ValueProp() {
               style={{
                 position: 'absolute',
                 inset: 20,
-                width: 'calc(100% - 40px)',
-                height: 'calc(100% - 40px)',
                 borderRadius: '50%',
                 objectFit: 'cover',
               }}
