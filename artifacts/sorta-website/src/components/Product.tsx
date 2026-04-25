@@ -53,7 +53,7 @@ export default function Product() {
             loop
             muted
             playsInline
-            className="w-full h-auto block"
+            className="w-full h-auto block rounded-tl-[24px] rounded-tr-[24px] rounded-br-[24px] rounded-bl-[24px]"
           />
         </div>
 
