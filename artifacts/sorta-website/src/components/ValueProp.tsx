@@ -82,20 +82,26 @@ export default function ValueProp() {
 
   useEffect(() => {
     if (!isVisible) return;
+    let t1: ReturnType<typeof setTimeout>;
+    let t2: ReturnType<typeof setTimeout>;
     const interval = setInterval(() => {
       setTextVisible(false);
-      setTimeout(() => {
+      t1 = setTimeout(() => {
         setSlots(prev => {
           const copy = [...prev];
           copy.push(copy.shift()!);
           return copy;
         });
-        setTimeout(() => {
+        t2 = setTimeout(() => {
           setTextVisible(true);
         }, MOVE);
       }, FADE_OUT);
     }, CYCLE);
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
   }, [isVisible]);
 
   const transitionBase = 'opacity 0.6s ease, transform 0.6s ease';
