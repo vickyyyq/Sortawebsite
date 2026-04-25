@@ -225,22 +225,20 @@
 .icon-bell { animation: bell-swing 1s ease-in-out both; }
 .icon-notif { animation: notif-dot-pulse 0.5s ease both 1s; }
 
-/* ── ValueProp orbit animation ── */
+/* ── Globe node carousel ── */
 
-@keyframes orbitSpin {
-  from { transform: rotate(90deg); }
-  to   { transform: rotate(450deg); }
+@keyframes globe-rotate {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
-@keyframes counterOrbitSpin {
-  from { transform: rotate(-90deg); }
-  to   { transform: rotate(-450deg); }
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.03); }
 }
 
-/* Pause orbit on hover */
-.orbit-container:hover .orbit-pivot,
-.orbit-container:hover .orbit-content {
-  animation-play-state: paused;
+.globe-wrapper:hover .globe-map {
+  animation-duration: 14s;
 }
 
 /* ── Reduced motion accessibility ── */
@@ -266,9 +264,9 @@
     transform: none !important;
   }
 
-  .orbit-pivot,
-  .orbit-content {
-    animation-play-state: paused !important;
+  .globe-map,
+  .globe-glow {
+    animation: none !important;
   }
 
 }
