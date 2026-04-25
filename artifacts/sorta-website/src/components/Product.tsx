@@ -1,15 +1,14 @@
 import { JpH2 } from '@/components/JpH2';
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Shuffle, Settings, Activity } from 'lucide-react';
 
 export default function Product() {
   const { tr } = useLanguage();
 
   const capabilities = [
-    { icon: Shuffle,  labelKey: 'cap2' as const, descKey: 'cap2Desc' as const },
-    { icon: Settings, labelKey: 'cap3' as const, descKey: 'cap3Desc' as const },
-    { icon: Activity, labelKey: 'cap4' as const, descKey: 'cap4Desc' as const },
+    { labelKey: 'cap2' as const, descKey: 'cap2Desc' as const },
+    { labelKey: 'cap3' as const, descKey: 'cap3Desc' as const },
+    { labelKey: 'cap4' as const, descKey: 'cap4Desc' as const },
   ];
 
   return (
@@ -68,9 +67,6 @@ export default function Product() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[var(--color-mist)] border border-[var(--color-mist)] rounded-sm overflow-hidden animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both delay-400">
           {capabilities.map((cap, i) => (
             <div key={i} className="bg-white p-8 md:p-10 flex gap-5">
-              <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center border border-[var(--color-mist)] rounded-sm">
-                <cap.icon size={18} className="text-[var(--color-sky)]" strokeWidth={1.5} />
-              </div>
               <div>
                 <h4 className="text-base mb-2">{tr('product', cap.labelKey)}</h4>
                 <p className="text-[var(--color-text-muted)] text-sm leading-relaxed">{tr('product', cap.descKey)}</p>
