@@ -225,6 +225,18 @@
 .icon-bell { animation: bell-swing 1s ease-in-out both; }
 .icon-notif { animation: notif-dot-pulse 0.5s ease both 1s; }
 
+/* ── ValueProp orbit animation ── */
+
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes counterOrbitSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
 /* ── Reduced motion accessibility ── */
 @media (prefers-reduced-motion: reduce) {
   .animate-in,
@@ -246,6 +258,11 @@
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  .orbit-pivot,
+  .orbit-content {
+    animation-play-state: paused !important;
   }
 
 }
