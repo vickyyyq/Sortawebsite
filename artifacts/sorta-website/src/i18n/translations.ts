@@ -132,7 +132,7 @@ export const translations = {
     },
     pillar4Title: { en: 'Prevent overflow', jp: '満杯を未然に防ぐ' },
     pillar4Body: {
-      en: 'Real-time capacity tracking alerts operations teams before bins overflow — reducing hygiene incidents and keeping high-traffic spaces clean.',
+      en: 'Real-time capacity alerts keep high-traffic spaces clean before problems occur.',
       jp: 'リアルタイムで容量を可視化し、満杯になる前に運営チームへ通知。衛生面のトラブルを防ぎ、人通りの多い場所を清潔に保ちます。',
     },
   },
