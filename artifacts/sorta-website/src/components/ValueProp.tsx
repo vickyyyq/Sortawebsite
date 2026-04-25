@@ -19,13 +19,13 @@ const NODES = [
 ];
 
 // Globe-wrapper is 320×320 (center at 160,160). Icon circles are 56px (radius 28px).
-// R=185px from globe center → icon extends 53px outside wrapper.
-// Grid gap is 72px → 19px clearance between icon edge and text cell.
+// R=210px from globe center → icon extends 78px outside wrapper.
+// Grid gap is 88px → 10px clearance between icon edge and text cell.
 const ICON_POSITIONS: React.CSSProperties[] = [
-  { top: '-53px', left: '50%',   transform: 'translateX(-50%)' }, // Top
-  { top: '50%',   left: '317px', transform: 'translateY(-50%)' }, // Right
-  { top: '317px', left: '50%',   transform: 'translateX(-50%)' }, // Bottom
-  { top: '50%',   left: '-53px', transform: 'translateY(-50%)' }, // Left
+  { top: '-78px', left: '50%',   transform: 'translateX(-50%)' }, // Top
+  { top: '50%',   left: '342px', transform: 'translateY(-50%)' }, // Right
+  { top: '342px', left: '50%',   transform: 'translateX(-50%)' }, // Bottom
+  { top: '50%',   left: '-78px', transform: 'translateY(-50%)' }, // Left
 ];
 
 function SlotText({
@@ -126,7 +126,7 @@ export default function ValueProp() {
             gridTemplateRows: 'auto auto auto',
             alignItems: 'center',
             justifyItems: 'center',
-            gap: 72,
+            gap: 88,
             minHeight: 600,
           }}
         >
@@ -185,7 +185,7 @@ export default function ValueProp() {
               alt="World globe"
               style={{
                 position: 'absolute',
-                inset: 48,
+                inset: 40,
                 borderRadius: '50%',
                 objectFit: 'cover',
               }}
