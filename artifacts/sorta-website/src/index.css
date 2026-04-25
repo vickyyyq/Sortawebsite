@@ -237,6 +237,12 @@
   to   { transform: rotate(-450deg); }
 }
 
+/* Pause orbit on hover */
+.orbit-container:hover .orbit-pivot,
+.orbit-container:hover .orbit-content {
+  animation-play-state: paused;
+}
+
 /* ── Reduced motion accessibility ── */
 @media (prefers-reduced-motion: reduce) {
   .animate-in,

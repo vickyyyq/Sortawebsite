@@ -31,7 +31,7 @@ export default function ValueProp() {
         </div>
 
         {/* ── DESKTOP: Orbital radial layout ── */}
-        <div className="hidden md:block relative" style={{ height: 640 }}>
+        <div className="hidden md:block relative orbit-container" style={{ height: 640 }}>
 
           {/* Orbit ring */}
           <svg
