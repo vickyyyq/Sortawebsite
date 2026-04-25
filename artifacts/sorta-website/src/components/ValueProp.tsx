@@ -185,7 +185,7 @@ export default function ValueProp() {
               alt="World globe"
               style={{
                 position: 'absolute',
-                inset: 20,
+                inset: 48,
                 borderRadius: '50%',
                 objectFit: 'cover',
               }}
