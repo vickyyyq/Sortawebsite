@@ -228,13 +228,13 @@
 /* ── ValueProp orbit animation ── */
 
 @keyframes orbitSpin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+  from { transform: rotate(90deg); }
+  to   { transform: rotate(450deg); }
 }
 
 @keyframes counterOrbitSpin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(-360deg); }
+  from { transform: rotate(-90deg); }
+  to   { transform: rotate(-450deg); }
 }
 
 /* ── Reduced motion accessibility ── */

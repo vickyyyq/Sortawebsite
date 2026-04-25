@@ -12,10 +12,10 @@ const ORBIT_RADIUS = 190;
 const PERIOD = 30;
 
 const PILLARS = [
-  { Icon: CopyCheck,    color: '#00A5E5', titleKey: 'pillar2Title' as const, descKey: 'pillar2Body' as const, delay: 0     },
-  { Icon: Trash2,       color: '#3F8B44', titleKey: 'pillar4Title' as const, descKey: 'pillar4Body' as const, delay: -7.5  },
-  { Icon: CloudUpload,  color: '#121C29', titleKey: 'pillar1Title' as const, descKey: 'pillar1Body' as const, delay: -15   },
-  { Icon: JapaneseYen,  color: '#E1A200', titleKey: 'pillar3Title' as const, descKey: 'pillar3Body' as const, delay: -22.5 },
+  { Icon: CopyCheck,    color: '#00A5E5', titleKey: 'pillar2Title' as const, descKey: 'pillar2Body' as const, delay: -22.5 },
+  { Icon: Trash2,       color: '#3F8B44', titleKey: 'pillar4Title' as const, descKey: 'pillar4Body' as const, delay: 0     },
+  { Icon: CloudUpload,  color: '#121C29', titleKey: 'pillar1Title' as const, descKey: 'pillar1Body' as const, delay: -7.5  },
+  { Icon: JapaneseYen,  color: '#E1A200', titleKey: 'pillar3Title' as const, descKey: 'pillar3Body' as const, delay: -15   },
 ] as const;
 
 export default function ValueProp() {
