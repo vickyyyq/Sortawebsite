@@ -18,11 +18,14 @@ const NODES = [
   { id: 'labor',      Icon: JapaneseYen, color: '#E1A200', titleKey: 'pillar3Title' as const, descKey: 'pillar3Body' as const },
 ];
 
+// Globe-wrapper is 320×320 (center at 160,160). Icon circles are 56px (radius 28px).
+// R=185px from globe center → icon extends 53px outside wrapper.
+// Grid gap is 72px → 19px clearance between icon edge and text cell.
 const ICON_POSITIONS: React.CSSProperties[] = [
-  { top: '-80px', left: '50%',   transform: 'translateX(-50%)' },
-  { top: '50%',   left: '110%',  transform: 'translateY(-50%)' },
-  { top: '110%',  left: '50%',   transform: 'translateX(-50%)' },
-  { top: '50%',   left: '-30px', transform: 'translateY(-50%)' },
+  { top: '-53px', left: '50%',   transform: 'translateX(-50%)' }, // Top
+  { top: '50%',   left: '317px', transform: 'translateY(-50%)' }, // Right
+  { top: '317px', left: '50%',   transform: 'translateX(-50%)' }, // Bottom
+  { top: '50%',   left: '-53px', transform: 'translateY(-50%)' }, // Left
 ];
 
 function SlotText({
@@ -123,7 +126,7 @@ export default function ValueProp() {
             gridTemplateRows: 'auto auto auto',
             alignItems: 'center',
             justifyItems: 'center',
-            gap: 40,
+            gap: 72,
             minHeight: 600,
           }}
         >
@@ -134,7 +137,7 @@ export default function ValueProp() {
               gridRow: 1,
               textAlign: 'center',
               maxWidth: 240,
-              paddingBottom: 12,
+              paddingBottom: 20,
               opacity: isVisible ? 1 : 0,
               transform: isVisible ? 'translateY(0)' : 'translateY(-24px)',
               transition: transitionBase,
@@ -151,7 +154,7 @@ export default function ValueProp() {
               gridRow: 2,
               textAlign: 'right',
               maxWidth: 220,
-              paddingRight: 16,
+              paddingRight: 20,
               opacity: isVisible ? 1 : 0,
               transform: isVisible ? 'translateX(0)' : 'translateX(-24px)',
               transition: transitionBase,
@@ -176,27 +179,19 @@ export default function ValueProp() {
               transitionDelay: '0s',
             }}
           >
-            {/* Spinning globe map */}
-            <div
+            {/* Static globe image */}
+            <img
+              src="/globe.png"
+              alt="World globe"
               style={{
                 position: 'absolute',
                 inset: 0,
+                width: '100%',
+                height: '100%',
                 borderRadius: '50%',
-                overflow: 'hidden',
+                objectFit: 'cover',
               }}
-            >
-              <img
-                className="globe-map"
-                src="/world-map.png"
-                alt="Rotating world map"
-                style={{
-                  width: '200%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  animation: 'globe-rotate 24s linear infinite',
-                }}
-              />
-            </div>
+            />
 
             {/* Atmospheric glow ring */}
             <div
@@ -247,7 +242,7 @@ export default function ValueProp() {
               gridRow: 2,
               textAlign: 'left',
               maxWidth: 220,
-              paddingLeft: 16,
+              paddingLeft: 20,
               opacity: isVisible ? 1 : 0,
               transform: isVisible ? 'translateX(0)' : 'translateX(24px)',
               transition: transitionBase,
@@ -264,7 +259,7 @@ export default function ValueProp() {
               gridRow: 3,
               textAlign: 'center',
               maxWidth: 240,
-              paddingTop: 12,
+              paddingTop: 20,
               opacity: isVisible ? 1 : 0,
               transform: isVisible ? 'translateY(0)' : 'translateY(24px)',
               transition: transitionBase,
