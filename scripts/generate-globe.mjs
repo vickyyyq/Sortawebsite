@@ -15,8 +15,8 @@ import { readFileSync, writeFileSync } from 'fs';
 import { geoOrthographic, geoPath } from 'd3-geo';
 import { feature } from 'topojson-client';
 
-const OCEAN = '#CCF1FF';
-const LAND  = '#C2DAED';
+const OCEAN = '#DEEFF6';
+const LAND  = '#B0DBEC';
 const SIZE  = 1024;
 const CX    = SIZE / 2;
 const CY    = SIZE / 2;

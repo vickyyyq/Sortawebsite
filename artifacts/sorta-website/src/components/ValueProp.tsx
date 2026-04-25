@@ -179,15 +179,15 @@ export default function ValueProp() {
               transitionDelay: '0s',
             }}
           >
-            {/* Globe SVG — ocean #CCF1FF, land #C2DAED, transparent outside circle */}
+            {/* Globe SVG — ocean #DEEFF6, land #B0DBEC, transparent outside circle */}
             <img
               src="/globe.svg"
               alt="World globe"
               style={{
                 position: 'absolute',
-                inset: 0,
-                width: '100%',
-                height: '100%',
+                inset: 20,
+                width: 'calc(100% - 40px)',
+                height: 'calc(100% - 40px)',
                 borderRadius: '50%',
                 objectFit: 'cover',
               }}
