@@ -117,7 +117,7 @@ export const translations = {
     heading: { en: 'Better for the system. Better for the bottom line.', jp: '現場の負担を減らしながら、事業性も両立する。' },
     pillar1Title: { en: 'Collect valuable data', jp: 'データを資産に変える' },
     pillar1Body: {
-      en: 'Every disposal event is logged — material type, condition, and timing — creating a live dataset that informs logistics, purchasing, and sustainability reporting.',
+      en: 'Every deposit is logged — feeding a live dataset for logistics, purchasing, and sustainability reporting.',
       jp: '投入された素材の種類・状態・時間を一件ずつ記録。物流、調達、サステナビリティ報告まで活用できるリアルタイムのデータが蓄積されていきます。',
     },
     pillar2Title: { en: 'Eliminate missorting', jp: '不分別をなくす' },
