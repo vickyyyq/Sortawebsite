@@ -122,7 +122,7 @@ export const translations = {
     },
     pillar2Title: { en: 'Eliminate missorting', jp: '不分別をなくす' },
     pillar2Body: {
-      en: 'Sorta removes the dependency on user behavior entirely. Correct sorting happens automatically — regardless of language, literacy, or recycling knowledge.',
+      en: 'Correct sorting happens automatically — regardless of language, literacy, or recycling knowledge.',
       jp: '利用者の判断に任せない設計です。言語や知識、年齢を問わず、誰が捨てても正しい分別が自動で行われます。',
     },
     pillar3Title: { en: 'Reduce labor costs', jp: '人件費を抑える' },
