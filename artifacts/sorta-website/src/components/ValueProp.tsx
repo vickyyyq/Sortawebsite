@@ -24,41 +24,21 @@ export default function ValueProp() {
         {/* ── DESKTOP: Radial layout — single relative container, pillars absolutely positioned ── */}
         <div className="hidden md:block relative" style={{ height: 580 }}>
 
-          {/* Globe — centered, cylindrical CSS spinning animation */}
-          <div
-            className="absolute rounded-full overflow-hidden animate-in fade-in duration-700 fill-mode-both"
+          {/* Globe — centered */}
+          <img
+            src="/globe.png"
+            alt="World globe"
+            className="absolute rounded-full animate-in fade-in duration-700 fill-mode-both"
             style={{
               width: 260,
               height: 260,
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)',
+              objectFit: 'cover',
               animationDelay: '50ms',
-              background: '#fff',
             }}
-          >
-            <img
-              src="/world-map.jpg"
-              alt="World globe"
-              style={{
-                position: 'absolute',
-                top: '50%',
-                left: 0,
-                transform: 'translateY(-50%)',
-                width: '200%',
-                height: 'auto',
-                minHeight: '100%',
-                animation: 'globeSpin 20s linear infinite',
-                filter: 'grayscale(1) brightness(1.45) contrast(0.55)',
-              }}
-            />
-            <div style={{
-              position: 'absolute',
-              inset: 0,
-              background: 'radial-gradient(circle at 38% 35%, rgba(255,255,255,0.25) 0%, transparent 45%, rgba(180,190,200,0.45) 100%)',
-              pointerEvents: 'none',
-            }} />
-          </div>
+          />
 
           {/* TOP — Missorting (pillar2, CopyCheck, #00A5E5) */}
           <div
