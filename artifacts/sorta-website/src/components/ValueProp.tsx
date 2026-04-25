@@ -181,7 +181,7 @@ export default function ValueProp() {
             >
               <img
                 className="globe-map"
-                src="/world-map.jpg"
+                src="/world-map.png"
                 alt="Rotating world map"
                 style={{
                   width: '200%',
