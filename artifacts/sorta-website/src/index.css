@@ -160,6 +160,13 @@
   }
 }
 
+/* ── Globe spin animation ── */
+
+@keyframes globeSpin {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
 /* ── Process card icon animations ── */
 
 @keyframes detect-pan {
@@ -246,6 +253,10 @@
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  img[style*="globeSpin"] {
+    animation: none !important;
   }
 }
 
