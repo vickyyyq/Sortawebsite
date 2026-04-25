@@ -48,7 +48,7 @@ export default function ValueProp() {
             <div className={DESK_CIRCLE} style={{ background: '#00A5E5' }}>
               <CopyCheck size={24} strokeWidth={1.5} color="white" />
             </div>
-            <div className="text-center" style={{ maxWidth: 240 }}>
+            <div className="text-center" style={{ maxWidth: 280 }}>
               <p className={TITLE_CLS}>{tr('valueProp', 'pillar2Title')}</p>
               <p className={DESC_CLS}>{tr('valueProp', 'pillar2Body')}</p>
             </div>
@@ -68,7 +68,7 @@ export default function ValueProp() {
             <div className={DESK_CIRCLE} style={{ background: '#3F8B44' }}>
               <Trash2 size={24} strokeWidth={1.5} color="white" />
             </div>
-            <div className="min-w-0">
+            <div className="min-w-0" style={{ maxWidth: 280 }}>
               <p className={TITLE_CLS}>{tr('valueProp', 'pillar4Title')}</p>
               <p className={DESC_CLS}>{tr('valueProp', 'pillar4Body')}</p>
             </div>
@@ -79,7 +79,7 @@ export default function ValueProp() {
             className="absolute flex flex-col items-center gap-3 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both"
             style={{ bottom: 0, left: '50%', transform: 'translateX(-50%)', animationDelay: '300ms' }}
           >
-            <div className="text-center" style={{ maxWidth: 240 }}>
+            <div className="text-center" style={{ maxWidth: 280 }}>
               <p className={TITLE_CLS}>{tr('valueProp', 'pillar1Title')}</p>
               <p className={DESC_CLS}>{tr('valueProp', 'pillar1Body')}</p>
             </div>
@@ -99,7 +99,7 @@ export default function ValueProp() {
               animationDelay: '200ms',
             }}
           >
-            <div className="min-w-0 text-right">
+            <div className="min-w-0 text-right" style={{ maxWidth: 280 }}>
               <p className={TITLE_CLS}>{tr('valueProp', 'pillar3Title')}</p>
               <p className={DESC_CLS}>{tr('valueProp', 'pillar3Body')}</p>
             </div>
