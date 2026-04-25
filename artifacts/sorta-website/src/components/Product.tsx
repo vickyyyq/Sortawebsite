@@ -1,13 +1,12 @@
 import { JpH2 } from '@/components/JpH2';
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Eye, Shuffle, Settings, Activity } from 'lucide-react';
+import { Shuffle, Settings, Activity } from 'lucide-react';
 
 export default function Product() {
   const { tr } = useLanguage();
 
   const capabilities = [
-    { icon: Eye,      labelKey: 'cap1' as const, descKey: 'cap1Desc' as const },
     { icon: Shuffle,  labelKey: 'cap2' as const, descKey: 'cap2Desc' as const },
     { icon: Settings, labelKey: 'cap3' as const, descKey: 'cap3Desc' as const },
     { icon: Activity, labelKey: 'cap4' as const, descKey: 'cap4Desc' as const },
