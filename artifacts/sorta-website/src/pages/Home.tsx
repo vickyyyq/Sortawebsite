@@ -52,9 +52,9 @@ function HomeContent({ initialSection }: HomeContentProps) {
         <Hero />
         <Problem />
         <Solution />
+        <Product />
         <ValueProp />
         <UseCases />
-        <Product />
         <Traction />
         <Partner />
         <Mission />
