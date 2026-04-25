@@ -1,0 +1,347 @@
+## COMPONENT — GLOBE NODE CAROUSEL
+
+### Behaviour overview
+4 benefit nodes rotate clockwise around the globe every 3 seconds.
+Only the icon circles move between positions — all text fades out
+before movement and fades back in once icons arrive.
+The globe itself does not move.
+
+━━ POSITIONS
+
+4 fixed slots around the globe:
+  Position 0 — Top
+  Position 1 — Right
+  Position 2 — Bottom
+  Position 3 — Left
+
+On each step, every node advances one position clockwise:
+  Top → Right → Bottom → Left → Top
+
+━━ STARTING NODE ORDER
+
+  Slot 0 (Top):    Eliminate missorting      (sky blue icon)
+  Slot 1 (Right):  Prevent overflow          (green icon)
+  Slot 2 (Bottom): Collect valuable data     (navy icon)
+  Slot 3 (Left):   Reduce labor costs        (gold icon)
+
+Store nodes in a JS array. On each tick, rotate the array by 1:
+  nodes.push(nodes.shift());
+
+━━ TIMING SEQUENCE (per 3-second cycle)
+
+  const CYCLE    = 3000;   // total ms per rotation step
+  const FADE_OUT = 300;    // ms to fade all text out
+  const MOVE     = 700;    // ms for icons to travel to next position
+  const FADE_IN  = 300;    // ms to fade all text back in
+  // Idle hold   = 1700ms  // 3000 - 300 - 700 - 300
+
+  Phase 1 — Fade out ALL text blocks         0ms    → 300ms
+  Phase 2 — Move ALL icons to next position  300ms  → 1000ms
+  Phase 3 — Fade in ALL text blocks          1000ms → 1300ms
+  Idle — hold, nothing animates              1300ms → 3000ms
+
+━━ JAVASCRIPT LOGIC
+
+  let nodes = [
+    { id: 'missorting', position: 0 },
+    { id: 'overflow',   position: 1 },
+    { id: 'data',       position: 2 },
+    { id: 'labor',      position: 3 },
+  ];
+
+  function tick() {
+    // Phase 1 — hide all text
+    hideAllText();
+
+    setTimeout(() => {
+      // Phase 2 — rotate array and move icons
+      nodes = rotateClockwise(nodes);
+      updateIconPositions(nodes);
+
+      setTimeout(() => {
+        // Phase 3 — show all text
+        showAllText();
+
+      }, MOVE);
+    }, FADE_OUT);
+  }
+
+  // On page load: set initial icon positions, then show all text
+  updateIconPositions(nodes);
+  showAllText();
+
+  // Start carousel
+  setInterval(tick, CYCLE);
+
+  function rotateClockwise(arr) {
+    const copy = [...arr];
+    copy.push(copy.shift());
+    return copy;
+  }
+
+  function hideAllText() {
+    document.querySelectorAll('.node-text').forEach(el => {
+      el.style.opacity = '0';
+      el.style.pointerEvents = 'none';
+    });
+  }
+
+  function showAllText() {
+    document.querySelectorAll('.node-text').forEach(el => {
+      el.style.opacity = '1';
+      el.style.pointerEvents = 'auto';
+    });
+  }
+
+  function updateIconPositions(nodes) {
+    nodes.forEach((node, index) => {
+      const icon = document.querySelector(`.node-icon[data-id="${node.id}"]`);
+      const pos = positions[index];
+      Object.assign(icon.style, pos);
+    });
+  }
+
+━━ ICON POSITION COORDINATES
+
+  Defined relative to the globe container (globe = 320px diameter).
+  Icons are 56px circles — coordinates target the icon centre.
+
+  const positions = {
+    0: { top: '-80px', left: '50%',   transform: 'translateX(-50%)' }, // Top
+    1: { top: '50%',   left: '110%',  transform: 'translateY(-50%)' }, // Right
+    2: { top: '110%',  left: '50%',   transform: 'translateX(-50%)' }, // Bottom
+    3: { top: '50%',   left: '-30px', transform: 'translateY(-50%)' }, // Left
+  };
+
+  Adjust pixel values if globe size changes.
+
+━━ ICON MOVEMENT TRANSITION
+
+  Apply to every .node-icon element:
+    transition: top  700ms cubic-bezier(0.4, 0, 0.2, 1),
+                left 700ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  Icons are always opacity: 1 — they never fade, only move.
+
+━━ TEXT FADE TRANSITION
+
+  Apply to every .node-text element:
+    transition: opacity 300ms ease;
+
+  Text is anchored to its position SLOT, not to the node.
+  This means the text block for each slot is fixed in place —
+  only its content swaps as nodes rotate through.
+
+━━ TEXT BLOCK LAYOUT PER SLOT
+
+  Each slot has its own alignment so text never overlaps the globe.
+
+  Position 0 (Top):
+    text-align:  center
+    anchor:      centred above the top icon
+    max-width:   240px
+    padding:     0 0 12px 0
+
+  Position 1 (Right):
+    text-align:  left
+    anchor:      to the right of the icon, vertically centred
+    max-width:   220px
+    padding:     0 0 0 16px
+
+  Position 2 (Bottom):
+    text-align:  center
+    anchor:      centred below the bottom icon
+    max-width:   240px
+    padding:     12px 0 0 0
+
+  Position 3 (Left):
+    text-align:  right
+    anchor:      to the left of the icon, vertically centred
+    max-width:   220px
+    padding:     0 16px 0 0
+
+━━ LAYOUT — CONTAINER
+
+  position: relative
+  width: 860px (desktop) / 100% (mobile)
+  min-height: 600px (desktop) / auto (mobile)
+  display: grid
+  grid-template-columns: 1fr auto 1fr
+  grid-template-rows: auto auto auto
+  align-items: center
+  justify-items: center
+  gap: 40px
+
+  Grid placement:
+    Top text + icon:    column 2, row 1
+    Left text + icon:   column 1, row 2
+    Globe:              column 2, row 2
+    Right text + icon:  column 3, row 2
+    Bottom text + icon: column 2, row 3
+
+━━ GLOBE
+
+  HTML structure:
+    <div class="globe-wrapper">
+      <div class="globe-spin">
+        <img class="globe-map" src="[world-map-image]" alt="Rotating globe" />
+      </div>
+      <div class="globe-glow"></div>
+    </div>
+
+  Globe dimensions:
+    Width and height: 320px (desktop) / 220px (mobile)
+    Border-radius: 50%
+    Overflow: hidden
+
+  Map image:
+    Source: https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/
+    World_map_-_low_resolution.svg/2560px-World_map_-_low_resolution.svg.png
+    Width inside globe: 200% (two map widths for seamless loop)
+
+  Rotation:
+    @keyframes globe-rotate {
+      from { transform: translateX(0);    }
+      to   { transform: translateX(-50%); }
+    }
+    Apply to .globe-map:
+      animation: globe-rotate 24s linear infinite;
+
+  On hover of .globe-wrapper:
+    .globe-wrapper:hover .globe-map {
+      animation-duration: 14s;
+    }
+
+  Atmospheric glow:
+    .globe-glow {
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 6px solid rgba(0, 165, 229, 0.18);
+      box-shadow:
+        0 0 24px 6px rgba(0, 165, 229, 0.12),
+        inset 0 0 24px 6px rgba(0, 165, 229, 0.08);
+      animation: glow-pulse 3.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes glow-pulse {
+      0%, 100% { opacity: 0.6; transform: scale(1);    }
+      50%       { opacity: 1;   transform: scale(1.03); }
+    }
+
+━━ ICON CIRCLE STYLES
+
+  Width / height:  56px
+  Border-radius:   50%
+  Display:         flex, align-items: center, justify-content: center
+  Position:        absolute (within globe-wrapper container)
+  Icon glyph:      white SVG, 26px, line-art style
+  data-id:         set on each .node-icon for JS targeting
+
+  Icon colors:
+    missorting (clipboard + check):  background #00A5E5
+    overflow   (trash bin):          background #2D6A3F
+    data       (cloud upload arrow): background #121C29
+    labor      (¥ symbol):           background #E1A200
+
+━━ TYPOGRAPHY
+
+  Title (.node-title):
+    font-family: var(--font-heading);   /* Raleway 800 */
+    font-size:   18px;
+    color:       var(--color-navy);
+    margin-bottom: 8px;
+
+  Description (.node-desc):
+    font-family: var(--font-body);      /* Quicksand */
+    font-size:   14px;
+    font-weight: 400;
+    color:       var(--color-text-muted);
+    line-height: 1.6;
+
+━━ NODE CONTENT
+
+  id: missorting
+    Icon:  Clipboard with checkmark
+    Title: Eliminate missorting
+    Text:  Correct sorting happens automatically — regardless of
+           language, literacy, or recycling knowledge.
+
+  id: overflow
+    Icon:  Trash bin with lid
+    Title: Prevent overflow
+    Text:  Real-time capacity alerts keep high-traffic spaces
+           clean before problems occur.
+
+  id: data
+    Icon:  Cloud with upload arrow
+    Title: Collect valuable data
+    Text:  Every deposit is logged — feeding a live dataset for
+           logistics, purchasing, and sustainability reporting.
+
+  id: labor
+    Icon:  Yen symbol ¥
+    Title: Reduce labor costs
+    Text:  Preprocessing at intake lowers cost per tonne and
+           frees staff for higher-value work.
+
+━━ ENTRY ANIMATION (on scroll into view)
+
+  Use IntersectionObserver (threshold: 0.2).
+  When section enters view, add .is-visible to the section wrapper.
+  Start the carousel setInterval only after .is-visible is added.
+
+  Initial state (before .is-visible):
+    Globe:          opacity: 0;  transform: scale(0.85);
+    Top node:       opacity: 0;  transform: translateY(-24px);
+    Right node:     opacity: 0;  transform: translateX(24px);
+    Bottom node:    opacity: 0;  transform: translateY(24px);
+    Left node:      opacity: 0;  transform: translateX(-24px);
+
+  On .is-visible (CSS transitions):
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    All → opacity: 1; transform: translate(0) scale(1);
+
+  Stagger delays:
+    Globe:       0s
+    Top node:    0.15s
+    Right node:  0.3s
+    Bottom node: 0.3s
+    Left node:   0.45s
+
+  const section = document.querySelector('.globe-section');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        section.classList.add('is-visible');
+        observer.unobserve(section);
+        setInterval(tick, CYCLE);   // start carousel only after entry
+      }
+    });
+  }, { threshold: 0.2 });
+  observer.observe(section);
+
+━━ SECTION WRAPPER
+
+  id:         "value-globe"
+  Background: #FFFFFF
+  Padding:    var(--space-xl) 0
+
+  Eyebrow:  "The Value"
+  Heading:  "Built to deliver results at every level."
+  Subtext:  "Sorta creates value across the entire recycling chain —
+             from the moment waste is deposited to the data it generates."
+  All header text: centred, max-width 600px, margin: 0 auto 60px
+
+━━ MOBILE (max-width: 768px)
+
+  Disable the carousel entirely on mobile.
+  Show all 4 nodes stacked vertically, all text visible, no animation.
+
+  if (window.innerWidth < 768) return;   // add to top of tick()
+
+  Static mobile layout:
+    Single column, order: Top → Right → Bottom → Left
+    Globe: 220px, centred
+    All nodes centred, text-align: center
+    All .node-text: opacity 1, no transitions
