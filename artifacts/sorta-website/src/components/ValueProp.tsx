@@ -24,6 +24,32 @@ export default function ValueProp() {
         {/* ── DESKTOP: Radial layout — single relative container, pillars absolutely positioned ── */}
         <div className="hidden md:block relative" style={{ height: 580 }}>
 
+          {/* Orbit ring connecting all 4 icons */}
+          <svg
+            aria-hidden="true"
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              width: 390,
+              height: 390,
+              overflow: 'visible',
+              zIndex: 0,
+            }}
+          >
+            <circle
+              cx={195}
+              cy={195}
+              r={190}
+              fill="none"
+              stroke="#CDDFED"
+              strokeWidth={1.5}
+              strokeDasharray="3 9"
+              strokeLinecap="round"
+            />
+          </svg>
+
           {/* Globe — centered */}
           <img
             src="/globe.png"
@@ -45,12 +71,12 @@ export default function ValueProp() {
             className="absolute flex flex-col items-center gap-3 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both"
             style={{ top: 0, left: '50%', transform: 'translateX(-50%)', animationDelay: '100ms' }}
           >
-            <div className={DESK_CIRCLE} style={{ background: '#00A5E5' }}>
-              <CopyCheck size={24} strokeWidth={1.5} color="white" />
-            </div>
             <div className="text-center" style={{ maxWidth: 280 }}>
               <p className={TITLE_CLS}>{tr('valueProp', 'pillar2Title')}</p>
               <p className={DESC_CLS}>{tr('valueProp', 'pillar2Body')}</p>
+            </div>
+            <div className={DESK_CIRCLE} style={{ background: '#00A5E5' }}>
+              <CopyCheck size={24} strokeWidth={1.5} color="white" />
             </div>
           </div>
 
@@ -79,12 +105,12 @@ export default function ValueProp() {
             className="absolute flex flex-col items-center gap-3 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both"
             style={{ bottom: 0, left: '50%', transform: 'translateX(-50%)', animationDelay: '300ms' }}
           >
+            <div className={DESK_CIRCLE} style={{ background: '#121C29' }}>
+              <CloudUpload size={24} strokeWidth={1.5} color="white" />
+            </div>
             <div className="text-center" style={{ maxWidth: 280 }}>
               <p className={TITLE_CLS}>{tr('valueProp', 'pillar1Title')}</p>
               <p className={DESC_CLS}>{tr('valueProp', 'pillar1Body')}</p>
-            </div>
-            <div className={DESK_CIRCLE} style={{ background: '#121C29' }}>
-              <CloudUpload size={24} strokeWidth={1.5} color="white" />
             </div>
           </div>
 
