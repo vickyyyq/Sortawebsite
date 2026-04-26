@@ -67,25 +67,14 @@ export default function Product() {
                 <td style={{ padding: '12px 0', color: 'var(--color-text-muted)', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specDimValue')}</td>
               </tr>
               <tr>
-                <td style={{ padding: '12px 16px 12px 0', fontWeight: 600, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specCapTotalLabel')}</td>
-                <td style={{ padding: '12px 0', color: 'var(--color-text-muted)', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specCapTotalValue')}</td>
-              </tr>
-              <tr>
-                <td style={{ padding: '4px 16px 4px 0', borderBottom: '1px solid var(--color-mist)' }} />
-                <td style={{ padding: '4px 0 4px 20px', fontSize: 14, color: 'var(--color-text-muted)', borderLeft: '3px solid var(--color-mist)', borderBottom: '1px solid var(--color-mist)' }}>
-                  {tr('product', 'specCapPET')} — {tr('product', 'specCapPETVal')}
-                </td>
-              </tr>
-              <tr>
-                <td style={{ padding: '4px 16px 4px 0', borderBottom: '1px solid var(--color-mist)' }} />
-                <td style={{ padding: '4px 0 4px 20px', fontSize: 14, color: 'var(--color-text-muted)', borderLeft: '3px solid var(--color-mist)', borderBottom: '1px solid var(--color-mist)' }}>
-                  {tr('product', 'specCapOther')} — {tr('product', 'specCapOtherVal')}
-                </td>
-              </tr>
-              <tr>
-                <td style={{ padding: '4px 16px 28px 0', borderBottom: '1px solid var(--color-mist)' }} />
-                <td style={{ padding: '4px 0 28px 20px', fontSize: 14, color: 'var(--color-text-muted)', borderLeft: '3px solid var(--color-mist)', borderBottom: '1px solid var(--color-mist)' }}>
-                  {tr('product', 'specCapGeneral')} — {tr('product', 'specCapGeneralVal')}
+                <td style={{ padding: '12px 16px 28px 0', fontWeight: 600, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specCapTotalLabel')}</td>
+                <td style={{ padding: '12px 0 28px 0', color: 'var(--color-text-muted)', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>
+                  <div>{tr('product', 'specCapTotalValue')}</div>
+                  <div style={{ marginTop: 6, paddingLeft: 12, borderLeft: '3px solid var(--color-mist)', display: 'flex', flexDirection: 'column', gap: 2 }}>
+                    <span style={{ fontSize: 13 }}>{tr('product', 'specCapPET')} — {tr('product', 'specCapPETVal')}</span>
+                    <span style={{ fontSize: 13 }}>{tr('product', 'specCapOther')} — {tr('product', 'specCapOtherVal')}</span>
+                    <span style={{ fontSize: 13 }}>{tr('product', 'specCapGeneral')} — {tr('product', 'specCapGeneralVal')}</span>
+                  </div>
                 </td>
               </tr>
 
@@ -111,25 +100,13 @@ export default function Product() {
                 <td style={{ padding: '12px 0', color: 'var(--color-text-muted)', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specMechValue')}</td>
               </tr>
               <tr>
-                <td style={{ padding: '12px 16px 12px 0', fontWeight: 600, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specStreamsLabel')}</td>
-                <td style={{ padding: '12px 0', color: 'var(--color-text-muted)', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }} />
-              </tr>
-              <tr>
-                <td style={{ padding: '4px 16px 4px 0', borderBottom: '1px solid var(--color-mist)' }} />
-                <td style={{ padding: '4px 0 4px 20px', fontSize: 14, color: 'var(--color-text-muted)', borderLeft: '3px solid var(--color-mist)', borderBottom: '1px solid var(--color-mist)' }}>
-                  {tr('product', 'specStream1')}
-                </td>
-              </tr>
-              <tr>
-                <td style={{ padding: '4px 16px 4px 0', borderBottom: '1px solid var(--color-mist)' }} />
-                <td style={{ padding: '4px 0 4px 20px', fontSize: 14, color: 'var(--color-text-muted)', borderLeft: '3px solid var(--color-mist)', borderBottom: '1px solid var(--color-mist)' }}>
-                  {tr('product', 'specStream2')}
-                </td>
-              </tr>
-              <tr>
-                <td style={{ padding: '4px 16px 28px 0', borderBottom: '1px solid var(--color-mist)' }} />
-                <td style={{ padding: '4px 0 28px 20px', fontSize: 14, color: 'var(--color-text-muted)', borderLeft: '3px solid var(--color-mist)', borderBottom: '1px solid var(--color-mist)' }}>
-                  {tr('product', 'specStream3')}
+                <td style={{ padding: '12px 16px 28px 0', fontWeight: 600, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specStreamsLabel')}</td>
+                <td style={{ padding: '12px 0 28px 0', color: 'var(--color-text-muted)', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 2, paddingLeft: 12, borderLeft: '3px solid var(--color-mist)' }}>
+                    <span style={{ fontSize: 13 }}>{tr('product', 'specStream1')}</span>
+                    <span style={{ fontSize: 13 }}>{tr('product', 'specStream2')}</span>
+                    <span style={{ fontSize: 13 }}>{tr('product', 'specStream3')}</span>
+                  </div>
                 </td>
               </tr>
 
