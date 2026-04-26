@@ -89,7 +89,7 @@ export default function Product() {
             </p>
           </div>
 
-          <table className="specs-table" style={{ width: '100%', maxWidth: 740, borderCollapse: 'collapse' }}>
+          <table className="specs-table" style={{ width: '100%', maxWidth: 960, borderCollapse: 'collapse' }}>
             <colgroup>
               <col style={{ width: '24%' }} />
               <col style={{ width: '76%' }} />
