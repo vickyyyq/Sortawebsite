@@ -174,6 +174,7 @@ export const translations = {
       en: 'Quality PET. Reduced processing costs. Cleaner spaces. Greater sustainability.',
       jp: '高品質なPET。低い処理コスト。清潔な空間。高い持続可能性。',
     },
+    specTableHeading:  { en: 'Specifications', jp: '仕様' },
     specCatPhysical:   { en: 'Physical',    jp: '物理仕様' },
     specCatDetection:  { en: 'Detection',   jp: '検知' },
     specCatSorting:    { en: 'Sorting',     jp: '分別' },
