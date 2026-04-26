@@ -72,6 +72,7 @@ export default function Product() {
               }
               .specs-table tr.specs-cat-row td { padding-top: 32px !important; }
               .specs-cap-breakdown { font-size: 12px !important; margin-top: 4px !important; }
+              .specs-table tr.specs-data-row:last-child td.specs-value { border-bottom: none !important; }
             }
           `}</style>
 
