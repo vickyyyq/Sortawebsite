@@ -1,0 +1,188 @@
+## COMPONENT — PRODUCT SPECIFICATIONS TABLE (final)
+
+### Core rules
+  No vertical borders anywhere — horizontal lines only.
+  No outer table border.
+  Border-collapse: collapse on the <table> element.
+  Max-width: 740px
+  Background: #FFFFFF
+
+━━ COLUMN WIDTHS
+
+  Col 1 — Label:   24%
+  Col 2 — Value:   76%
+
+━━ ROW DIVIDERS
+
+  Data rows:
+    border-bottom: 1px solid rgba(205, 223, 237, 0.4)
+    /* --color-mist at 40% opacity */
+
+  Last row of the entire table (.last-row):
+    border-bottom: none
+
+  No border-top on any row.
+
+━━ DATA ROWS
+
+  Padding:         28px 0
+  Vertical-align:  top (both columns)
+  Cursor:          default
+  No hover styles on any row, cell, or child element.
+
+  Col 1 — Label:
+    font-family:   var(--font-body)       /* Quicksand */
+    font-weight:   600
+    font-size:     15px
+    color:         var(--color-navy)      /* #121C29 — full contrast */
+    padding-right: 32px
+    border-left:   none
+
+  Col 2 — Value:
+    font-family:   var(--font-body)       /* Quicksand */
+    font-weight:   400
+    font-size:     15px
+    color:         var(--color-text-muted)  /* #4A6070 */
+    line-height:   1.65
+
+━━ CORE FEATURE ROWS (label accent)
+
+  The 5 rows under CORE FEATURES get a subtle left border on Col 1:
+    border-left: 2px solid rgba(205, 223, 237, 0.6)
+    padding-left: 12px
+
+  Apply class .feature-row to each of these 5 <tr> elements.
+
+━━ CAPACITY ROW — TWO-LINE VALUE
+
+  Line 1 — primary:
+    "154 L total"
+    font-size:   15px
+    font-weight: 500
+    color:       var(--color-text-muted)
+
+  Line 2 — breakdown:
+    "PET 76 L  ·  Recyclables 33 L  ·  General waste 45 L"
+    font-size:   13px
+    font-weight: 400
+    color:       rgba(74, 96, 112, 0.6)
+    margin-top:  5px
+    letter-spacing: 0.01em
+
+  Render as two <span> elements inside the value <td>,
+  each display: block.
+
+━━ CATEGORY HEADER ROWS
+
+  Two category headers only: PHYSICAL and CORE FEATURES.
+  Rendered as <tr> with a single <td colspan="2">.
+  No hover effect.
+
+  Padding:       48px 0 10px 0
+  Border-bottom: 2px solid rgba(0, 165, 229, 0.25)
+  Background:    transparent
+
+  Text:
+    font-family:    var(--font-heading)   /* Raleway 800 */
+    font-size:      11px
+    font-weight:    800
+    letter-spacing: 0.1em
+    text-transform: uppercase
+    color:          var(--color-sky)      /* #00A5E5 */
+    border-left:    3px solid var(--color-gold)
+    padding-left:   10px
+
+  First category header (PHYSICAL):
+    padding-top: 0
+
+━━ TABLE CONTENT
+
+  Eyebrow above table: "Product Specifications"  (.text-eyebrow)
+  Heading above table: "Sorta — Unit Specifications"
+
+  ── PHYSICAL ──────────────────────────────────
+
+  Dimensions
+    W 370 × H 1820 × D 620 mm
+
+  Capacity
+    154 L total
+    PET 76 L  ·  Recyclables 33 L  ·  General waste 45 L
+
+  ── CORE FEATURES ─────────────────────────────
+
+  Detection          (.feature-row)
+    AI and multi-sensor array identifies material type, condition,
+    and product information at the point of insertion.
+
+  Sorting            (.feature-row)
+    Automatically separates waste into three streams — PET bottles,
+    recyclables (glass, aluminum), and general waste.
+
+  Processing         (.feature-row)
+    PET bottles are de-capped, drained, de-labeled, and compacted
+    at intake — no downstream cleaning required.
+
+  Monitoring         (.feature-row)
+    Real-time fill-level sensing across all chambers. Staff receive
+    automatic IoT alerts when any chamber reaches capacity.
+
+  Data logging       (.feature-row .last-row)
+    Every deposit is recorded — material type, condition, quantity,
+    and timestamp — for logistics, reporting, and ESG metrics.
+
+━━ SECTION HEADER (above table)
+
+  Layout:      left-aligned, max-width 560px, margin-bottom 48px
+
+  Eyebrow:     "Product Specifications"   (.text-eyebrow)
+  Heading:     "Built for real-world environments."
+  Subtext:     "Every component is designed to operate reliably
+                in high-traffic spaces — with minimal maintenance
+                and no user training required."
+
+  Heading:
+    font-family: var(--font-heading)   /* Raleway 800 */
+    font-size:   40px
+    color:       var(--color-navy)
+
+  Subtext:
+    font-family: var(--font-body)
+    font-size:   16px
+    color:       var(--color-text-muted)
+    max-width:   480px
+    line-height: 1.7
+
+━━ RESPONSIVE — MOBILE (max-width: 768px)
+
+  Stack each row vertically.
+
+  Col 1 label:
+    display:        block
+    font-size:      11px
+    font-weight:    600
+    text-transform: uppercase
+    letter-spacing: 0.05em
+    color:          var(--color-navy)
+    margin-bottom:  4px
+    border-left:    none
+    padding-left:   0
+
+  Col 2 value:
+    display:   block
+    font-size: 15px
+    color:     var(--color-text-muted)
+
+  Capacity breakdown line:
+    font-size: 12px
+    margin-top: 4px
+
+  Row padding:    18px 0
+  Category rows:  padding-top 32px, retain sky + gold styling
+
+━━ SECTION WRAPPER
+
+  id:         "product-specs"
+  Background: #FFFFFF
+  Padding:    var(--space-xl) 0
+  Max-width:  1200px centred
