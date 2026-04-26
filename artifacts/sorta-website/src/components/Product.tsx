@@ -68,9 +68,6 @@ export default function Product() {
 
           {/* Sub-header */}
           <div style={{ maxWidth: 560, marginBottom: 48 }}>
-            <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 40, fontWeight: 800, color: 'var(--color-navy)', lineHeight: 1.15, marginBottom: 16 }}>
-              {tr('product', 'specSubHeading')}
-            </h3>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: 16, color: 'var(--color-text-muted)', maxWidth: 480, lineHeight: 1.7 }}>
               {tr('product', 'specSubText')}
             </p>
