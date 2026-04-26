@@ -37,27 +37,145 @@ export default function Product() {
           </p>
         </div>
 
-        {/* Specs + outcome */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-14 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both delay-200">
-          <div>
-            <h4 className="text-[var(--color-text-muted)] text-xs uppercase tracking-widest mb-4 font-semibold">Specifications</h4>
-            <div className="divide-y divide-[var(--color-mist)] border border-[var(--color-mist)] rounded-sm overflow-hidden">
-              <div className="flex items-center justify-between px-6 py-4 bg-white">
-                <span className="text-[var(--color-text-muted)] text-sm">{tr('product', 'specSizeLabel')}</span>
-                <span className="text-[var(--color-navy)] font-semibold text-sm">{tr('product', 'specSize')}</span>
-              </div>
-              <div className="flex items-center justify-between px-6 py-4 bg-white">
-                <span className="text-[var(--color-text-muted)] text-sm">{tr('product', 'specCapacityLabel')}</span>
-                <span className="text-[var(--color-navy)] font-semibold text-sm text-right">{tr('product', 'specCapacity')}</span>
-              </div>
-            </div>
-          </div>
+        {/* Outcome callout */}
+        <div className="mb-10 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both delay-200">
+          <p className="text-[var(--color-navy)] font-heading font-extrabold text-xl md:text-2xl leading-snug" style={{ letterSpacing: '-0.01em' }}>
+            {tr('product', 'outcomeClose')}
+          </p>
+        </div>
 
-          <div className="border-l border-[var(--color-mist)] pl-12">
-            <p className="text-[var(--color-navy)] font-heading font-extrabold text-xl md:text-2xl leading-snug" style={{ letterSpacing: '-0.01em' }}>
-              {tr('product', 'outcomeClose')}
-            </p>
-          </div>
+        {/* Specifications table */}
+        <div className="mb-14 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both delay-200">
+          <h4 style={{ fontFamily: 'var(--font-body)', fontSize: 11, fontWeight: 700, letterSpacing: '0.09em', textTransform: 'uppercase', color: 'var(--color-text-muted)', marginBottom: 4 }}>
+            Specifications
+          </h4>
+          <table style={{ width: '100%', maxWidth: 780, borderCollapse: 'collapse', fontFamily: 'var(--font-body)' }}>
+            <colgroup>
+              <col style={{ width: '30%' }} />
+              <col style={{ width: '70%' }} />
+            </colgroup>
+            <tbody>
+
+              {/* ── PHYSICAL ── */}
+              <tr>
+                <td colSpan={2} style={{ borderBottom: '2px solid rgba(0,165,229,0.3)', paddingTop: 20, paddingBottom: 8, fontSize: 11, fontWeight: 700, letterSpacing: '0.09em', textTransform: 'uppercase', color: 'var(--color-navy)' }}>
+                  {tr('product', 'specCatPhysical')}
+                </td>
+              </tr>
+              <tr>
+                <td style={{ padding: '12px 16px 12px 0', fontWeight: 600, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specDimLabel')}</td>
+                <td style={{ padding: '12px 0', color: 'var(--color-text-muted)', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specDimValue')}</td>
+              </tr>
+              <tr>
+                <td style={{ padding: '12px 16px 12px 0', fontWeight: 600, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specCapTotalLabel')}</td>
+                <td style={{ padding: '12px 0', color: 'var(--color-text-muted)', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specCapTotalValue')}</td>
+              </tr>
+              <tr>
+                <td style={{ padding: '4px 16px 4px 0', borderBottom: '1px solid var(--color-mist)' }} />
+                <td style={{ padding: '6px 0 6px 20px', fontSize: 13, color: 'var(--color-text-muted)', borderLeft: '3px solid var(--color-mist)', borderBottom: '1px solid var(--color-mist)' }}>
+                  {tr('product', 'specCapPET')} — {tr('product', 'specCapPETVal')}
+                </td>
+              </tr>
+              <tr>
+                <td style={{ padding: '4px 16px 4px 0', borderBottom: '1px solid var(--color-mist)' }} />
+                <td style={{ padding: '6px 0 6px 20px', fontSize: 13, color: 'var(--color-text-muted)', borderLeft: '3px solid var(--color-mist)', borderBottom: '1px solid var(--color-mist)' }}>
+                  {tr('product', 'specCapOther')} — {tr('product', 'specCapOtherVal')}
+                </td>
+              </tr>
+              <tr>
+                <td style={{ padding: '4px 16px 28px 0', borderBottom: '1px solid var(--color-mist)' }} />
+                <td style={{ padding: '6px 0 28px 20px', fontSize: 13, color: 'var(--color-text-muted)', borderLeft: '3px solid var(--color-mist)', borderBottom: '1px solid var(--color-mist)' }}>
+                  {tr('product', 'specCapGeneral')} — {tr('product', 'specCapGeneralVal')}
+                </td>
+              </tr>
+
+              {/* ── DETECTION ── */}
+              <tr>
+                <td colSpan={2} style={{ borderBottom: '2px solid rgba(0,165,229,0.3)', paddingTop: 28, paddingBottom: 8, fontSize: 11, fontWeight: 700, letterSpacing: '0.09em', textTransform: 'uppercase', color: 'var(--color-navy)' }}>
+                  {tr('product', 'specCatDetection')}
+                </td>
+              </tr>
+              <tr>
+                <td style={{ padding: '12px 16px 28px 0', fontWeight: 600, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specTechLabel')}</td>
+                <td style={{ padding: '12px 0 28px 0', color: 'var(--color-text-muted)', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specTechValue')}</td>
+              </tr>
+
+              {/* ── SORTING ── */}
+              <tr>
+                <td colSpan={2} style={{ borderBottom: '2px solid rgba(0,165,229,0.3)', paddingTop: 28, paddingBottom: 8, fontSize: 11, fontWeight: 700, letterSpacing: '0.09em', textTransform: 'uppercase', color: 'var(--color-navy)' }}>
+                  {tr('product', 'specCatSorting')}
+                </td>
+              </tr>
+              <tr>
+                <td style={{ padding: '12px 16px 12px 0', fontWeight: 600, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specMechLabel')}</td>
+                <td style={{ padding: '12px 0', color: 'var(--color-text-muted)', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specMechValue')}</td>
+              </tr>
+              <tr>
+                <td style={{ padding: '12px 16px 12px 0', fontWeight: 600, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specStreamsLabel')}</td>
+                <td style={{ padding: '12px 0', color: 'var(--color-text-muted)', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }} />
+              </tr>
+              <tr>
+                <td style={{ padding: '4px 16px 4px 0', borderBottom: '1px solid var(--color-mist)' }} />
+                <td style={{ padding: '6px 0 6px 20px', fontSize: 13, color: 'var(--color-text-muted)', borderLeft: '3px solid var(--color-mist)', borderBottom: '1px solid var(--color-mist)' }}>
+                  {tr('product', 'specStream1')}
+                </td>
+              </tr>
+              <tr>
+                <td style={{ padding: '4px 16px 4px 0', borderBottom: '1px solid var(--color-mist)' }} />
+                <td style={{ padding: '6px 0 6px 20px', fontSize: 13, color: 'var(--color-text-muted)', borderLeft: '3px solid var(--color-mist)', borderBottom: '1px solid var(--color-mist)' }}>
+                  {tr('product', 'specStream2')}
+                </td>
+              </tr>
+              <tr>
+                <td style={{ padding: '4px 16px 28px 0', borderBottom: '1px solid var(--color-mist)' }} />
+                <td style={{ padding: '6px 0 28px 20px', fontSize: 13, color: 'var(--color-text-muted)', borderLeft: '3px solid var(--color-mist)', borderBottom: '1px solid var(--color-mist)' }}>
+                  {tr('product', 'specStream3')}
+                </td>
+              </tr>
+
+              {/* ── PROCESSING ── */}
+              <tr>
+                <td colSpan={2} style={{ borderBottom: '2px solid rgba(0,165,229,0.3)', paddingTop: 28, paddingBottom: 8, fontSize: 11, fontWeight: 700, letterSpacing: '0.09em', textTransform: 'uppercase', color: 'var(--color-navy)' }}>
+                  {tr('product', 'specCatProcessing')}
+                </td>
+              </tr>
+              <tr>
+                <td style={{ padding: '12px 16px 12px 0', fontWeight: 600, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specPETLabel')}</td>
+                <td style={{ padding: '12px 0', color: 'var(--color-text-muted)', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specPETValue')}</td>
+              </tr>
+              <tr>
+                <td style={{ padding: '12px 16px 28px 0', fontWeight: 600, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specOutputLabel')}</td>
+                <td style={{ padding: '12px 0 28px 0', color: 'var(--color-text-muted)', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specOutputValue')}</td>
+              </tr>
+
+              {/* ── MONITORING ── */}
+              <tr>
+                <td colSpan={2} style={{ borderBottom: '2px solid rgba(0,165,229,0.3)', paddingTop: 28, paddingBottom: 8, fontSize: 11, fontWeight: 700, letterSpacing: '0.09em', textTransform: 'uppercase', color: 'var(--color-navy)' }}>
+                  {tr('product', 'specCatMonitoring')}
+                </td>
+              </tr>
+              <tr>
+                <td style={{ padding: '12px 16px 12px 0', fontWeight: 600, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specCapTrackLabel')}</td>
+                <td style={{ padding: '12px 0', color: 'var(--color-text-muted)', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specCapTrackValue')}</td>
+              </tr>
+              <tr>
+                <td style={{ padding: '12px 16px 28px 0', fontWeight: 600, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specAlertLabel')}</td>
+                <td style={{ padding: '12px 0 28px 0', color: 'var(--color-text-muted)', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specAlertValue')}</td>
+              </tr>
+
+              {/* ── DATA ── */}
+              <tr>
+                <td colSpan={2} style={{ borderBottom: '2px solid rgba(0,165,229,0.3)', paddingTop: 28, paddingBottom: 8, fontSize: 11, fontWeight: 700, letterSpacing: '0.09em', textTransform: 'uppercase', color: 'var(--color-navy)' }}>
+                  {tr('product', 'specCatData')}
+                </td>
+              </tr>
+              <tr>
+                <td style={{ padding: '12px 16px 20px 0', fontWeight: 600, color: 'var(--color-navy)', verticalAlign: 'top', fontSize: 14 }}>{tr('product', 'specDataLogLabel')}</td>
+                <td style={{ padding: '12px 0 20px 0', color: 'var(--color-text-muted)', fontSize: 14 }}>{tr('product', 'specDataLogValue')}</td>
+              </tr>
+
+            </tbody>
+          </table>
         </div>
 
         {/* Product video */}
