@@ -179,7 +179,9 @@ export default function ValueProp() {
               transitionDelay: '0s',
             }}
           >
-            {/* Globe SVG — ocean #DEEFF6, land #B0DBEC, transparent outside circle */}
+            {/* Globe SVG — ocean #DEEFF6, land #B0DBEC, transparent outside circle.
+                width + height are REQUIRED alongside inset: <img> is a replaced element
+                and browsers use the SVG's intrinsic 1024×1024 size if not explicitly set. */}
             <img
               src="/globe.svg"
               alt="World globe"
