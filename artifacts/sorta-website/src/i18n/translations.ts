@@ -83,7 +83,7 @@ export const translations = {
   solution: {
     overline: { en: 'Our Approach', jp: '私たちのアプローチ' },
     heading: {
-      en: 'Remove human error at the bin itself.',
+      en: 'Remove human error at the point of disposal.',
       jp: 'リサイクルは、捨てる瞬間で決まる。',
     },
     body: {
