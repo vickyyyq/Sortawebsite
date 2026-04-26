@@ -32,9 +32,6 @@ export default function Product() {
           <JpH2 className="mb-5">
             {tr('product', 'heading')}
           </JpH2>
-          <p className="text-large text-[var(--color-text-muted)]">
-            {tr('product', 'body')}
-          </p>
         </div>
 
         {/* Specifications table */}
