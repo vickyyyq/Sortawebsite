@@ -32,6 +32,9 @@ export default function Product() {
           <JpH2 className="mb-5">
             {tr('product', 'heading')}
           </JpH2>
+          <p className="text-large text-[var(--color-text-muted)]">
+            {tr('product', 'specSubText')}
+          </p>
         </div>
 
         {/* Specifications table */}
@@ -65,13 +68,6 @@ export default function Product() {
               .specs-table tr.specs-data-row:last-child td.specs-value { border-bottom: none !important; }
             }
           `}</style>
-
-          {/* Sub-header */}
-          <div style={{ maxWidth: 560, marginBottom: 48 }}>
-            <p style={{ fontFamily: 'var(--font-body)', fontSize: 16, color: 'var(--color-text-muted)', maxWidth: 480, lineHeight: 1.7 }}>
-              {tr('product', 'specSubText')}
-            </p>
-          </div>
 
           <table className="specs-table" style={{ width: '100%', maxWidth: 1040, borderCollapse: 'collapse' }}>
             <colgroup>
