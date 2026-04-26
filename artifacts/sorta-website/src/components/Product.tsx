@@ -46,109 +46,132 @@ export default function Product() {
 
         {/* Specifications table */}
         <div className="mb-14 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both delay-200">
-          <h4 style={{ fontFamily: 'var(--font-body)', fontSize: 11, fontWeight: 700, letterSpacing: '0.09em', textTransform: 'uppercase', color: 'var(--color-text-muted)', marginBottom: 4 }}>
-            {tr('product', 'specTableHeading')}
-          </h4>
-          <table style={{ width: '100%', maxWidth: 780, borderCollapse: 'collapse', fontFamily: 'var(--font-body)' }}>
+
+          {/* Mobile responsive styles */}
+          <style>{`
+            @media (max-width: 768px) {
+              .specs-table tr.specs-data-row { display: block; padding: 18px 0; }
+              .specs-table td.specs-label {
+                display: block !important;
+                font-size: 11px !important;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                margin-bottom: 4px;
+                border-left: none !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
+                border-bottom: none !important;
+              }
+              .specs-table td.specs-value {
+                display: block !important;
+                font-size: 15px !important;
+                padding: 0 0 18px 0 !important;
+                border-bottom: 1px solid rgba(205,223,237,0.4) !important;
+              }
+              .specs-table tr.specs-cat-row td { padding-top: 32px !important; }
+              .specs-cap-breakdown { font-size: 12px !important; margin-top: 4px !important; }
+            }
+          `}</style>
+
+          {/* Sub-header */}
+          <div style={{ maxWidth: 560, marginBottom: 48 }}>
+            <span className="text-label mb-3 block">
+              {tr('product', 'specTableHeading')}
+            </span>
+            <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 40, fontWeight: 800, color: 'var(--color-navy)', lineHeight: 1.15, marginBottom: 16 }}>
+              {tr('product', 'specSubHeading')}
+            </h3>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: 16, color: 'var(--color-text-muted)', maxWidth: 480, lineHeight: 1.7 }}>
+              {tr('product', 'specSubText')}
+            </p>
+          </div>
+
+          <table className="specs-table" style={{ width: '100%', maxWidth: 740, borderCollapse: 'collapse' }}>
             <colgroup>
-              <col style={{ width: '30%' }} />
-              <col style={{ width: '70%' }} />
+              <col style={{ width: '24%' }} />
+              <col style={{ width: '76%' }} />
             </colgroup>
             <tbody>
 
               {/* ── PHYSICAL ── */}
-              <tr>
-                <td colSpan={2} style={{ borderBottom: '2px solid rgba(0,165,229,0.3)', paddingTop: 28, paddingBottom: 8, fontSize: 11, fontWeight: 700, letterSpacing: '0.09em', textTransform: 'uppercase', color: 'var(--color-navy)' }}>
-                  {tr('product', 'specCatPhysical')}
+              <tr className="specs-cat-row">
+                <td colSpan={2} style={{ borderBottom: '2px solid rgba(0,165,229,0.25)', paddingTop: 0, paddingBottom: 10 }}>
+                  <span style={{ fontFamily: 'var(--font-heading)', fontSize: 11, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--color-sky)', borderLeft: '3px solid var(--color-gold)', paddingLeft: 10 }}>
+                    {tr('product', 'specCatPhysical')}
+                  </span>
                 </td>
               </tr>
-              <tr>
-                <td style={{ padding: '12px 16px 12px 0', fontWeight: 600, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specDimLabel')}</td>
-                <td style={{ padding: '12px 0', color: 'var(--color-text-muted)', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specDimValue')}</td>
-              </tr>
-              <tr>
-                <td style={{ padding: '12px 16px 28px 0', fontWeight: 600, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specCapTotalLabel')}</td>
-                <td style={{ padding: '12px 0 28px 0', color: 'var(--color-text-muted)', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>
-                  <div>{tr('product', 'specCapTotalValue')}</div>
-                  <div style={{ marginTop: 6, paddingLeft: 12, borderLeft: '3px solid var(--color-mist)', display: 'flex', flexDirection: 'column', gap: 2 }}>
-                    <span style={{ fontSize: 13 }}>{tr('product', 'specCapPET')} — {tr('product', 'specCapPETVal')}</span>
-                    <span style={{ fontSize: 13 }}>{tr('product', 'specCapOther')} — {tr('product', 'specCapOtherVal')}</span>
-                    <span style={{ fontSize: 13 }}>{tr('product', 'specCapGeneral')} — {tr('product', 'specCapGeneralVal')}</span>
-                  </div>
+              <tr className="specs-data-row">
+                <td className="specs-label" style={{ padding: '28px 32px 28px 0', fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: 15, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid rgba(205,223,237,0.4)' }}>
+                  {tr('product', 'specDimLabel')}
+                </td>
+                <td className="specs-value" style={{ padding: '28px 0', fontFamily: 'var(--font-body)', fontWeight: 400, fontSize: 15, color: 'var(--color-text-muted)', verticalAlign: 'top', borderBottom: '1px solid rgba(205,223,237,0.4)', lineHeight: 1.65 }}>
+                  {tr('product', 'specDimValue')}
                 </td>
               </tr>
-
-              {/* ── DETECTION ── */}
-              <tr>
-                <td colSpan={2} style={{ borderBottom: '2px solid rgba(0,165,229,0.3)', paddingTop: 28, paddingBottom: 8, fontSize: 11, fontWeight: 700, letterSpacing: '0.09em', textTransform: 'uppercase', color: 'var(--color-navy)' }}>
-                  {tr('product', 'specCatDetection')}
+              <tr className="specs-data-row">
+                <td className="specs-label" style={{ padding: '28px 32px 28px 0', fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: 15, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid rgba(205,223,237,0.4)' }}>
+                  {tr('product', 'specCapLabel')}
                 </td>
-              </tr>
-              <tr>
-                <td style={{ padding: '12px 16px 28px 0', fontWeight: 600, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specTechLabel')}</td>
-                <td style={{ padding: '12px 0 28px 0', color: 'var(--color-text-muted)', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specTechValue')}</td>
-              </tr>
-
-              {/* ── SORTING ── */}
-              <tr>
-                <td colSpan={2} style={{ borderBottom: '2px solid rgba(0,165,229,0.3)', paddingTop: 28, paddingBottom: 8, fontSize: 11, fontWeight: 700, letterSpacing: '0.09em', textTransform: 'uppercase', color: 'var(--color-navy)' }}>
-                  {tr('product', 'specCatSorting')}
-                </td>
-              </tr>
-              <tr>
-                <td style={{ padding: '12px 16px 12px 0', fontWeight: 600, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specMechLabel')}</td>
-                <td style={{ padding: '12px 0', color: 'var(--color-text-muted)', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specMechValue')}</td>
-              </tr>
-              <tr>
-                <td style={{ padding: '12px 16px 28px 0', fontWeight: 600, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specStreamsLabel')}</td>
-                <td style={{ padding: '12px 0 28px 0', color: 'var(--color-text-muted)', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 2, paddingLeft: 12, borderLeft: '3px solid var(--color-mist)' }}>
-                    <span style={{ fontSize: 13 }}>{tr('product', 'specStream1')}</span>
-                    <span style={{ fontSize: 13 }}>{tr('product', 'specStream2')}</span>
-                    <span style={{ fontSize: 13 }}>{tr('product', 'specStream3')}</span>
-                  </div>
+                <td className="specs-value" style={{ padding: '28px 0', fontFamily: 'var(--font-body)', fontWeight: 400, fontSize: 15, color: 'var(--color-text-muted)', verticalAlign: 'top', borderBottom: '1px solid rgba(205,223,237,0.4)', lineHeight: 1.65 }}>
+                  <span style={{ display: 'block', fontSize: 15, fontWeight: 500, color: 'var(--color-text-muted)' }}>
+                    {tr('product', 'specCapPrimary')}
+                  </span>
+                  <span className="specs-cap-breakdown" style={{ display: 'block', fontSize: 13, fontWeight: 400, color: 'rgba(74,96,112,0.6)', marginTop: 5, letterSpacing: '0.01em' }}>
+                    {tr('product', 'specCapBreakdown')}
+                  </span>
                 </td>
               </tr>
 
-              {/* ── PROCESSING ── */}
-              <tr>
-                <td colSpan={2} style={{ borderBottom: '2px solid rgba(0,165,229,0.3)', paddingTop: 28, paddingBottom: 8, fontSize: 11, fontWeight: 700, letterSpacing: '0.09em', textTransform: 'uppercase', color: 'var(--color-navy)' }}>
-                  {tr('product', 'specCatProcessing')}
+              {/* ── CORE FEATURES ── */}
+              <tr className="specs-cat-row">
+                <td colSpan={2} style={{ borderBottom: '2px solid rgba(0,165,229,0.25)', paddingTop: 48, paddingBottom: 10 }}>
+                  <span style={{ fontFamily: 'var(--font-heading)', fontSize: 11, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--color-sky)', borderLeft: '3px solid var(--color-gold)', paddingLeft: 10 }}>
+                    {tr('product', 'specCatCoreFeatures')}
+                  </span>
                 </td>
               </tr>
-              <tr>
-                <td style={{ padding: '12px 16px 12px 0', fontWeight: 600, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specPETLabel')}</td>
-                <td style={{ padding: '12px 0', color: 'var(--color-text-muted)', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specPETValue')}</td>
-              </tr>
-              <tr>
-                <td style={{ padding: '12px 16px 28px 0', fontWeight: 600, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specOutputLabel')}</td>
-                <td style={{ padding: '12px 0 28px 0', color: 'var(--color-text-muted)', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specOutputValue')}</td>
-              </tr>
-
-              {/* ── MONITORING ── */}
-              <tr>
-                <td colSpan={2} style={{ borderBottom: '2px solid rgba(0,165,229,0.3)', paddingTop: 28, paddingBottom: 8, fontSize: 11, fontWeight: 700, letterSpacing: '0.09em', textTransform: 'uppercase', color: 'var(--color-navy)' }}>
-                  {tr('product', 'specCatMonitoring')}
+              <tr className="specs-data-row">
+                <td className="specs-label" style={{ padding: '28px 32px 28px 12px', fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: 15, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid rgba(205,223,237,0.4)', borderLeft: '2px solid rgba(205,223,237,0.6)' }}>
+                  {tr('product', 'specFeatDetectLabel')}
+                </td>
+                <td className="specs-value" style={{ padding: '28px 0', fontFamily: 'var(--font-body)', fontWeight: 400, fontSize: 15, color: 'var(--color-text-muted)', verticalAlign: 'top', borderBottom: '1px solid rgba(205,223,237,0.4)', lineHeight: 1.65 }}>
+                  {tr('product', 'specFeatDetectValue')}
                 </td>
               </tr>
-              <tr>
-                <td style={{ padding: '12px 16px 12px 0', fontWeight: 600, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specCapTrackLabel')}</td>
-                <td style={{ padding: '12px 0', color: 'var(--color-text-muted)', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specCapTrackValue')}</td>
-              </tr>
-              <tr>
-                <td style={{ padding: '12px 16px 28px 0', fontWeight: 600, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specAlertLabel')}</td>
-                <td style={{ padding: '12px 0 28px 0', color: 'var(--color-text-muted)', borderBottom: '1px solid var(--color-mist)', fontSize: 14 }}>{tr('product', 'specAlertValue')}</td>
-              </tr>
-
-              {/* ── DATA ── */}
-              <tr>
-                <td colSpan={2} style={{ borderBottom: '2px solid rgba(0,165,229,0.3)', paddingTop: 28, paddingBottom: 8, fontSize: 11, fontWeight: 700, letterSpacing: '0.09em', textTransform: 'uppercase', color: 'var(--color-navy)' }}>
-                  {tr('product', 'specCatData')}
+              <tr className="specs-data-row">
+                <td className="specs-label" style={{ padding: '28px 32px 28px 12px', fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: 15, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid rgba(205,223,237,0.4)', borderLeft: '2px solid rgba(205,223,237,0.6)' }}>
+                  {tr('product', 'specFeatSortLabel')}
+                </td>
+                <td className="specs-value" style={{ padding: '28px 0', fontFamily: 'var(--font-body)', fontWeight: 400, fontSize: 15, color: 'var(--color-text-muted)', verticalAlign: 'top', borderBottom: '1px solid rgba(205,223,237,0.4)', lineHeight: 1.65 }}>
+                  {tr('product', 'specFeatSortValue')}
                 </td>
               </tr>
-              <tr>
-                <td style={{ padding: '12px 16px 20px 0', fontWeight: 600, color: 'var(--color-navy)', verticalAlign: 'top', fontSize: 14 }}>{tr('product', 'specDataLogLabel')}</td>
-                <td style={{ padding: '12px 0 20px 0', color: 'var(--color-text-muted)', fontSize: 14 }}>{tr('product', 'specDataLogValue')}</td>
+              <tr className="specs-data-row">
+                <td className="specs-label" style={{ padding: '28px 32px 28px 12px', fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: 15, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid rgba(205,223,237,0.4)', borderLeft: '2px solid rgba(205,223,237,0.6)' }}>
+                  {tr('product', 'specFeatProcessLabel')}
+                </td>
+                <td className="specs-value" style={{ padding: '28px 0', fontFamily: 'var(--font-body)', fontWeight: 400, fontSize: 15, color: 'var(--color-text-muted)', verticalAlign: 'top', borderBottom: '1px solid rgba(205,223,237,0.4)', lineHeight: 1.65 }}>
+                  {tr('product', 'specFeatProcessValue')}
+                </td>
+              </tr>
+              <tr className="specs-data-row">
+                <td className="specs-label" style={{ padding: '28px 32px 28px 12px', fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: 15, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid rgba(205,223,237,0.4)', borderLeft: '2px solid rgba(205,223,237,0.6)' }}>
+                  {tr('product', 'specFeatMonitorLabel')}
+                </td>
+                <td className="specs-value" style={{ padding: '28px 0', fontFamily: 'var(--font-body)', fontWeight: 400, fontSize: 15, color: 'var(--color-text-muted)', verticalAlign: 'top', borderBottom: '1px solid rgba(205,223,237,0.4)', lineHeight: 1.65 }}>
+                  {tr('product', 'specFeatMonitorValue')}
+                </td>
+              </tr>
+              <tr className="specs-data-row">
+                <td className="specs-label" style={{ padding: '28px 32px 28px 12px', fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: 15, color: 'var(--color-navy)', verticalAlign: 'top', borderLeft: '2px solid rgba(205,223,237,0.6)' }}>
+                  {tr('product', 'specFeatDataLabel')}
+                </td>
+                <td className="specs-value" style={{ padding: '28px 0', fontFamily: 'var(--font-body)', fontWeight: 400, fontSize: 15, color: 'var(--color-text-muted)', verticalAlign: 'top', lineHeight: 1.65 }}>
+                  {tr('product', 'specFeatDataValue')}
+                </td>
               </tr>
 
             </tbody>
