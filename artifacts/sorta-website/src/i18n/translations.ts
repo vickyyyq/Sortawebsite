@@ -177,7 +177,7 @@ export const translations = {
     specTableHeading: { en: 'Product Specifications', jp: '製品仕様' },
     specSubHeading:   { en: 'Built for real-world environments.', jp: '実環境で動く設計。' },
     specSubText: {
-      en: 'Every component is designed to operate reliably in high-traffic spaces — with minimal maintenance and no user training required.',
+      en: 'Every component is designed to operate reliably in high-traffic spaces with minimal maintenance and no user training required.',
       jp: 'すべてのコンポーネントは、人通りの多い環境での安定稼働を前提に設計されています。メンテナンスは最小限、利用者へのトレーニングも不要です。',
     },
     specCatPhysical:     { en: 'Physical',      jp: '物理仕様' },
