@@ -68,9 +68,6 @@ export default function Product() {
 
           {/* Sub-header */}
           <div style={{ maxWidth: 560, marginBottom: 48 }}>
-            <span className="text-label mb-3 block">
-              {tr('product', 'specTableHeading')}
-            </span>
             <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 40, fontWeight: 800, color: 'var(--color-navy)', lineHeight: 1.15, marginBottom: 16 }}>
               {tr('product', 'specSubHeading')}
             </h3>
