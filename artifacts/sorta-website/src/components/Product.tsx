@@ -135,7 +135,7 @@ export default function Product() {
                 </td>
               </tr>
               <tr className="specs-data-row">
-                <td className="specs-label" style={{ padding: '24px 32px 24px 12px', fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: 15, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid rgba(205,223,237,0.4)', borderLeft: '2px solid rgba(205,223,237,0.6)' }}>
+                <td className="specs-label" style={{ padding: '24px 32px 24px 0', fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: 15, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid rgba(205,223,237,0.4)' }}>
                   {tr('product', 'specFeatDetectLabel')}
                 </td>
                 <td className="specs-value" style={{ padding: '24px 0', fontFamily: 'var(--font-body)', fontWeight: 400, fontSize: 15, color: 'var(--color-text-muted)', verticalAlign: 'top', borderBottom: '1px solid rgba(205,223,237,0.4)', lineHeight: 1.65 }}>
@@ -143,7 +143,7 @@ export default function Product() {
                 </td>
               </tr>
               <tr className="specs-data-row">
-                <td className="specs-label" style={{ padding: '24px 32px 24px 12px', fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: 15, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid rgba(205,223,237,0.4)', borderLeft: '2px solid rgba(205,223,237,0.6)' }}>
+                <td className="specs-label" style={{ padding: '24px 32px 24px 0', fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: 15, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid rgba(205,223,237,0.4)' }}>
                   {tr('product', 'specFeatSortLabel')}
                 </td>
                 <td className="specs-value" style={{ padding: '24px 0', fontFamily: 'var(--font-body)', fontWeight: 400, fontSize: 15, color: 'var(--color-text-muted)', verticalAlign: 'top', borderBottom: '1px solid rgba(205,223,237,0.4)', lineHeight: 1.65 }}>
@@ -151,7 +151,7 @@ export default function Product() {
                 </td>
               </tr>
               <tr className="specs-data-row">
-                <td className="specs-label" style={{ padding: '24px 32px 24px 12px', fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: 15, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid rgba(205,223,237,0.4)', borderLeft: '2px solid rgba(205,223,237,0.6)' }}>
+                <td className="specs-label" style={{ padding: '24px 32px 24px 0', fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: 15, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid rgba(205,223,237,0.4)' }}>
                   {tr('product', 'specFeatProcessLabel')}
                 </td>
                 <td className="specs-value" style={{ padding: '24px 0', fontFamily: 'var(--font-body)', fontWeight: 400, fontSize: 15, color: 'var(--color-text-muted)', verticalAlign: 'top', borderBottom: '1px solid rgba(205,223,237,0.4)', lineHeight: 1.65 }}>
@@ -159,7 +159,7 @@ export default function Product() {
                 </td>
               </tr>
               <tr className="specs-data-row">
-                <td className="specs-label" style={{ padding: '24px 32px 24px 12px', fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: 15, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid rgba(205,223,237,0.4)', borderLeft: '2px solid rgba(205,223,237,0.6)' }}>
+                <td className="specs-label" style={{ padding: '24px 32px 24px 0', fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: 15, color: 'var(--color-navy)', verticalAlign: 'top', borderBottom: '1px solid rgba(205,223,237,0.4)' }}>
                   {tr('product', 'specFeatMonitorLabel')}
                 </td>
                 <td className="specs-value" style={{ padding: '24px 0', fontFamily: 'var(--font-body)', fontWeight: 400, fontSize: 15, color: 'var(--color-text-muted)', verticalAlign: 'top', borderBottom: '1px solid rgba(205,223,237,0.4)', lineHeight: 1.65 }}>
@@ -167,7 +167,7 @@ export default function Product() {
                 </td>
               </tr>
               <tr className="specs-data-row">
-                <td className="specs-label" style={{ padding: '24px 32px 24px 12px', fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: 15, color: 'var(--color-navy)', verticalAlign: 'top', borderLeft: '2px solid rgba(205,223,237,0.6)' }}>
+                <td className="specs-label" style={{ padding: '24px 32px 24px 0', fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: 15, color: 'var(--color-navy)', verticalAlign: 'top' }}>
                   {tr('product', 'specFeatDataLabel')}
                 </td>
                 <td className="specs-value" style={{ padding: '24px 0', fontFamily: 'var(--font-body)', fontWeight: 400, fontSize: 15, color: 'var(--color-text-muted)', verticalAlign: 'top', lineHeight: 1.65 }}>
