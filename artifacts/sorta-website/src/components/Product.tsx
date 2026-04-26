@@ -91,8 +91,8 @@ export default function Product() {
 
           <table className="specs-table" style={{ width: '100%', maxWidth: 1040, borderCollapse: 'collapse' }}>
             <colgroup>
-              <col style={{ width: '15%' }} />
-              <col style={{ width: '85%' }} />
+              <col style={{ width: '20%' }} />
+              <col style={{ width: '80%' }} />
             </colgroup>
             <tbody>
 
