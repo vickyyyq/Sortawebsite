@@ -37,13 +37,6 @@ export default function Product() {
           </p>
         </div>
 
-        {/* Outcome callout */}
-        <div className="mb-10 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both delay-200">
-          <p className="text-[var(--color-navy)] font-heading font-extrabold text-xl md:text-2xl leading-snug" style={{ letterSpacing: '-0.01em' }}>
-            {tr('product', 'outcomeClose')}
-          </p>
-        </div>
-
         {/* Specifications table */}
         <div className="mb-14 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both delay-200">
 
