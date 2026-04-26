@@ -364,7 +364,7 @@ export default function Solution() {
   return (
     <section ref={sectionRef} id="solution" className="section-padding section-divider" style={{ background: 'var(--color-fog)' }}>
       <div className="max-w-[1200px] mx-auto px-5">
-        <div className="max-w-2xl mb-16 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both">
+        <div className="max-w-[1200px] mb-16 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both">
           <span className="text-[var(--color-navy)] text-label mb-3 block opacity-70">
             {tr('solution', 'overline')}
           </span>

@@ -61,7 +61,7 @@ export default function Hero() {
         </span>
 
         <h1
-          className="text-[var(--color-navy)] max-w-2xl mb-8"
+          className="text-[var(--color-navy)] max-w-[1200px] mb-8"
           style={isJP ? {
             fontSize: 'clamp(28px, 3.6vw, 50px)',
             letterSpacing: '0.04em',

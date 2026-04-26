@@ -21,7 +21,7 @@ export default function Mission() {
         </div>
 
         <div className="w-full border-t border-[var(--color-mist)] pt-8 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
-          <p className="text-[var(--color-text-muted)] text-base leading-relaxed max-w-2xl whitespace-pre-line">
+          <p className="text-[var(--color-text-muted)] text-base leading-relaxed max-w-[1200px] whitespace-pre-line">
             {tr('mission', 'visionPlaceholder')}
           </p>
         </div>

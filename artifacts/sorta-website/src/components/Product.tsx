@@ -25,7 +25,7 @@ export default function Product() {
       <div className="max-w-[1200px] mx-auto px-5">
 
         {/* Heading */}
-        <div className="max-w-2xl mb-14 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both">
+        <div className="max-w-[1200px] mb-14 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both">
           <span className="text-label mb-4 block">
             {tr('product', 'overline')}
           </span>

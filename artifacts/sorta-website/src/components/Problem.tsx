@@ -23,7 +23,7 @@ export default function Problem() {
       <div className="max-w-[1200px] mx-auto px-5">
 
         {/* Heading */}
-        <div className="max-w-[640px] mb-14 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both">
+        <div className="max-w-[1200px] mb-14 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both">
           <span className="text-label mb-3 block">{tr('problem', 'overline')}</span>
           <JpH2 className="mb-5">{tr('problem', 'heading')}</JpH2>
           <p className="text-large text-[var(--color-text-muted)]">{tr('problem', 'body')}</p>

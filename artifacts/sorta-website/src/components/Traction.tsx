@@ -65,7 +65,7 @@ export default function Traction() {
           </div>
         </div>
 
-        <div className="max-w-3xl mt-12 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500 fill-mode-both">
+        <div className="max-w-[1200px] mt-12 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500 fill-mode-both">
           <p className="text-[var(--color-text-muted)] italic text-base border-l-2 border-[var(--color-sky)] pl-6 py-2">
             {tr('traction', 'body')}
           </p>
