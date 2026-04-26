@@ -92,7 +92,7 @@ export default function ValueProp() {
       t1 = setTimeout(() => {
         setSlots(prev => {
           const copy = [...prev];
-          copy.push(copy.shift()!);
+          copy.unshift(copy.pop()!);
           return copy;
         });
         t2 = setTimeout(() => {
