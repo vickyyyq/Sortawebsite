@@ -55,10 +55,10 @@ function HomeContent({ initialSection }: HomeContentProps) {
         <ValueProp />
         <UseCases />
         <ProductSpecs />
-        <Traction />
-        <Team />
         <Mission />
+        <Traction />
         <Partner />
+        <Team />
       </main>
       <Footer />
     </div>
