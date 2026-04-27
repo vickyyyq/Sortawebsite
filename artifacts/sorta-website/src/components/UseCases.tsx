@@ -34,6 +34,7 @@ export default function UseCases() {
   const { tr } = useLanguage();
   const trackRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   const cases = [
     { titleKey: 'case1Title' as const, photo: PHOTOS[0] },
@@ -64,6 +65,16 @@ export default function UseCases() {
   const next = useCallback(() => {
     scrollToIndex(Math.min(cases.length - 1, activeIndex + 1));
   }, [activeIndex, cases.length, scrollToIndex]);
+
+  const nextLooping = useCallback(() => {
+    scrollToIndex((activeIndex + 1) % cases.length);
+  }, [activeIndex, cases.length, scrollToIndex]);
+
+  useEffect(() => {
+    if (isHovered) return;
+    const id = setInterval(nextLooping, 3000);
+    return () => clearInterval(id);
+  }, [isHovered, nextLooping]);
 
   useEffect(() => {
     const track = trackRef.current;
@@ -99,7 +110,12 @@ export default function UseCases() {
           </JpH2>
         </div>
 
-        <div className="animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both" style={{ animationDelay: '120ms' }}>
+        <div
+          className="animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both"
+          style={{ animationDelay: '120ms' }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           <div
             ref={trackRef}
             className="use-cases-track flex gap-4 overflow-x-auto pb-2"
