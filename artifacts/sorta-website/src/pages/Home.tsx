@@ -10,6 +10,7 @@ import Traction from '@/components/Traction';
 import Partner from '@/components/Partner';
 import Mission from '@/components/Mission';
 import Team from '@/components/Team';
+import ProductSpecs from '@/components/ProductSpecs';
 import Footer from '@/components/Footer';
 import { NavigationProvider, useNavigation } from '@/contexts/NavigationContext';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -53,6 +54,7 @@ function HomeContent({ initialSection }: HomeContentProps) {
         <Product />
         <ValueProp />
         <UseCases />
+        <ProductSpecs />
         <Traction />
         <Team />
         <Mission />
