@@ -25,7 +25,6 @@ export default function Nav() {
     { id: 'solution',  labelKey: 'solution'  as const },
     { id: 'use-cases', labelKey: 'useCases'  as const },
     { id: 'team',      labelKey: 'ourTeam'   as const },
-    { id: 'why-now',   labelKey: 'whyNow'    as const },
   ];
 
   const handleNav = (id: string) => {
