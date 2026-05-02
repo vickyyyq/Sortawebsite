@@ -34,7 +34,11 @@ export default function UseCases() {
   const { tr } = useLanguage();
   const trackRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
+  const activeIndexRef = useRef(0);
+  const isPausedRef = useRef(false);
+  const isInteractingRef = useRef(false);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const resumeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const cases = [
     { titleKey: 'case1Title' as const, photo: PHOTOS[0] },
@@ -44,6 +48,8 @@ export default function UseCases() {
     { titleKey: 'case5Title' as const, photo: PHOTOS[4] },
     { titleKey: 'case6Title' as const, photo: PHOTOS[5] },
   ];
+
+  const TOTAL = cases.length;
 
   const scrollToIndex = useCallback((index: number) => {
     const track = trackRef.current;
@@ -56,25 +62,47 @@ export default function UseCases() {
       track.scrollLeft;
     track.scrollTo({ left, behavior: 'smooth' });
     setActiveIndex(index);
+    activeIndexRef.current = index;
   }, []);
 
+  const pauseAutoPlay = useCallback(() => {
+    isPausedRef.current = true;
+    if (resumeTimeoutRef.current) {
+      clearTimeout(resumeTimeoutRef.current);
+      resumeTimeoutRef.current = null;
+    }
+  }, []);
+
+  const scheduleResume = useCallback(() => {
+    if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
+    resumeTimeoutRef.current = setTimeout(() => {
+      if (!isInteractingRef.current) {
+        isPausedRef.current = false;
+      }
+    }, 2000);
+  }, []);
+
+  const handleInteractionStart = useCallback(() => {
+    isInteractingRef.current = true;
+    pauseAutoPlay();
+  }, [pauseAutoPlay]);
+
+  const handleInteractionEnd = useCallback(() => {
+    isInteractingRef.current = false;
+    scheduleResume();
+  }, [scheduleResume]);
+
   const prev = useCallback(() => {
-    scrollToIndex(Math.max(0, activeIndex - 1));
-  }, [activeIndex, scrollToIndex]);
+    pauseAutoPlay();
+    if (!isInteractingRef.current) scheduleResume();
+    scrollToIndex(Math.max(0, activeIndexRef.current - 1));
+  }, [scrollToIndex, pauseAutoPlay, scheduleResume]);
 
   const next = useCallback(() => {
-    scrollToIndex(Math.min(cases.length - 1, activeIndex + 1));
-  }, [activeIndex, cases.length, scrollToIndex]);
-
-  const nextLooping = useCallback(() => {
-    scrollToIndex((activeIndex + 1) % cases.length);
-  }, [activeIndex, cases.length, scrollToIndex]);
-
-  useEffect(() => {
-    if (isHovered) return;
-    const id = setInterval(nextLooping, 3000);
-    return () => clearInterval(id);
-  }, [isHovered, nextLooping]);
+    pauseAutoPlay();
+    if (!isInteractingRef.current) scheduleResume();
+    scrollToIndex(Math.min(TOTAL - 1, activeIndexRef.current + 1));
+  }, [TOTAL, scrollToIndex, pauseAutoPlay, scheduleResume]);
 
   useEffect(() => {
     const track = trackRef.current;
@@ -92,11 +120,25 @@ export default function UseCases() {
         }
       });
       setActiveIndex(closest);
+      activeIndexRef.current = closest;
     };
 
     track.addEventListener('scroll', handleScroll, { passive: true });
     return () => track.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    intervalRef.current = setInterval(() => {
+      if (isPausedRef.current) return;
+      const next = (activeIndexRef.current + 1) % TOTAL;
+      scrollToIndex(next);
+    }, 4000);
+
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+      if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
+    };
+  }, [TOTAL, scrollToIndex]);
 
   return (
     <section id="use-cases" className="section-padding section-divider" style={{ background: 'var(--color-sky-wash)' }}>
@@ -113,8 +155,10 @@ export default function UseCases() {
         <div
           className="animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both"
           style={{ animationDelay: '120ms' }}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
+          onMouseEnter={handleInteractionStart}
+          onMouseLeave={handleInteractionEnd}
+          onTouchStart={handleInteractionStart}
+          onTouchEnd={handleInteractionEnd}
         >
           <div
             ref={trackRef}
@@ -164,7 +208,7 @@ export default function UseCases() {
               {cases.map((_, i) => (
                 <button
                   key={i}
-                  onClick={() => scrollToIndex(i)}
+                  onClick={() => { pauseAutoPlay(); if (!isInteractingRef.current) scheduleResume(); scrollToIndex(i); }}
                   aria-label={`Go to slide ${i + 1}`}
                   aria-current={activeIndex === i ? 'true' : undefined}
                   className="transition-all duration-200 rounded-full"
