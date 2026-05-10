@@ -16,7 +16,7 @@ const NODES = [
   {
     num: '02',
     nodeKey:    'node2' as const,
-    tag:        { en: 'Late 2026', jp: '2026年後半' },
+    tag:        { en: 'Early 2027', jp: '2027年初頭' },
     labelAbove: false,
     color:      '#E1A200',
     bg:         'white',
