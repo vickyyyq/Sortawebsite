@@ -10,6 +10,9 @@ export default function ProductSpecs() {
 
         <style>{`
           @media (max-width: 768px) {
+            .specs-table          { display: block !important; overflow: hidden; }
+            .specs-table colgroup { display: none; }
+            .specs-table tbody    { display: block !important; }
             .specs-table tr.specs-data-row { display: block; padding: 18px 0; }
             .specs-table td.specs-label {
               display: block !important;
