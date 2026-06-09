@@ -188,7 +188,7 @@ export default function Problem() {
                   <div
                     key={i}
                     className="relative cursor-pointer"
-                    style={{ perspective: '1000px', height: 100 }}
+                    style={{ perspective: '1000px', height: 150 }}
                     onClick={() => setTapped(prev => (prev === i ? null : i))}
                   >
                     {/* Flipper — rotateY on tap */}
