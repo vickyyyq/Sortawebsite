@@ -13,8 +13,8 @@ const PHOTOS = [
     alt: 'Serene Japanese garden with reflective pond',
   },
   {
-    src: 'https://images.unsplash.com/photo-1522972592771-e273fa3e95b0?auto=format&fit=crop&w=800&q=80',
-    alt: 'People inside a shopping mall',
+    src: 'https://images.unsplash.com/photo-1708861619073-be2857112874?auto=format&fit=crop&w=800&q=80',
+    alt: 'A mall filled with lots of green plants',
   },
   {
     src: 'https://images.unsplash.com/photo-1522968941782-e27ac665baa3?auto=format&fit=crop&w=800&q=80',
