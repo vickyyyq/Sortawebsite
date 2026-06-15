@@ -5,6 +5,7 @@ interface HexBackgroundProps {
   opacity?: number;
   speed?: number;
   backgroundColor?: string;
+  variant?: 'fixed' | 'absolute';
 }
 
 function drawHexGrid(
@@ -65,6 +66,7 @@ export default function HexBackground({
   opacity = 0.05,
   speed = 0.15,
   backgroundColor = '#EEF4F8',
+  variant = 'fixed',
 }: HexBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rafRef = useRef<number>(0);
@@ -76,9 +78,21 @@ export default function HexBackground({
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    const getSize = () => {
+      if (variant === 'absolute') {
+        const parent = canvas.parentElement;
+        return {
+          w: parent ? parent.clientWidth : window.innerWidth,
+          h: parent ? parent.clientHeight : window.innerHeight,
+        };
+      }
+      return { w: window.innerWidth, h: window.innerHeight };
+    };
+
     const setSize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      const { w, h } = getSize();
+      canvas.width = w;
+      canvas.height = h;
     };
     setSize();
 
@@ -101,22 +115,27 @@ export default function HexBackground({
 
     rafRef.current = requestAnimationFrame(loop);
 
-    const onResize = () => {
-      setSize();
-    };
+    const onResize = () => setSize();
     window.addEventListener('resize', onResize);
+
+    let ro: ResizeObserver | null = null;
+    if (variant === 'absolute' && canvas.parentElement) {
+      ro = new ResizeObserver(() => setSize());
+      ro.observe(canvas.parentElement);
+    }
 
     return () => {
       cancelAnimationFrame(rafRef.current);
       window.removeEventListener('resize', onResize);
+      ro?.disconnect();
     };
-  }, [hexColor, opacity, speed, backgroundColor]);
+  }, [hexColor, opacity, speed, backgroundColor, variant]);
 
   return (
     <canvas
       ref={canvasRef}
       style={{
-        position: 'fixed',
+        position: variant === 'absolute' ? 'absolute' : 'fixed',
         inset: 0,
         width: '100%',
         height: '100%',
