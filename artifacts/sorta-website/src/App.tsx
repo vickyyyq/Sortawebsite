@@ -6,6 +6,7 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import { HelmetProvider, Helmet } from "react-helmet-async";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
+import HexBackgroundDemo from "@/demo/HexBackgroundDemo";
 import {
   getSectionMetaForRoute,
   SECTION_META_LIST,
@@ -47,6 +48,7 @@ function Router() {
             <Home initialSection={section.scrollTargetId ?? undefined} />
           </Route>
         ))}
+        <Route path="/hex-demo" component={HexBackgroundDemo} />
         <Route component={NotFound} />
       </Switch>
     </>
