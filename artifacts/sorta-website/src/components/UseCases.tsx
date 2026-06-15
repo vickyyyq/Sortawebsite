@@ -17,8 +17,8 @@ const PHOTOS = [
     alt: 'People inside a shopping mall',
   },
   {
-    src: 'https://images.unsplash.com/photo-1555853862-bfa5b9fbae92?auto=format&fit=crop&w=800&q=80',
-    alt: 'Modern office buildings in Japan at night',
+    src: 'https://images.unsplash.com/photo-1522968941782-e27ac665baa3?auto=format&fit=crop&w=800&q=80',
+    alt: 'Photography of glass wall hallway in an office building',
   },
   {
     src: 'https://images.unsplash.com/photo-1754250499198-3bbef3dfaf03?auto=format&fit=crop&w=800&q=80',
