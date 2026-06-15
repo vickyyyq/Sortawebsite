@@ -364,7 +364,7 @@ export default function Solution() {
 
   return (
     <section ref={sectionRef} id="solution" className="section-padding section-divider" style={{ position: 'relative', overflow: 'hidden', background: 'var(--color-fog)' }}>
-      <HexBackground variant="absolute" backgroundColor="#F4F9FF" />
+      <HexBackground variant="absolute" />
       <div className="max-w-[1200px] mx-auto px-5" style={{ position: 'relative', zIndex: 1 }}>
         <div className="max-w-[1200px] mb-16 animate-in fade-in slide-in-from-bottom-8 duration-700 fill-mode-both">
           <span className="text-[var(--color-navy)] text-label mb-3 block opacity-70">
