@@ -5,28 +5,28 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const PHOTOS = [
   {
-    src: 'https://images.unsplash.com/photo-1768677675301-627aae4d9427?auto=format&fit=crop&w=800&q=80',
-    alt: 'Japan train station platform with stairs and signage',
+    src: 'https://images.unsplash.com/photo-1746932123175-b96a752e71c4?auto=format&fit=crop&w=800&q=80',
+    alt: 'Japan shinkansen bullet trains at a station platform',
   },
   {
-    src: 'https://images.unsplash.com/photo-1713635632084-f0dd34f5623e?auto=format&fit=crop&w=800&q=80',
-    alt: 'Japan street with people walking on the sidewalk',
+    src: 'https://images.pexels.com/photos/37195143/pexels-photo-37195143/free-photo-of-serene-japanese-garden-with-reflective-pond.jpeg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'Serene Japanese garden with reflective pond',
   },
   {
     src: 'https://images.unsplash.com/photo-1522972592771-e273fa3e95b0?auto=format&fit=crop&w=800&q=80',
     alt: 'People inside a shopping mall',
   },
   {
-    src: 'https://images.unsplash.com/photo-1755704942501-8b52b7e727df?auto=format&fit=crop&w=800&q=80',
-    alt: 'Modern circular office building interior with glass ceiling',
+    src: 'https://images.unsplash.com/photo-1555853862-bfa5b9fbae92?auto=format&fit=crop&w=800&q=80',
+    alt: 'Modern office buildings in Japan at night',
   },
   {
     src: 'https://images.unsplash.com/photo-1754250499198-3bbef3dfaf03?auto=format&fit=crop&w=800&q=80',
     alt: 'Large crowd at a concert inside a stadium',
   },
   {
-    src: 'https://images.unsplash.com/photo-1760430722463-a83b1e51c552?auto=format&fit=crop&w=800&q=80',
-    alt: 'People walk under decorative streamers at a Japanese festival',
+    src: 'https://images.pexels.com/photos/7648055/pexels-photo-7648055.jpeg?auto=compress&cs=tinysrgb&w=800',
+    alt: 'Japan convention and business event venue with attendees',
   },
 ];
 
