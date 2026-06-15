@@ -31,7 +31,8 @@ function drawHexGrid(
   const cols = Math.ceil(width / colW) + 3;
   const rows = Math.ceil(height / rowH) + 3;
 
-  const wrappedOffX = ((offsetX % colW) + colW) % colW;
+  const periodX = colW * 2;
+  const wrappedOffX = ((offsetX % periodX) + periodX) % periodX;
   const wrappedOffY = ((offsetY % rowH) + rowH) % rowH;
 
   const startCol = -2;
