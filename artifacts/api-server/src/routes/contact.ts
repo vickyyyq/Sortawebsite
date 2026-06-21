@@ -5,7 +5,13 @@ import { logger } from "../lib/logger";
 
 const router: IRouter = Router();
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResendClient(): Resend {
+  const key = process.env.RESEND_API_KEY;
+  if (!key) {
+    throw new Error("RESEND_API_KEY environment variable is not set");
+  }
+  return new Resend(key);
+}
 
 const ContactSchema = z.object({
   companyName: z.string().min(1),
@@ -67,7 +73,7 @@ router.post("/contact", async (req, res) => {
   const data = result.data;
 
   try {
-    const { error } = await resend.emails.send({
+    const { error } = await getResendClient().emails.send({
       from: "Sorta <noreply@sorta.co.jp>",
       to: ["hello@sorta.co.jp"],
       replyTo: data.email,
