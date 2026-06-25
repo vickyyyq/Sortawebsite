@@ -312,8 +312,8 @@ export const translations = {
     },
     member4Role: { en: 'AI & Embedded Systems', jp: 'AI・組み込みシステム' },
     member4Bio: {
-      en: 'Systems engineer specializing in AI, embedded systems, and computer vision. Leads Sorta\u2019s intelligence layer, including sensor integration, material recognition, and automated sorting technology.',
-      jp: 'AI、組み込みシステム、コンピュータビジョンを専門とするシステムエンジニア。AI・センシング技術を通じて、Sortaの自動認識・自動分別技術の開発をリード。',
+      en: 'Systems engineer specializing in AI, embedded systems, and computer vision. Leads Sorta\u2019s intelligence layer, including sensor integration, material recognition, and microcontroller technology.',
+      jp: 'AI、組み込みシステム、コンピュータビジョンを専門とするシステムエンジニア。AI・センシング技術を通じて、Sortaの自動認識・制御技術の開発をリード。',
     },
     hiring: {
       en: 'We are recruiting across engineering, operations, and partnerships. Interested?',
