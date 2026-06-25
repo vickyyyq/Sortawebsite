@@ -42,17 +42,16 @@ export default function Team() {
       roleKey: 'member3Role',
       bioKey: 'member3Bio',
     },
-    // Temporarily hidden pending final sign-off — restore to show Daisuke again.
-    // {
-    //   nameNode:
-    //     language === 'jp' ? (
-    //       <><ruby>杉澤<rt>スギサワ</rt></ruby> <ruby>大輔<rt>ダイスケ</rt></ruby></>
-    //     ) : (
-    //       'Daisuke Sugisawa'
-    //     ),
-    //   roleKey: 'member4Role',
-    //   bioKey: 'member4Bio',
-    // },
+    {
+      nameNode:
+        language === 'jp' ? (
+          <><ruby>杉澤<rt>スギサワ</rt></ruby> <ruby>大輔<rt>ダイスケ</rt></ruby></>
+        ) : (
+          'Daisuke Sugisawa'
+        ),
+      roleKey: 'member4Role',
+      bioKey: 'member4Bio',
+    },
   ];
 
   return (
@@ -67,8 +66,7 @@ export default function Team() {
           </JpH2>
         </div>
 
-        {/* Daisuke hidden: 3 columns for now; restore to lg:grid-cols-4 when 4th member returns. */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--color-mist)] border border-[var(--color-mist)] rounded-sm overflow-hidden mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--color-mist)] border border-[var(--color-mist)] rounded-sm overflow-hidden mb-16">
           {teamMembers.map((member, index) => (
             <div
               key={index}

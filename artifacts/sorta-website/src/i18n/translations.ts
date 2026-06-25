@@ -310,10 +310,10 @@ export const translations = {
       en: 'Creative expert focused on human-centered product strategy, UX, and research. Leads Sorta\u2019s user experience and design research, ensuring the product is intuitive, accessible, and ready for public deployment.',
       jp: '人を起点としたデザインとリサーチを強みとし、ユーザー体験と技術をつなぐプロダクト設計を担当。UX設計と技術リサーチを通じて、誰もが使いやすいSortaの実現を目指す。',
     },
-    member4Role: { en: 'AI & Embedded Systems', jp: 'AI・組み込みシステム' },
+    member4Role: { en: 'Systems Architect', jp: 'システムアーキテクト' },
     member4Bio: {
-      en: 'Systems engineer specializing in AI, embedded systems, and computer vision. Leads Sorta\u2019s intelligence layer, including sensor integration, material recognition, and microcontroller technology.',
-      jp: 'AI、組み込みシステム、コンピュータビジョンを専門とするシステムエンジニア。AI・センシング技術を通じて、Sortaの自動認識・制御技術の開発をリード。',
+      en: 'Systems engineer specializing in distributed systems, real-time communications, embedded systems, and AI. Designs and builds end-to-end systems spanning cloud, edge, and embedded devices to enable intelligent perception and control.',
+      jp: '分散システム、リアルタイム通信、組み込みシステム、AIを専門とするシステムエンジニア。クラウドからエッジ、組み込みデバイスまでを横断するシステム設計を通じて、Sortaの認識・制御技術の研究開発をリード。',
     },
     hiring: {
       en: 'We are recruiting across engineering, operations, and partnerships. Interested?',
