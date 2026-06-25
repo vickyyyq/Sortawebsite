@@ -18,12 +18,13 @@ export default function Company() {
     window.scrollTo({ top: 0 });
   }, []);
 
-  const infoRows: { label: string; value: React.ReactNode }[] = [
+  const isEn = language === 'en';
+
+  const infoRows: ({ label: string; value: React.ReactNode } | null)[] = [
     { label: tr('company', 'labelTradeName'), value: tr('company', 'valueTradeName') },
-    { label: tr('company', 'labelEnglishName'), value: tr('company', 'valueEnglishName') },
+    isEn ? null : { label: tr('company', 'labelEnglishName'), value: tr('company', 'valueEnglishName') },
     { label: tr('company', 'labelAddress'), value: tr('company', 'valueAddress') },
-    { label: tr('company', 'labelPostalCode'), value: tr('company', 'valuePostalCode') },
-    { label: tr('company', 'labelRepresentative'), value: tr('company', 'valueRepresentative') },
+    isEn ? null : { label: tr('company', 'labelRepresentative'), value: tr('company', 'valueRepresentative') },
     { label: tr('company', 'labelFounded'), value: tr('company', 'valueFounded') },
     { label: tr('company', 'labelCapital'), value: tr('company', 'valueCapital') },
     {
@@ -75,7 +76,7 @@ export default function Company() {
 
           {/* Company information */}
           <div className="border border-[var(--color-mist)] rounded-sm overflow-hidden animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">
-            {infoRows.map((row, i) => (
+            {infoRows.filter((row): row is { label: string; value: React.ReactNode } => row !== null).map((row, i) => (
               <div
                 key={i}
                 className="flex flex-col sm:flex-row border-b border-[var(--color-mist)] last:border-b-0"
