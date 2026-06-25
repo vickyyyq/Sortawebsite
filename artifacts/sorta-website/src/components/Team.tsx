@@ -6,18 +6,13 @@ export default function Team() {
   const { tr, language } = useLanguage();
 
   type Member = {
-    photo: string | null;
-    imgStyle?: React.CSSProperties;
     nameNode: React.ReactNode;
-    roleKey: 'member1Role' | 'member2Role' | 'member3Role';
-    bioKey: 'member1Bio' | 'member2Bio' | 'member3Bio';
-    flag: string;
-    flagAlt: string;
+    roleKey: 'member1Role' | 'member2Role' | 'member3Role' | 'member4Role';
+    bioKey: 'member1Bio' | 'member2Bio' | 'member3Bio' | 'member4Bio';
   };
 
   const teamMembers: Member[] = [
     {
-      photo: '/amber_photo.jpg',
       nameNode:
         language === 'jp' ? (
           <><ruby>倉増<rt>クラマス</rt></ruby> アンバー</>
@@ -26,11 +21,8 @@ export default function Team() {
         ),
       roleKey: 'member1Role',
       bioKey: 'member1Bio',
-      flag: '/flag_japan.png',
-      flagAlt: 'Japan',
     },
     {
-      photo: '/justin_photo.jpg',
       nameNode:
         language === 'jp' ? (
           <><ruby>林<rt>ハヤシ</rt></ruby> ジャスティン</>
@@ -39,21 +31,26 @@ export default function Team() {
         ),
       roleKey: 'member2Role',
       bioKey: 'member2Bio',
-      flag: '/flag_us.png',
-      flagAlt: 'United States',
     },
     {
-      photo: '/vicky_photo.jpg',
       nameNode:
         language === 'jp' ? (
-          <><ruby>楊<rt>ヨー</rt></ruby> <ruby>韻琦<rt>ユンチー</rt></ruby></>
+          <><ruby>楊<rt>ヤン</rt></ruby> <ruby>韻琦<rt>ユンチィ</rt></ruby></>
         ) : (
           'Vicky Yang'
         ),
       roleKey: 'member3Role',
       bioKey: 'member3Bio',
-      flag: '/flag_us.png',
-      flagAlt: 'United States',
+    },
+    {
+      nameNode:
+        language === 'jp' ? (
+          <><ruby>杉澤<rt>スギサワ</rt></ruby> <ruby>大輔<rt>ダイスケ</rt></ruby></>
+        ) : (
+          'Daisuke Sugisawa'
+        ),
+      roleKey: 'member4Role',
+      bioKey: 'member4Bio',
     },
   ];
 
@@ -69,34 +66,13 @@ export default function Team() {
           </JpH2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--color-mist)] border border-[var(--color-mist)] rounded-sm overflow-hidden mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--color-mist)] border border-[var(--color-mist)] rounded-sm overflow-hidden mb-16">
           {teamMembers.map((member, index) => (
             <div
               key={index}
               className="relative bg-white p-10 flex flex-col animate-in fade-in slide-in-from-bottom-8 duration-700"
               style={{ animationDelay: `${100 + index * 100}ms` }}
             >
-              <div className="absolute top-4 right-4 w-8 rounded-sm border border-[var(--color-mist)] overflow-hidden" style={{ aspectRatio: '3/2' }}>
-                <img
-                  src={member.flag}
-                  alt={member.flagAlt}
-                  className="w-full h-full object-cover block"
-                />
-              </div>
-              <div className="w-[72px] h-[72px] flex-shrink-0 rounded-full overflow-hidden border border-[var(--color-mist)] mb-6">
-                {member.photo ? (
-                  <img
-                    src={member.photo}
-                    alt={typeof member.nameNode === 'string' ? member.nameNode : undefined}
-                    className="w-full h-full object-cover object-top"
-                    style={member.imgStyle}
-                  />
-                ) : (
-                  <div className="w-full h-full bg-[var(--color-sky-wash)] flex items-center justify-center text-[var(--color-sky)] text-sm font-semibold">
-                    +
-                  </div>
-                )}
-              </div>
               <h4 className="mb-1 text-base">{member.nameNode}</h4>
               <div className="text-[var(--color-sky)] font-semibold text-xs uppercase tracking-wider mb-4">
                 {tr('team', member.roleKey)}

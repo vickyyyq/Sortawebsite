@@ -295,23 +295,25 @@ export const translations = {
   team: {
     overline: { en: 'The Team', jp: 'チーム' },
     heading: { en: 'Built by people who understand the problem.', jp: 'Sorta創業メンバー' },
-    member1Name: { en: 'Amber Kuramasu', jp: 'Amber Kuramasu' },
     member1Role: { en: 'Business Strategy', jp: 'ビジネス戦略' },
     member1Bio: {
-      en: 'Leads Sorta\'s commercial strategy, partnership development, and go-to-market planning.',
-      jp: '金融・建設ゼネコンでの経営企画を経て、観光地・リテール開発の戦略コンサルに従事。仕事を通じてゴミのインフラ課題に着目し、スマートリサイクルボックス「Sorta」を構想。',
+      en: 'Strategic planning expert drawing on experience in the finance and urban development industries to tackle Japan\u2019s recycling infrastructure challenges. Leads business strategy, partnerships, fundraising, and go-to-market.',
+      jp: '金融・都市開発分野での経験を経て、日本のリサイクルインフラの課題解決を目指してSortaを創業。ビジネス戦略、事業開発、資金調達を担当。',
     },
-    member2Name: { en: 'Justin Lin', jp: 'Justin Lin' },
-    member2Role: { en: 'Mechanics & Engineering', jp: 'ハードウェア開発' },
+    member2Role: { en: 'Hardware Development', jp: 'ハードウェア開発' },
     member2Bio: {
-      en: 'Responsible for Sorta\'s hardware design, mechanical systems, and engineering development.',
-      jp: 'エネルギー業界でメカニカルエンジニアを経て、米大手コンサルでサプライチェーンのDXに従事。迅速なプロトタイプ開発と量産の経験を活かし、「Sorta」の開発と実装をリード。',
+      en: 'Mechanical engineer with experience across rapid prototyping, product development, manufacturing readiness and global supply chain. Leads Sorta\u2019s hardware development, turning the concept into a durable, scalable physical product.',
+      jp: '機械設計から試作、量産まで一貫したハードウェア開発を得意とするメカニカルエンジニア。実用性と量産性を両立した製品設計を通じて、Sortaのハードウェア開発をリード。',
     },
-    member3Name: { en: 'Vicky Yang', jp: 'Vicky Yang' },
     member3Role: { en: 'Research & Design', jp: 'リサーチ・デザイン' },
     member3Bio: {
-      en: 'Drives Sorta\'s UX research, product design, and user experience across hardware and digital interfaces.',
-      jp: '米大手コンサルで大企業の組織設計や再編成に携わり、戦略から社内システム改善検討・定着まで支援。人とデジタルをつなぐ視点で「Sorta」のUX設計と技術リサーチをリードする。',
+      en: 'Creative expert focused on human-centered product strategy, UX, and research. Leads Sorta\u2019s user experience and design research, ensuring the product is intuitive, accessible, and ready for public deployment.',
+      jp: '人を起点としたデザインとリサーチを強みとし、ユーザー体験と技術をつなぐプロダクト設計を担当。UX設計と技術リサーチを通じて、誰もが使いやすいSortaの実現を目指す。',
+    },
+    member4Role: { en: 'AI & Embedded Systems', jp: 'AI・組み込みシステム' },
+    member4Bio: {
+      en: 'Systems engineer specializing in AI, embedded systems, and computer vision. Leads Sorta\u2019s intelligence layer, including sensor integration, material recognition, and automated sorting technology.',
+      jp: 'AI、組み込みシステム、コンピュータビジョンを専門とするシステムエンジニア。AI・センシング技術を通じて、Sortaの自動認識・自動分別技術の開発をリード。',
     },
     hiring: {
       en: 'We are recruiting across engineering, operations, and partnerships. Interested?',
