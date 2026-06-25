@@ -1,13 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useLocation } from 'wouter';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useNavigation } from '@/contexts/NavigationContext';
+
+const SECTION_ROUTE_MAP: Record<string, string> = {
+  problem: '/problem',
+  solution: '/solution',
+  'use-cases': '/use-cases',
+  team: '/team',
+  partner: '/contact',
+};
 
 export default function Nav() {
   const { language, toggleLanguage, tr } = useLanguage();
   const { navigateTo } = useNavigation();
+  const [location, setLocation] = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const onHomePage = !location.startsWith('/company');
+
+  const goToSection = (id: string) => {
+    if (onHomePage) {
+      navigateTo(id);
+    } else {
+      setLocation(SECTION_ROUTE_MAP[id] ?? '/');
+    }
+  };
+
+  const goHome = () => {
+    if (onHomePage) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      setLocation('/');
+    }
+  };
+
+  const goCompany = () => {
+    setMenuOpen(false);
+    setLocation('/company');
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -29,7 +62,7 @@ export default function Nav() {
 
   const handleNav = (id: string) => {
     setMenuOpen(false);
-    setTimeout(() => navigateTo(id), 50);
+    setTimeout(() => goToSection(id), 50);
   };
 
   return (
@@ -42,7 +75,7 @@ export default function Nav() {
         <div className="max-w-[1200px] mx-auto px-5 py-4 flex items-center justify-between gap-6">
           <div
             className="cursor-pointer flex-shrink-0"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            onClick={goHome}
             data-testid="link-home"
           >
             <img src="/sorta_logo_black.png" alt="Sorta Logo" className="h-7 md:h-8" />
@@ -53,13 +86,20 @@ export default function Nav() {
             {navLinks.map((link) => (
               <button
                 key={link.id}
-                onClick={() => navigateTo(link.id)}
+                onClick={() => goToSection(link.id)}
                 className="text-[var(--color-text-muted)] hover:text-[var(--color-navy)] text-[10px] font-bold uppercase tracking-[0.15em] transition-colors whitespace-nowrap"
                 data-testid={`link-${link.id}`}
               >
                 {tr('nav', link.labelKey)}
               </button>
             ))}
+            <button
+              onClick={goCompany}
+              className="text-[var(--color-text-muted)] hover:text-[var(--color-navy)] text-[10px] font-bold uppercase tracking-[0.15em] transition-colors whitespace-nowrap"
+              data-testid="link-company"
+            >
+              {tr('nav', 'company')}
+            </button>
           </div>
 
           {/* Desktop right controls */}
@@ -72,7 +112,7 @@ export default function Nav() {
               {language === 'en' ? 'EN / JP' : 'JP / EN'}
             </button>
             <button
-              onClick={() => navigateTo('partner')}
+              onClick={() => goToSection('partner')}
               className="bg-[var(--color-gold)] hover:bg-[var(--color-gold)]/90 text-black text-[11px] font-semibold px-5 py-2.5 rounded-full transition-all whitespace-nowrap"
               data-testid="button-nav-cta"
             >
@@ -124,6 +164,13 @@ export default function Nav() {
                 {tr('nav', link.labelKey)}
               </button>
             ))}
+            <button
+              onClick={goCompany}
+              className="text-left text-[var(--color-navy)] text-sm font-bold uppercase tracking-[0.15em] py-3.5 border-b border-[var(--color-mist)] hover:text-[var(--color-sky)] transition-colors"
+              data-testid="link-company"
+            >
+              {tr('nav', 'company')}
+            </button>
           </nav>
 
           {/* Bottom controls */}
