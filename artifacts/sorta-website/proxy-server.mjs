@@ -50,9 +50,14 @@ const SECTION_PATHS = new Map([
   ["/problem", "problem"],
   ["/solution", "solution"],
   ["/use-cases", "use-cases"],
-  ["/team", "team"],
   ["/why-now", "why-now"],
   ["/contact", "contact"],
+]);
+
+// ── Permanent redirects for relocated content ─────────────────────────────
+// The team section moved from its own page into the company profile page.
+const REDIRECTS = new Map([
+  ["/team", "/company#team"],
 ]);
 
 // ── Bot user-agent pattern ────────────────────────────────────────────────
@@ -165,6 +170,14 @@ const server = http.createServer((req, res) => {
       ? rawPathname.slice(0, -1)
       : rawPathname;
   const ua = req.headers["user-agent"] ?? "";
+
+  // 0. Permanent redirects for relocated content (applies to bots and humans)
+  const redirectTarget = REDIRECTS.get(pathname);
+  if (redirectTarget !== undefined) {
+    res.writeHead(301, { location: redirectTarget });
+    res.end();
+    return;
+  }
 
   // 1. Bot requests to known section paths → API OG preview
   if (isBot(ua)) {

@@ -9,7 +9,6 @@ import Product from '@/components/Product';
 import Traction from '@/components/Traction';
 import Partner from '@/components/Partner';
 import Mission from '@/components/Mission';
-import Team from '@/components/Team';
 import ProductSpecs from '@/components/ProductSpecs';
 import Footer from '@/components/Footer';
 import { NavigationProvider, useNavigation } from '@/contexts/NavigationContext';
@@ -58,7 +57,6 @@ function HomeContent({ initialSection }: HomeContentProps) {
         <Mission />
         <Traction />
         <Partner />
-        <Team />
       </main>
       <Footer />
     </div>

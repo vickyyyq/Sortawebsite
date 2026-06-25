@@ -367,6 +367,10 @@ export const translations = {
     labelCapital: { en: 'Capital', jp: '資本金' },
     valueCapital: { en: '¥1,000,000', jp: '1,000,000円' },
     labelBusiness: { en: 'Business Activities', jp: '事業内容' },
+    businessSummary: {
+      en: 'Sorta designs, develops, manufactures, and maintains AI- and IoT-powered recycling equipment and systems, and handles the processing and trading of recycled materials.',
+      jp: 'Sorta designs, develops, manufactures, and maintains AI- and IoT-powered recycling equipment and systems, and handles the processing and trading of recycled materials.',
+    },
     business1: {
       en: 'Planning, development, manufacturing, sales, and maintenance of equipment and systems related to resource circulation and recycling',
       jp: '資源循環及びリサイクル関連機器・システムの企画、開発、製造、販売及び保守',

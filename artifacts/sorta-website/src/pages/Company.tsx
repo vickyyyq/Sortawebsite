@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
+import Team from '@/components/Team';
 import { JpH2 } from '@/components/JpH2';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -15,7 +16,17 @@ export default function Company() {
   const { tr, language } = useLanguage();
 
   useEffect(() => {
-    window.scrollTo({ top: 0 });
+    const wantsTeam =
+      sessionStorage.getItem('sorta:scrollToTeam') === '1' ||
+      window.location.hash === '#team';
+    if (wantsTeam) {
+      sessionStorage.removeItem('sorta:scrollToTeam');
+      requestAnimationFrame(() => {
+        document.getElementById('team')?.scrollIntoView({ behavior: 'smooth' });
+      });
+    } else {
+      window.scrollTo({ top: 0 });
+    }
   }, []);
 
   const isEn = language === 'en';
@@ -25,11 +36,12 @@ export default function Company() {
     isEn ? null : { label: tr('company', 'labelEnglishName'), value: tr('company', 'valueEnglishName') },
     { label: tr('company', 'labelAddress'), value: tr('company', 'valueAddress') },
     isEn ? null : { label: tr('company', 'labelRepresentative'), value: tr('company', 'valueRepresentative') },
-    { label: tr('company', 'labelFounded'), value: tr('company', 'valueFounded') },
-    { label: tr('company', 'labelCapital'), value: tr('company', 'valueCapital') },
+    isEn ? null : { label: tr('company', 'labelCapital'), value: tr('company', 'valueCapital') },
     {
       label: tr('company', 'labelBusiness'),
-      value: (
+      value: isEn ? (
+        tr('company', 'businessSummary')
+      ) : (
         <ol className="list-decimal pl-5 space-y-1.5">
           <li>{tr('company', 'business1')}</li>
           <li>{tr('company', 'business2')}</li>
@@ -90,9 +102,14 @@ export default function Company() {
               </div>
             ))}
           </div>
+        </div>
 
+        {/* Team */}
+        <Team />
+
+        <div className="max-w-[860px] mx-auto px-5">
           {/* Electronic public notices */}
-          <div className="mt-16 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200">
+          <div className="animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200">
             <h3 className="text-base font-semibold text-[var(--color-navy)] mb-4">
               {tr('company', 'noticeHeading')}
             </h3>

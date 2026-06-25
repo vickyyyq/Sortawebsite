@@ -8,7 +8,6 @@ const SECTION_ROUTE_MAP: Record<string, string> = {
   problem: '/problem',
   solution: '/solution',
   'use-cases': '/use-cases',
-  team: '/team',
   partner: '/contact',
 };
 
@@ -22,10 +21,23 @@ export default function Nav() {
   const onHomePage = !location.startsWith('/company');
 
   const goToSection = (id: string) => {
+    if (id === 'team') {
+      goToTeam();
+      return;
+    }
     if (onHomePage) {
       navigateTo(id);
     } else {
       setLocation(SECTION_ROUTE_MAP[id] ?? '/');
+    }
+  };
+
+  const goToTeam = () => {
+    if (location.startsWith('/company')) {
+      document.getElementById('team')?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      sessionStorage.setItem('sorta:scrollToTeam', '1');
+      setLocation('/company');
     }
   };
 

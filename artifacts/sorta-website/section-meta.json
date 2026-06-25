@@ -31,13 +31,6 @@
       "scrollTargetId": "use-cases"
     },
     {
-      "route": "/team",
-      "title": "チームを知る — Sorta",
-      "description": "Sortaを作るのはリサイクル・AI・ハードウェアの専門家チームです。持続可能な社会を実現するために日々取り組んでいます。",
-      "ogImage": "https://sorta.co.jp/og-team.jpg",
-      "scrollTargetId": "team"
-    },
-    {
       "route": "/why-now",
       "title": "なぜ今か — Sorta",
       "description": "規制強化・ESG投資の拡大・廃棄物コストの急上昇。今こそスマートリサイクルが求められる時代です。Sortaが変革をリードします。",

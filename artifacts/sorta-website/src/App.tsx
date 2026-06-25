@@ -1,4 +1,5 @@
 import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
+import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -39,11 +40,21 @@ function SectionHelmet() {
   );
 }
 
+function TeamRedirect() {
+  const [, setLocation] = useLocation();
+  useEffect(() => {
+    sessionStorage.setItem("sorta:scrollToTeam", "1");
+    setLocation("/company", { replace: true });
+  }, [setLocation]);
+  return null;
+}
+
 function Router() {
   return (
     <>
       <SectionHelmet />
       <Switch>
+        <Route path="/team" component={TeamRedirect} />
         {SECTION_META_LIST.map((section) => (
           <Route key={section.route} path={section.route}>
             <Home initialSection={section.scrollTargetId ?? undefined} />
