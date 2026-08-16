@@ -81,3 +81,9 @@ for (const section of sections) {
 }
 
 console.log(`\nGenerated ${generated} section HTML pages in dist/public/`);
+
+// GitHub Pages has no server-side routing, so unknown paths (deep links,
+// client-side routes) hit its own 404 page unless we hand it a fallback.
+// Serving a copy of index.html at 404.html lets the SPA's router take over.
+writeFileSync(resolve(distDir, "404.html"), indexHtml, "utf-8");
+console.log("  ✓ 404.html → SPA fallback for GitHub Pages");
