@@ -26,11 +26,10 @@ args = ["pnpm", "--filter", "@workspace/sorta-website", "run", "build"]
 NODE_ENV = "production"
 
 [services.production.run]
-args = ["node", "artifacts/sorta-website/proxy-server.mjs"]
+args = ["pnpm", "--filter", "@workspace/sorta-website", "run", "serve"]
 
 [services.production.run.env]
 PORT = "21321"
-API_PORT = "8080"
 NODE_ENV = "production"
 
 [services.production.health.startup]

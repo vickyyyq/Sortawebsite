@@ -171,13 +171,6 @@ export default defineConfig({
     port,
     host: "0.0.0.0",
     allowedHosts: true,
-    proxy: {
-      [`${basePath}api`]: {
-        target: "http://localhost:8080",
-        changeOrigin: true,
-        rewrite: (path) => path.replace(new RegExp(`^${basePath}`), "/"),
-      },
-    },
     fs: {
       strict: true,
       deny: ["**/.*"],

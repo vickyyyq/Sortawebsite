@@ -24,6 +24,8 @@ import {
 } from '@/components/ui/select';
 import { CheckCircle2, AlertCircle } from 'lucide-react';
 
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xljrprpa';
+
 type FormStatus = 'idle' | 'success' | 'error';
 
 export default function Partner() {
@@ -60,9 +62,12 @@ export default function Partner() {
     setSubmitting(true);
     setFormStatus('idle');
     try {
-      const res = await fetch(`${import.meta.env.BASE_URL}api/contact`, {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
         body: JSON.stringify(values),
       });
       if (!res.ok) throw new Error('server error');
